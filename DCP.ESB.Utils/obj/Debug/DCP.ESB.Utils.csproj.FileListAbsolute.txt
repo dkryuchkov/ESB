@@ -4,3 +4,10 @@ C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Util
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.pdb
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.csprojResolveAssemblyReference.cache
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Utils\bin\Debug\Microsoft.XLANGs.BaseTypes.dll
+C:\git\ESB\DCP.ESB.Utils\bin\Debug\DCP.ESB.Utils.dll
+C:\git\ESB\DCP.ESB.Utils\bin\Debug\DCP.ESB.Utils.pdb
+C:\git\ESB\DCP.ESB.Utils\bin\Debug\Microsoft.XLANGs.BaseTypes.dll
+C:\git\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.csprojResolveAssemblyReference.cache
+C:\git\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.dll
+C:\git\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.pdb
+C:\git\ESB\DCP.ESB.Utils\bin\Debug\Microsoft.BizTalk.Interop.SSOClient.dll

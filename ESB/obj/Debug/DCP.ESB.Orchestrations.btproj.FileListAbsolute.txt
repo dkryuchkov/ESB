@@ -4,3 +4,9 @@ C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\bin\Debu
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\obj\Debug\DCP.ESB.Orchestrations.dll
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\obj\Debug\DCP.ESB.Orchestrations.pdb
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\bin\Debug\DCP.ESB.Utils.dll
+C:\git\ESB\ESB\bin\Debug\DCP.ESB.Orchestrations.dll
+C:\git\ESB\ESB\bin\Debug\DCP.ESB.Orchestrations.pdb
+C:\git\ESB\ESB\bin\Debug\DCP.ESB.Schemas.dll
+C:\git\ESB\ESB\bin\Debug\DCP.ESB.Utils.dll
+C:\git\ESB\ESB\obj\Debug\DCP.ESB.Orchestrations.dll
+C:\git\ESB\ESB\obj\Debug\DCP.ESB.Orchestrations.pdb

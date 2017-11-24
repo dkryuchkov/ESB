@@ -99,6 +99,11 @@
       <Namespace>DCP.ESB.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="ESBMessage.xsd">
+      <TypeName>ESBMessage</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

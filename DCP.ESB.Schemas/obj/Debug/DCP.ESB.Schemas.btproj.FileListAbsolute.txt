@@ -2,3 +2,7 @@ C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Sche
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Schemas\bin\Debug\DCP.ESB.Schemas.pdb
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Schemas\obj\Debug\DCP.ESB.Schemas.dll
 C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Schemas\obj\Debug\DCP.ESB.Schemas.pdb
+C:\git\ESB\DCP.ESB.Schemas\bin\Debug\DCP.ESB.Schemas.dll
+C:\git\ESB\DCP.ESB.Schemas\bin\Debug\DCP.ESB.Schemas.pdb
+C:\git\ESB\DCP.ESB.Schemas\obj\Debug\DCP.ESB.Schemas.dll
+C:\git\ESB\DCP.ESB.Schemas\obj\Debug\DCP.ESB.Schemas.pdb
