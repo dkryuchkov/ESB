@@ -1,4 +1,5 @@
 ﻿using Microsoft.XLANGs.BaseTypes;
+using Microsoft.Xml.XMLGen;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace DCP.ESB.Utils
 {
-    public static class Helper 
+    public static class Helper
     {
-        public static string getInnerText(XmlDocument doc,string tag)
+        public static string getInnerText(XmlDocument doc, string tag)
         {
             return doc.GetElementsByTagName(tag).Item(0).InnerText;
         }
@@ -37,12 +39,59 @@ namespace DCP.ESB.Utils
             return XmlDocument;
         }
 
+        public static XmlDocument getCmsSqlExecuteParamsXml(string sql,string parametersschema, string parameter)
+        {
+            XmlDocument XmlDocument = new XmlDocument();
+            XmlDocument.LoadXml("<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS\">" +
+              "<ns0:SQLSTATEMENT>" + sql + "</ns0:SQLSTATEMENT>" +
+              "<ns0:PARAMETERSCHEMA>" + parametersschema == null ? "" : parametersschema + "</ns0:PARAMETERSCHEMA>" +
+              "<ns0:PARAMETER>" + parameter == null ? "" : parameter + "</ns0:PARAMETER>" +
+              "</ns0:root>");
+            return XmlDocument;
+        }
+
+        public static XmlDocument getEsbExceptionXml(String code, Exception ex)
+        {
+            XmlDocument XmlDocument = new XmlDocument();
+            XmlDocument.LoadXml("<ns0:Root xmlns:ns0=\"http://DCP.ESB.Schemas\"><Code>" +
+               DCP.ESB.Utils.Helper.getAppSettings(code) +
+                "</Code><Message>" +
+                ex.Message + ".\n" + ex.ToString() +
+                 "</Message></ns0:Root>");
+            return XmlDocument;
+        }
+
         public static void LoadXLANGMsgFromString(string source, XLANGMessage dest)
         {
             var bytes = Encoding.UTF8.GetBytes(source);
             using (MemoryStream ms = new MemoryStream(bytes, 0, bytes.Length, false, true))
             {
                 dest[0].LoadFrom(ms);
+            }
+        }
+
+        public static XmlDocument getXmlOutOfSchema(String xmlschema)
+        {
+            using (StringWriter strWriter = new StringWriter())
+            {
+                strWriter.Write(xmlschema);
+                System.Xml.Schema.XmlSchema schema = new System.Xml.Schema.XmlSchema();
+
+                schema.Write(strWriter);
+                using (TextWriter xmlWriter = new StringWriter())
+                {
+                    using (XmlTextWriter textWriter = new XmlTextWriter(xmlWriter))
+                    {
+                        textWriter.Formatting = Formatting.Indented;
+                        XmlQualifiedName qname = new XmlQualifiedName();
+                        XmlSampleGenerator generator = new XmlSampleGenerator(schema, qname);
+                        generator.WriteXml(textWriter);
+                        XmlDocument doc = new XmlDocument();
+                        doc.LoadXml(textWriter.ToString());
+                        return doc;
+                    }
+
+                }
             }
         }
     }

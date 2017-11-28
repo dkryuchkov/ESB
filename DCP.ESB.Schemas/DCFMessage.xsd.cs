@@ -7,9 +7,9 @@ namespace DCP.ESB.Schemas {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
     [Schema(@"http://DCP.ESB.Schemas.DCFMessage",@"root")]
-    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::DCP.ESB.Schemas.PropertySchema.id), XPath = @"/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='id' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']", XsdType = @"string")]
     [Microsoft.XLANGs.BaseTypes.DistinguishedFieldAttribute(typeof(System.String), "operation", XPath = @"/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='operation' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']", XsdType = @"string")]
     [Microsoft.XLANGs.BaseTypes.DistinguishedFieldAttribute(typeof(System.String), "xml", XPath = @"/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='xml' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']", XsdType = @"string")]
+    [Microsoft.XLANGs.BaseTypes.PropertyAttribute(typeof(global::DCP.ESB.Schemas.PropertySchema.id), XPath = @"/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='id' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']", XsdType = @"string")]
     [Microsoft.XLANGs.BaseTypes.DistinguishedFieldAttribute(typeof(System.String), "id", XPath = @"/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='id' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']", XsdType = @"string")]
     [System.SerializableAttribute()]
     [SchemaRoots(new string[] {@"root"})]
@@ -33,18 +33,18 @@ namespace DCP.ESB.Schemas {
     <xs:annotation>
       <xs:appinfo>
         <b:properties>
-          <b:property name=""ns0:id"" xpath=""/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='id' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']"" />
           <b:property distinguished=""true"" xpath=""/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='operation' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']"" />
           <b:property distinguished=""true"" xpath=""/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='xml' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']"" />
+          <b:property name=""ns0:id"" xpath=""/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='id' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']"" />
           <b:property distinguished=""true"" xpath=""/*[local-name()='root' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']/*[local-name()='id' and namespace-uri()='http://DCP.ESB.Schemas.DCFMessage']"" />
         </b:properties>
       </xs:appinfo>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs=""1"" maxOccurs=""1"" name=""operation"" type=""xs:string"" />
-        <xs:element minOccurs=""1"" maxOccurs=""1"" name=""xml"" type=""xs:string"" />
         <xs:element name=""id"" type=""xs:string"" />
+        <xs:element name=""operation"" type=""xs:string"" />
+        <xs:element name=""xml"" type=""xs:string"" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

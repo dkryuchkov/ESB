@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ns3="http://Microsoft.LobServices.OracleDB/2007/03" elementFormDefault="qualified" targetNamespace="http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation=".\CMSGenericOperation.xsd" namespace="http://Microsoft.LobServices.OracleDB/2007/03" />
+  <xs:annotation>
+    <xs:appinfo>
+      <fileNameHint xmlns="http://schemas.microsoft.com/servicemodel/adapters/metadata/xsd">SQLEXECUTE</fileNameHint>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SQLEXECUTE">
+    <xs:annotation>
+      <xs:documentation>
+        <doc:action xmlns:doc="http://schemas.microsoft.com/servicemodel/adapters/metadata/documentation">http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE</doc:action>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="SQLSTATEMENT" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PARAMETERSCHEMA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PARAMETERSET" nillable="true" type="ns3:ArrayOfPARAMETERDATA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SQLEXECUTEResponse">
+    <xs:annotation>
+      <xs:documentation>
+        <doc:action xmlns:doc="http://schemas.microsoft.com/servicemodel/adapters/metadata/documentation">http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE/response</doc:action>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SQLEXECUTEResult" nillable="true" type="ns3:ArrayOfGenRecordRow" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -2,26 +2,26 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="f4b9e328-ceb3-416c-a770-36826ae693c4" LowerBound="1.1" HigherBound="173.1">
+    <om:Element Type="Module" OID="f4b9e328-ceb3-416c-a770-36826ae693c4" LowerBound="1.1" HigherBound="169.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="DCP.ESB.Orchestrations" />
         <om:Property Name="Signal" Value="False" />
-        <om:Element Type="ServiceDeclaration" OID="f02eb7d2-155d-48ff-af8a-091c22d95d29" ParentLink="Module_ServiceDeclaration" LowerBound="36.1" HigherBound="172.1">
+        <om:Element Type="ServiceDeclaration" OID="f02eb7d2-155d-48ff-af8a-091c22d95d29" ParentLink="Module_ServiceDeclaration" LowerBound="36.1" HigherBound="168.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="CasetrackService" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="VariableDeclaration" OID="56c02380-71be-41c0-8dc9-61d019706d50" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="59.1" HigherBound="60.1">
+            <om:Element Type="VariableDeclaration" OID="56c02380-71be-41c0-8dc9-61d019706d50" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="58.1" HigherBound="59.1">
                 <om:Property Name="UseDefaultConstructor" Value="True" />
                 <om:Property Name="Type" Value="System.Xml.XmlDocument" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="XmlDocument" />
+                <om:Property Name="Name" Value="xmlDocument" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="VariableDeclaration" OID="1925f96c-9224-430c-ae42-99fe8c3949ef" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="60.1" HigherBound="61.1">
+            <om:Element Type="VariableDeclaration" OID="1925f96c-9224-430c-ae42-99fe8c3949ef" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="59.1" HigherBound="60.1">
                 <om:Property Name="UseDefaultConstructor" Value="True" />
                 <om:Property Name="Type" Value="System.Exception" />
                 <om:Property Name="ParamDirection" Value="In" />
@@ -35,14 +35,14 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Correlation_id" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="StatementRef" OID="0f4de12e-1c13-40d1-9dbd-566889774802" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="130.66" HigherBound="130.91">
+                <om:Element Type="StatementRef" OID="0f4de12e-1c13-40d1-9dbd-566889774802" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="129.66" HigherBound="129.91">
                     <om:Property Name="Initializes" Value="True" />
                     <om:Property Name="Ref" Value="14dca5d5-f261-4aae-9d54-df08908af476" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="StatementRef_1" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
-                <om:Element Type="StatementRef" OID="05a6bd91-2a83-46a1-958d-6806ea7b3442" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="143.90" HigherBound="143.104">
+                <om:Element Type="StatementRef" OID="05a6bd91-2a83-46a1-958d-6806ea7b3442" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="142.90" HigherBound="142.104">
                     <om:Property Name="Initializes" Value="False" />
                     <om:Property Name="Ref" Value="f7c2e28d-b18e-4b1c-b85a-c5c771b5e4f5" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
@@ -57,42 +57,35 @@
                 <om:Property Name="Name" Value="ExceptionMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="1b7f29bd-dd61-4c42-95e8-02c74cc134d5" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="53.1" HigherBound="54.1">
-                <om:Property Name="Type" Value="System.String" />
-                <om:Property Name="ParamDirection" Value="In" />
-                <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="NewDocMessage" />
-                <om:Property Name="Signal" Value="True" />
-            </om:Element>
-            <om:Element Type="MessageDeclaration" OID="7a082c80-f44c-4b16-9e03-a94a478b0a30" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="54.1" HigherBound="55.1">
+            <om:Element Type="MessageDeclaration" OID="7a082c80-f44c-4b16-9e03-a94a478b0a30" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="53.1" HigherBound="54.1">
                 <om:Property Name="Type" Value="System.String" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="UpdateDocMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="ac03fffe-12b9-419b-9030-4ee0619112c9" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="55.1" HigherBound="56.1">
+            <om:Element Type="MessageDeclaration" OID="ac03fffe-12b9-419b-9030-4ee0619112c9" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="54.1" HigherBound="55.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.DCFMessage" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="DCFMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="bc97946d-c354-4baa-96be-a296349bf121" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="56.1" HigherBound="57.1">
+            <om:Element Type="MessageDeclaration" OID="bc97946d-c354-4baa-96be-a296349bf121" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="55.1" HigherBound="56.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.DCFMessage" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="UpdateStatusMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="af9acd82-ddd0-44bb-9224-8ade7235c5c4" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="57.1" HigherBound="58.1">
+            <om:Element Type="MessageDeclaration" OID="af9acd82-ddd0-44bb-9224-8ade7235c5c4" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="56.1" HigherBound="57.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.ESBMessage" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="StatusMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="6d6fe95d-2783-4f69-9386-d8fe7041707f" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="58.1" HigherBound="59.1">
+            <om:Element Type="MessageDeclaration" OID="6d6fe95d-2783-4f69-9386-d8fe7041707f" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="57.1" HigherBound="58.1">
                 <om:Property Name="Type" Value="System.Xml.XmlDocument" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -101,13 +94,13 @@
             </om:Element>
             <om:Element Type="ServiceBody" OID="42b1705c-efa6-4813-afab-02a6f8a567c2" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="Scope" OID="a4f2a512-18fa-47ec-90fc-81364c063795" ParentLink="ServiceBody_Statement" LowerBound="63.1" HigherBound="170.1">
+                <om:Element Type="Scope" OID="a4f2a512-18fa-47ec-90fc-81364c063795" ParentLink="ServiceBody_Statement" LowerBound="62.1" HigherBound="166.1">
                     <om:Property Name="InitializedTransactionType" Value="True" />
                     <om:Property Name="IsSynchronized" Value="False" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Scope_All" />
                     <om:Property Name="Signal" Value="True" />
-                    <om:Element Type="Receive" OID="18468299-f424-42c4-9e8e-b1a0dec0d751" ParentLink="ComplexStatement_Statement" LowerBound="68.1" HigherBound="72.1">
+                    <om:Element Type="Receive" OID="18468299-f424-42c4-9e8e-b1a0dec0d751" ParentLink="ComplexStatement_Statement" LowerBound="67.1" HigherBound="71.1">
                         <om:Property Name="Activate" Value="True" />
                         <om:Property Name="PortName" Value="CasetrackServicePort" />
                         <om:Property Name="MessageName" Value="UpdateDocMessage" />
@@ -117,93 +110,93 @@
                         <om:Property Name="Name" Value="R_UpdateDoc" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Scope" OID="f7ae8efe-f28d-4b18-95c4-46f21c074d9e" ParentLink="ComplexStatement_Statement" LowerBound="72.1" HigherBound="125.1">
+                    <om:Element Type="Scope" OID="f7ae8efe-f28d-4b18-95c4-46f21c074d9e" ParentLink="ComplexStatement_Statement" LowerBound="71.1" HigherBound="124.1">
                         <om:Property Name="InitializedTransactionType" Value="True" />
                         <om:Property Name="IsSynchronized" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="Scope_CTMessage" />
                         <om:Property Name="Signal" Value="False" />
-                        <om:Element Type="Construct" OID="2669a07f-1e7d-4e7e-9c6b-befb6d8cf507" ParentLink="ComplexStatement_Statement" LowerBound="77.1" HigherBound="84.1">
+                        <om:Element Type="Construct" OID="2669a07f-1e7d-4e7e-9c6b-befb6d8cf507" ParentLink="ComplexStatement_Statement" LowerBound="76.1" HigherBound="83.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Construct_ArchiveMessage" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="e49a92ee-f780-4124-93ad-3690ac58046e" ParentLink="ComplexStatement_Statement" LowerBound="80.1" HigherBound="83.1">
+                            <om:Element Type="MessageAssignment" OID="e49a92ee-f780-4124-93ad-3690ac58046e" ParentLink="ComplexStatement_Statement" LowerBound="79.1" HigherBound="82.1">
                                 <om:Property Name="Expression" Value="ArchiveMessage = new System.Xml.XmlDocument();&#xD;&#xA;DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(UpdateDocMessage, ArchiveMessage);" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="MessageAssignment_2" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="fcb14602-07f1-459c-b60d-9c62d90a36c2" ParentLink="Construct_MessageRef" LowerBound="78.39" HigherBound="78.53">
+                            <om:Element Type="MessageRef" OID="fcb14602-07f1-459c-b60d-9c62d90a36c2" ParentLink="Construct_MessageRef" LowerBound="77.39" HigherBound="77.53">
                                 <om:Property Name="Ref" Value="ArchiveMessage" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Send" OID="7a84aa01-5f06-489d-a833-6562206f0217" ParentLink="ComplexStatement_Statement" LowerBound="84.1" HigherBound="86.1">
+                        <om:Element Type="Send" OID="7a84aa01-5f06-489d-a833-6562206f0217" ParentLink="ComplexStatement_Statement" LowerBound="83.1" HigherBound="85.1">
                             <om:Property Name="PortName" Value="CasetrackMessageArchivePort" />
                             <om:Property Name="MessageName" Value="ArchiveMessage" />
-                            <om:Property Name="OperationName" Value="UpdateStatus" />
-                            <om:Property Name="OperationMessageName" Value="Request" />
+                            <om:Property Name="OperationName" Value="CTMessage" />
+                            <om:Property Name="OperationMessageName" Value="Save" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="S_ArchiveUpdateDocMessage" />
                             <om:Property Name="Signal" Value="True" />
                         </om:Element>
-                        <om:Element Type="Construct" OID="d576845d-856c-4697-9dc1-41b76a1ed0c4" ParentLink="ComplexStatement_Statement" LowerBound="86.1" HigherBound="99.1">
+                        <om:Element Type="Construct" OID="d576845d-856c-4697-9dc1-41b76a1ed0c4" ParentLink="ComplexStatement_Statement" LowerBound="85.1" HigherBound="98.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Construct_DCFMessage" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="29362359-29f5-4784-8a63-5248d38b5986" ParentLink="ComplexStatement_Statement" LowerBound="89.1" HigherBound="98.1">
-                                <om:Property Name="Expression" Value="XmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;XmlDocument.LoadXml(&quot;&lt;ns0:root xmlns:ns0=\&quot;http://DCP.ESB.Schemas.DCFMessage\&quot;&gt;&lt;ns0:operation&gt;operation_0&lt;/ns0:operation&gt;&lt;ns0:xml&gt;xml_0&lt;/ns0:xml&gt;&lt;ns0:id&gt;id_0&lt;/ns0:id&gt;&lt;/ns0:root&gt;&quot;);&#xD;&#xA;DCFMessage = XmlDocument;&#xD;&#xA;XmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;XmlDocument.LoadXml(UpdateDocMessage);&#xD;&#xA;DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(XmlDocument,&quot;id&quot;);&#xD;&#xA;DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(XmlDocument,&quot;operation&quot;);&#xD;&#xA;DCFMessage.xml = UpdateDocMessage;&#xD;&#xA;" />
+                            <om:Element Type="MessageAssignment" OID="29362359-29f5-4784-8a63-5248d38b5986" ParentLink="ComplexStatement_Statement" LowerBound="88.1" HigherBound="97.1">
+                                <om:Property Name="Expression" Value="xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(&quot;&lt;ns0:root xmlns:ns0=\&quot;http://DCP.ESB.Schemas.DCFMessage\&quot;&gt;&lt;ns0:operation&gt;operation_0&lt;/ns0:operation&gt;&lt;ns0:xml&gt;xml_0&lt;/ns0:xml&gt;&lt;ns0:id&gt;id_0&lt;/ns0:id&gt;&lt;/ns0:root&gt;&quot;);&#xD;&#xA;DCFMessage = xmlDocument;&#xD;&#xA;xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(UpdateDocMessage);&#xD;&#xA;DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;id&quot;);&#xD;&#xA;DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;operation&quot;);&#xD;&#xA;DCFMessage.xml = UpdateDocMessage;&#xD;&#xA;" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="MessageAssignment_DCF" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="12cb457a-1eca-46cd-a0a5-c9fc6a481400" ParentLink="Construct_MessageRef" LowerBound="87.39" HigherBound="87.49">
+                            <om:Element Type="MessageRef" OID="12cb457a-1eca-46cd-a0a5-c9fc6a481400" ParentLink="Construct_MessageRef" LowerBound="86.39" HigherBound="86.49">
                                 <om:Property Name="Ref" Value="DCFMessage" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Construct" OID="ddc9df5b-e470-498d-ba76-748ff8e88b24" ParentLink="ComplexStatement_Statement" LowerBound="99.1" HigherBound="105.1">
+                        <om:Element Type="Construct" OID="ddc9df5b-e470-498d-ba76-748ff8e88b24" ParentLink="ComplexStatement_Statement" LowerBound="98.1" HigherBound="104.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Construct_StatusMessage" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="a636f3cf-49d5-4c00-9c84-09b50cddb835" ParentLink="ComplexStatement_Statement" LowerBound="102.1" HigherBound="104.1">
+                            <om:Element Type="MessageRef" OID="249254c9-e3f8-44d8-9a37-9371d788bb87" ParentLink="Construct_MessageRef" LowerBound="99.39" HigherBound="99.52">
+                                <om:Property Name="Ref" Value="StatusMessage" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessageAssignment" OID="a636f3cf-49d5-4c00-9c84-09b50cddb835" ParentLink="ComplexStatement_Statement" LowerBound="101.1" HigherBound="103.1">
                                 <om:Property Name="Expression" Value="StatusMessage=DCP.ESB.Utils.Helper.getEsbStatusXml(&quot;ESB.RECEIVED.STATUS&quot;);&#xD;&#xA;" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="MessageAssignment_1" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="249254c9-e3f8-44d8-9a37-9371d788bb87" ParentLink="Construct_MessageRef" LowerBound="100.39" HigherBound="100.52">
-                                <om:Property Name="Ref" Value="StatusMessage" />
-                                <om:Property Name="ReportToAnalyst" Value="True" />
-                                <om:Property Name="Signal" Value="False" />
-                            </om:Element>
                         </om:Element>
-                        <om:Element Type="Catch" OID="85cf8555-5641-4cb5-912d-3a68afbe2ee6" ParentLink="Scope_Catch" LowerBound="108.1" HigherBound="123.1">
+                        <om:Element Type="Catch" OID="85cf8555-5641-4cb5-912d-3a68afbe2ee6" ParentLink="Scope_Catch" LowerBound="107.1" HigherBound="122.1">
                             <om:Property Name="ExceptionName" Value="ex" />
                             <om:Property Name="ExceptionType" Value="System.Exception" />
                             <om:Property Name="IsFaultMessage" Value="False" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="CatchException_CTMessage" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="Construct" OID="52fe6dc6-42fd-47ef-b779-e9e76c9f923a" ParentLink="Catch_Statement" LowerBound="111.1" HigherBound="118.1">
+                            <om:Element Type="Construct" OID="52fe6dc6-42fd-47ef-b779-e9e76c9f923a" ParentLink="Catch_Statement" LowerBound="110.1" HigherBound="117.1">
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Construct_StatusMessage" />
                                 <om:Property Name="Signal" Value="True" />
-                                <om:Element Type="MessageAssignment" OID="0b3fe5fb-7aba-4289-ad4c-b4f4f455f9ed" ParentLink="ComplexStatement_Statement" LowerBound="114.1" HigherBound="117.1">
+                                <om:Element Type="MessageAssignment" OID="0b3fe5fb-7aba-4289-ad4c-b4f4f455f9ed" ParentLink="ComplexStatement_Statement" LowerBound="113.1" HigherBound="116.1">
                                     <om:Property Name="Expression" Value="StatusMessage=DCP.ESB.Utils.Helper.getEsbStatusXml(&quot;ESB.ERROR.STATUS&quot;);&#xD;&#xA;StatusMessage.description = ex.Message;&#xD;&#xA;" />
                                     <om:Property Name="ReportToAnalyst" Value="False" />
                                     <om:Property Name="Name" Value="MessageAssignment_1" />
                                     <om:Property Name="Signal" Value="False" />
                                 </om:Element>
-                                <om:Element Type="MessageRef" OID="40e0465a-e242-4d5f-a4dc-d43d62dbb7fe" ParentLink="Construct_MessageRef" LowerBound="112.43" HigherBound="112.56">
+                                <om:Element Type="MessageRef" OID="40e0465a-e242-4d5f-a4dc-d43d62dbb7fe" ParentLink="Construct_MessageRef" LowerBound="111.43" HigherBound="111.56">
                                     <om:Property Name="Ref" Value="StatusMessage" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Signal" Value="False" />
                                 </om:Element>
                             </om:Element>
-                            <om:Element Type="Send" OID="994baf6f-f1e3-4767-a61e-5fd7a0674457" ParentLink="Catch_Statement" LowerBound="118.1" HigherBound="120.1">
+                            <om:Element Type="Send" OID="994baf6f-f1e3-4767-a61e-5fd7a0674457" ParentLink="Catch_Statement" LowerBound="117.1" HigherBound="119.1">
                                 <om:Property Name="PortName" Value="CasetrackServicePort" />
                                 <om:Property Name="MessageName" Value="StatusMessage" />
                                 <om:Property Name="OperationName" Value="UpdateDocument" />
@@ -212,7 +205,7 @@
                                 <om:Property Name="Name" Value="S_StatusMessage" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
-                            <om:Element Type="Throw" OID="0957fe6b-61c1-475f-aeed-ec5c3481ef26" ParentLink="Catch_Statement" LowerBound="120.1" HigherBound="122.1">
+                            <om:Element Type="Throw" OID="0957fe6b-61c1-475f-aeed-ec5c3481ef26" ParentLink="Catch_Statement" LowerBound="119.1" HigherBound="121.1">
                                 <om:Property Name="ThrownReference" Value="ex" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="ThrowException_Exception" />
@@ -220,7 +213,7 @@
                             </om:Element>
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Send" OID="d3f9194a-9ed1-4439-90c7-d003c6f0ec01" ParentLink="ComplexStatement_Statement" LowerBound="125.1" HigherBound="127.1">
+                    <om:Element Type="Send" OID="d3f9194a-9ed1-4439-90c7-d003c6f0ec01" ParentLink="ComplexStatement_Statement" LowerBound="124.1" HigherBound="126.1">
                         <om:Property Name="PortName" Value="CasetrackServicePort" />
                         <om:Property Name="MessageName" Value="StatusMessage" />
                         <om:Property Name="OperationName" Value="UpdateDocument" />
@@ -229,71 +222,71 @@
                         <om:Property Name="Name" Value="S_StatusMessage" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Send" OID="6be90fac-79a6-46d8-a24f-e5103511d168" ParentLink="ComplexStatement_Statement" LowerBound="127.1" HigherBound="129.1">
+                    <om:Element Type="Send" OID="6be90fac-79a6-46d8-a24f-e5103511d168" ParentLink="ComplexStatement_Statement" LowerBound="126.1" HigherBound="128.1">
                         <om:Property Name="PortName" Value="MessageArchivePort" />
                         <om:Property Name="MessageName" Value="DCFMessage" />
-                        <om:Property Name="OperationName" Value="DCFDocSync" />
+                        <om:Property Name="OperationName" Value="DCFMessage" />
                         <om:Property Name="OperationMessageName" Value="Request" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="S_ArchiveReceivedMessage" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Send" OID="14dca5d5-f261-4aae-9d54-df08908af476" ParentLink="ComplexStatement_Statement" LowerBound="129.1" HigherBound="131.1">
+                    <om:Element Type="Send" OID="14dca5d5-f261-4aae-9d54-df08908af476" ParentLink="ComplexStatement_Statement" LowerBound="128.1" HigherBound="130.1">
                         <om:Property Name="PortName" Value="DCFServicePort" />
                         <om:Property Name="MessageName" Value="DCFMessage" />
-                        <om:Property Name="OperationName" Value="DCFDocSync" />
+                        <om:Property Name="OperationName" Value="DCFMessage" />
                         <om:Property Name="OperationMessageName" Value="Request" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="S_DCFMessage" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Listen" OID="ef928e4a-e7ab-4550-b3db-84c1ebe7b0cf" ParentLink="ComplexStatement_Statement" LowerBound="131.1" HigherBound="149.1">
+                    <om:Element Type="Listen" OID="ef928e4a-e7ab-4550-b3db-84c1ebe7b0cf" ParentLink="ComplexStatement_Statement" LowerBound="130.1" HigherBound="148.1">
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="Listen_Response" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="ListenBranch" OID="bf839a8d-55d5-41ee-8417-6d0089795b96" ParentLink="ReallyComplexStatement_Branch" LowerBound="131.1" HigherBound="131.1">
+                        <om:Element Type="ListenBranch" OID="bf839a8d-55d5-41ee-8417-6d0089795b96" ParentLink="ReallyComplexStatement_Branch" LowerBound="130.1" HigherBound="130.1">
                             <om:Property Name="IsGhostBranch" Value="True" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="ListenBranch_1" />
                             <om:Property Name="Signal" Value="False" />
-                            <om:Element Type="VariableAssignment" OID="11d664ee-3891-428e-bf43-124514cfa93d" ParentLink="ComplexStatement_Statement" LowerBound="137.1" HigherBound="139.1">
-                                <om:Property Name="Expression" Value="noResponse_ex = new System.Exception(&quot;No Response received for file number: &quot; + DCFMessage.id);" />
+                            <om:Element Type="VariableAssignment" OID="11d664ee-3891-428e-bf43-124514cfa93d" ParentLink="ComplexStatement_Statement" LowerBound="136.1" HigherBound="138.1">
+                                <om:Property Name="Expression" Value="noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.NO.DCF.RESPONSE.MESSAGE&quot;) + DCFMessage.id);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Expression_build_noAck_exc" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="Throw" OID="4af8d82e-a9bf-4a50-86ce-5e3fbeb09f95" ParentLink="ComplexStatement_Statement" LowerBound="139.1" HigherBound="141.1">
+                            <om:Element Type="Throw" OID="4af8d82e-a9bf-4a50-86ce-5e3fbeb09f95" ParentLink="ComplexStatement_Statement" LowerBound="138.1" HigherBound="140.1">
                                 <om:Property Name="ThrownReference" Value="noResponse_ex" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="ThrowException_1" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
-                            <om:Element Type="Delay" OID="0e1f257f-77c7-4fce-93a0-5026f9c71ca6" ParentLink="ListenBranch_Statement" LowerBound="134.1" HigherBound="135.59">
-                                <om:Property Name="Timeout" Value="new System.TimeSpan(0,1,0)" />
+                            <om:Element Type="Delay" OID="0e1f257f-77c7-4fce-93a0-5026f9c71ca6" ParentLink="ListenBranch_Statement" LowerBound="133.1" HigherBound="134.143">
+                                <om:Property Name="Timeout" Value="new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.RESPONSE.WAIT.TIME.MIN&quot;)),0)" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Delay_60s" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="ListenBranch" OID="2e8059d7-4e3f-481f-a033-a354f2c1f48a" ParentLink="ReallyComplexStatement_Branch" LowerBound="131.1" HigherBound="131.1">
+                        <om:Element Type="ListenBranch" OID="2e8059d7-4e3f-481f-a033-a354f2c1f48a" ParentLink="ReallyComplexStatement_Branch" LowerBound="130.1" HigherBound="130.1">
                             <om:Property Name="IsGhostBranch" Value="True" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="ListenBranch_2" />
                             <om:Property Name="Signal" Value="False" />
-                            <om:Element Type="Send" OID="910c9936-dd0a-4eb9-93a7-4eda2547aa6a" ParentLink="ComplexStatement_Statement" LowerBound="145.1" HigherBound="147.1">
+                            <om:Element Type="Send" OID="910c9936-dd0a-4eb9-93a7-4eda2547aa6a" ParentLink="ComplexStatement_Statement" LowerBound="144.1" HigherBound="146.1">
                                 <om:Property Name="PortName" Value="MessageArchivePort" />
                                 <om:Property Name="MessageName" Value="UpdateStatusMessage" />
-                                <om:Property Name="OperationName" Value="DCFDocSync" />
+                                <om:Property Name="OperationName" Value="DCFMessage" />
                                 <om:Property Name="OperationMessageName" Value="Request" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="S_ArchiveStatusMessage" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
-                            <om:Element Type="Receive" OID="f7c2e28d-b18e-4b1c-b85a-c5c771b5e4f5" ParentLink="ListenBranch_Statement" LowerBound="142.1" HigherBound="143.105">
+                            <om:Element Type="Receive" OID="f7c2e28d-b18e-4b1c-b85a-c5c771b5e4f5" ParentLink="ListenBranch_Statement" LowerBound="141.1" HigherBound="142.105">
                                 <om:Property Name="Activate" Value="False" />
                                 <om:Property Name="PortName" Value="UpdateStatusPort" />
                                 <om:Property Name="MessageName" Value="UpdateStatusMessage" />
-                                <om:Property Name="OperationName" Value="DCFDocSync" />
+                                <om:Property Name="OperationName" Value="DCFMessage" />
                                 <om:Property Name="OperationMessageName" Value="Request" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="R_UpdateStatus" />
@@ -301,34 +294,34 @@
                             </om:Element>
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Catch" OID="87e159ba-9db2-47eb-88f1-40a78f31d480" ParentLink="Scope_Catch" LowerBound="152.1" HigherBound="168.1">
+                    <om:Element Type="Catch" OID="87e159ba-9db2-47eb-88f1-40a78f31d480" ParentLink="Scope_Catch" LowerBound="151.1" HigherBound="164.1">
                         <om:Property Name="ExceptionName" Value="ex" />
                         <om:Property Name="ExceptionType" Value="System.Exception" />
                         <om:Property Name="IsFaultMessage" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="CatchAllExceptions" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="Construct" OID="197f038a-3f61-489a-8b51-81cca03e6788" ParentLink="Catch_Statement" LowerBound="155.1" HigherBound="165.1">
+                        <om:Element Type="Construct" OID="197f038a-3f61-489a-8b51-81cca03e6788" ParentLink="Catch_Statement" LowerBound="154.1" HigherBound="161.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="ExceptionMessage_Construct" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="4a13f639-ad48-4675-ba38-bf7e47fee120" ParentLink="ComplexStatement_Statement" LowerBound="158.1" HigherBound="164.1">
-                                <om:Property Name="Expression" Value="XmlDocument = new System.Xml.XmlDocument();&#xD;&#xA;XmlDocument.LoadXml(&quot;&lt;ns0:Root xmlns:ns0=\&quot;http://DCP.ESB.Schemas\&quot;&gt;&lt;Code&gt;1&lt;/Code&gt;&lt;Message&gt;2&lt;/Message&gt;&lt;/ns0:Root&gt;&quot;);&#xD;&#xA;ExceptionMessage = XmlDocument;&#xD;&#xA;ExceptionMessage.Code = &quot;NO_DCF_RESPONSE&quot;;&#xD;&#xA;ExceptionMessage.Message = ex.Message + &quot;.\n&quot; + ex.ToString();" />
+                            <om:Element Type="MessageAssignment" OID="4a13f639-ad48-4675-ba38-bf7e47fee120" ParentLink="ComplexStatement_Statement" LowerBound="157.1" HigherBound="160.1">
+                                <om:Property Name="Expression" Value="&#xD;&#xA;ExceptionMessage = DCP.ESB.Utils.Helper.getEsbExceptionXml(&quot;ESB.CATCH.ALL.EXCEPTION.CODE&quot;,ex);&#xD;&#xA;" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="Exception_Message_Assigment" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="f968315d-c923-4307-a79d-d1d616672e1d" ParentLink="Construct_MessageRef" LowerBound="156.35" HigherBound="156.51">
+                            <om:Element Type="MessageRef" OID="f968315d-c923-4307-a79d-d1d616672e1d" ParentLink="Construct_MessageRef" LowerBound="155.35" HigherBound="155.51">
                                 <om:Property Name="Ref" Value="ExceptionMessage" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Send" OID="5a9378f9-372f-43ed-bd75-af585882c61b" ParentLink="Catch_Statement" LowerBound="165.1" HigherBound="167.1">
+                        <om:Element Type="Send" OID="5a9378f9-372f-43ed-bd75-af585882c61b" ParentLink="Catch_Statement" LowerBound="161.1" HigherBound="163.1">
                             <om:Property Name="PortName" Value="Exception_Port" />
                             <om:Property Name="MessageName" Value="ExceptionMessage" />
                             <om:Property Name="OperationName" Value="WriteException" />
-                            <om:Property Name="OperationMessageName" Value="Request" />
+                            <om:Property Name="OperationMessageName" Value="Save" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Send_Exception" />
                             <om:Property Name="Signal" Value="True" />
@@ -447,7 +440,7 @@
                 <om:Element Type="MessageRef" OID="5c8dbf89-f195-4873-8c53-50368f23bac1" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.38">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.Exception" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
-                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Name" Value="Save" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
             </om:Element>
@@ -461,13 +454,13 @@
             <om:Element Type="OperationDeclaration" OID="dbc067ec-e972-4b61-ab46-f81cedb23975" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="DCFDocSync" />
+                <om:Property Name="Name" Value="DCFMessage" />
                 <om:Property Name="Signal" Value="True" />
                 <om:Element Type="MessageRef" OID="19ab7476-5c9c-4dc9-b813-07df0f8045ad" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.39">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.DCFMessage" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Request" />
-                    <om:Property Name="Signal" Value="False" />
+                    <om:Property Name="Signal" Value="True" />
                 </om:Element>
             </om:Element>
         </om:Element>
@@ -480,12 +473,12 @@
             <om:Element Type="OperationDeclaration" OID="5b5e7da9-4d9f-4c75-9c53-b94a0ad534e0" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="UpdateStatus" />
+                <om:Property Name="Name" Value="CTMessage" />
                 <om:Property Name="Signal" Value="True" />
                 <om:Element Type="MessageRef" OID="f854ef38-9d67-4654-8196-7aca65fc6abe" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.35">
                     <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
-                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Name" Value="Save" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
             </om:Element>
@@ -542,14 +535,14 @@ module DCP.ESB.Orchestrations
     };
     internal porttype DCFType
     {
-        oneway DCFDocSync
+        oneway DCFMessage
         {
             DCP.ESB.Schemas.DCFMessage
         };
     };
     internal porttype DCFStringType
     {
-        oneway UpdateStatus
+        oneway CTMessage
         {
             System.Xml.XmlDocument
         };
@@ -582,13 +575,12 @@ module DCP.ESB.Orchestrations
         port uses DCFStringType CasetrackMessageArchivePort;
         correlation CorrelationType_id Correlation_id;
         message DCP.ESB.Schemas.Exception ExceptionMessage;
-        message System.String NewDocMessage;
         message System.String UpdateDocMessage;
         message DCP.ESB.Schemas.DCFMessage DCFMessage;
         message DCP.ESB.Schemas.DCFMessage UpdateStatusMessage;
         message DCP.ESB.Schemas.ESBMessage StatusMessage;
         message System.Xml.XmlDocument ArchiveMessage;
-        System.Xml.XmlDocument XmlDocument;
+        System.Xml.XmlDocument xmlDocument;
         System.Exception noResponse_ex;
         body ()
         {
@@ -599,7 +591,7 @@ module DCP.ESB.Orchestrations
                 {
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("18468299-f424-42c4-9e8e-b1a0dec0d751")]
                     activate receive (CasetrackServicePort.UpdateDocument, UpdateDocMessage);
-                    XmlDocument = new System.Xml.XmlDocument();
+                    xmlDocument = new System.Xml.XmlDocument();
                     noResponse_ex = new System.Exception();
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("f7ae8efe-f28d-4b18-95c4-46f21c074d9e")]
                     scope
@@ -614,18 +606,18 @@ module DCP.ESB.Orchestrations
                                 DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(UpdateDocMessage, ArchiveMessage);
                             }
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("7a84aa01-5f06-489d-a833-6562206f0217")]
-                            send (CasetrackMessageArchivePort.UpdateStatus, ArchiveMessage);
+                            send (CasetrackMessageArchivePort.CTMessage, ArchiveMessage);
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("d576845d-856c-4697-9dc1-41b76a1ed0c4")]
                             construct DCFMessage
                             {
                                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("29362359-29f5-4784-8a63-5248d38b5986")]
-                                XmlDocument = new  System.Xml.XmlDocument();
-                                XmlDocument.LoadXml("<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.DCFMessage\"><ns0:operation>operation_0</ns0:operation><ns0:xml>xml_0</ns0:xml><ns0:id>id_0</ns0:id></ns0:root>");
-                                DCFMessage = XmlDocument;
-                                XmlDocument = new  System.Xml.XmlDocument();
-                                XmlDocument.LoadXml(UpdateDocMessage);
-                                DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(XmlDocument,"id");
-                                DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(XmlDocument,"operation");
+                                xmlDocument = new  System.Xml.XmlDocument();
+                                xmlDocument.LoadXml("<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.DCFMessage\"><ns0:operation>operation_0</ns0:operation><ns0:xml>xml_0</ns0:xml><ns0:id>id_0</ns0:id></ns0:root>");
+                                DCFMessage = xmlDocument;
+                                xmlDocument = new  System.Xml.XmlDocument();
+                                xmlDocument.LoadXml(UpdateDocMessage);
+                                DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,"id");
+                                DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,"operation");
                                 DCFMessage.xml = UpdateDocMessage;
                             }
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("ddc9df5b-e470-498d-ba76-748ff8e88b24")]
@@ -657,25 +649,25 @@ module DCP.ESB.Orchestrations
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("d3f9194a-9ed1-4439-90c7-d003c6f0ec01")]
                     send (CasetrackServicePort.UpdateDocument, StatusMessage);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("6be90fac-79a6-46d8-a24f-e5103511d168")]
-                    send (MessageArchivePort.DCFDocSync, DCFMessage);
+                    send (MessageArchivePort.DCFMessage, DCFMessage);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("14dca5d5-f261-4aae-9d54-df08908af476")]
-                    send (DCFServicePort.DCFDocSync, DCFMessage, initialize Correlation_id);
+                    send (DCFServicePort.DCFMessage, DCFMessage, initialize Correlation_id);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("ef928e4a-e7ab-4550-b3db-84c1ebe7b0cf")]
                     listen
                     {
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("0e1f257f-77c7-4fce-93a0-5026f9c71ca6")]
-                        timeout new System.TimeSpan(0,1,0)
+                        timeout new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings("ESB.RESPONSE.WAIT.TIME.MIN")),0)
                         {
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("11d664ee-3891-428e-bf43-124514cfa93d")]
-                            noResponse_ex = new System.Exception("No Response received for file number: " + DCFMessage.id);
+                            noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings("ESB.NO.DCF.RESPONSE.MESSAGE") + DCFMessage.id);
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("4af8d82e-a9bf-4a50-86ce-5e3fbeb09f95")]
                             throw noResponse_ex;
                         }
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("f7c2e28d-b18e-4b1c-b85a-c5c771b5e4f5")]
-                        until receive (UpdateStatusPort.DCFDocSync, UpdateStatusMessage, Correlation_id)
+                        until receive (UpdateStatusPort.DCFMessage, UpdateStatusMessage, Correlation_id)
                         {
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("910c9936-dd0a-4eb9-93a7-4eda2547aa6a")]
-                            send (MessageArchivePort.DCFDocSync, UpdateStatusMessage);
+                            send (MessageArchivePort.DCFMessage, UpdateStatusMessage);
                         }
                     }
                 }
@@ -688,11 +680,8 @@ module DCP.ESB.Orchestrations
                         construct ExceptionMessage
                         {
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("4a13f639-ad48-4675-ba38-bf7e47fee120")]
-                            XmlDocument = new System.Xml.XmlDocument();
-                            XmlDocument.LoadXml("<ns0:Root xmlns:ns0=\"http://DCP.ESB.Schemas\"><Code>1</Code><Message>2</Message></ns0:Root>");
-                            ExceptionMessage = XmlDocument;
-                            ExceptionMessage.Code = "NO_DCF_RESPONSE";
-                            ExceptionMessage.Message = ex.Message + ".\n" + ex.ToString();
+                            
+                            ExceptionMessage = DCP.ESB.Utils.Helper.getEsbExceptionXml("ESB.CATCH.ALL.EXCEPTION.CODE",ex);
                         }
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("5a9378f9-372f-43ed-bd75-af585882c61b")]
                         send (Exception_Port.WriteException, ExceptionMessage);

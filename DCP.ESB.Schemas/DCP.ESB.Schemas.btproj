@@ -87,8 +87,8 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="DCFMessage.xsd">
-      <TypeName>DCFMessage</TypeName>
+    <Schema Include="DCFUpdateStatusMessage.xsd">
+      <TypeName>DCFUpdateStatusMessage</TypeName>
       <Namespace>DCP.ESB.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
@@ -104,7 +104,41 @@
       <Namespace>DCP.ESB.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="CMSDCF.Table.DCF_IN_MESSAGE_LOG.xsd">
+      <TypeName>CMSDCF_Table_DCF_IN_MESSAGE_LOG</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="CMSGenericOperation.xsd">
+      <TypeName>CMSGenericOperation</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="CMSSimpleTypeArray.xsd">
+      <TypeName>CMSSimpleTypeArray</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="CMSSQLEXECUTE.xsd">
+      <TypeName>CMSSQLEXECUTE</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="CMS_SQLEXECUTE_PARAMS.xsd">
+      <TypeName>CMS_SQLEXECUTE_PARAMS</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="DCFMessage.xsd">
+      <TypeName>DCFMessage</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WcfSendPort_OracleDBBinding_Custom.bindinginfo.xml" />
+    <Content Include="WcfSendPort_OracleDBBinding_Custom.bindinginfo1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />

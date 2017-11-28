@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:array="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns3="http://Microsoft.LobServices.OracleDB/2007/03" elementFormDefault="qualified" targetNamespace="http://Microsoft.LobServices.OracleDB/2007/03" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation=".\CMSSimpleTypeArray.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:annotation>
+    <xs:appinfo>
+      <fileNameHint xmlns="http://schemas.microsoft.com/servicemodel/adapters/metadata/xsd">GenericOperation</fileNameHint>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:complexType name="PARAMETERDATA">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PARAMETER" nillable="true" type="array:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PARAMETERDATA" nillable="true" type="ns3:PARAMETERDATA" />
+  <xs:complexType name="ArrayOfPARAMETERDATA">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PARAMETERDATA" type="ns3:PARAMETERDATA" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPARAMETERDATA" nillable="true" type="ns3:ArrayOfPARAMETERDATA" />
+  <xs:complexType name="GenRecordRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GenRecordColumn" nillable="true" type="ns3:ArrayOfGenRecordColumn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenRecordRow" nillable="true" type="ns3:GenRecordRow" />
+  <xs:complexType name="GenRecordColumn">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ColumnName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ColumnValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ColumnType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenRecordColumn" nillable="true" type="ns3:GenRecordColumn" />
+  <xs:complexType name="ArrayOfGenRecordColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GenRecordColumn" type="ns3:GenRecordColumn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenRecordColumn" nillable="true" type="ns3:ArrayOfGenRecordColumn" />
+  <xs:complexType name="ArrayOfGenRecordRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GenRecordRow" type="ns3:GenRecordRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenRecordRow" nillable="true" type="ns3:ArrayOfGenRecordRow" />
+</xs:schema>
