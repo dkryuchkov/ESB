@@ -11,4 +11,3 @@ C:\git\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.csprojResolveAssemblyReference.
 C:\git\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.dll
 C:\git\ESB\DCP.ESB.Utils\obj\Debug\DCP.ESB.Utils.pdb
 C:\git\ESB\DCP.ESB.Utils\bin\Debug\Microsoft.BizTalk.Interop.SSOClient.dll
-C:\git\ESB\DCP.ESB.Utils\bin\Debug\XmlSampleGenerator.dll

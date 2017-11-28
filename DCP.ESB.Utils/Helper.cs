@@ -1,5 +1,4 @@
 ﻿using Microsoft.XLANGs.BaseTypes;
-using Microsoft.Xml.XMLGen;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -70,6 +69,7 @@ namespace DCP.ESB.Utils
             }
         }
 
+        /*
         public static XmlDocument getXmlOutOfSchema(String xmlschema)
         {
             using (StringWriter strWriter = new StringWriter())
@@ -94,5 +94,6 @@ namespace DCP.ESB.Utils
                 }
             }
         }
+        */
     }
 }
