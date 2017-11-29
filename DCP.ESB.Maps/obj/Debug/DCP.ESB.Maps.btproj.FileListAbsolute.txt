@@ -3,3 +3,8 @@ C:\git\ESB\DCP.ESB.Maps\bin\Debug\DCP.ESB.Maps.pdb
 C:\git\ESB\DCP.ESB.Maps\bin\Debug\DCP.ESB.Schemas.dll
 C:\git\ESB\DCP.ESB.Maps\obj\Debug\DCP.ESB.Maps.dll
 C:\git\ESB\DCP.ESB.Maps\obj\Debug\DCP.ESB.Maps.pdb
+C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Maps\bin\Debug\DCP.ESB.Maps.dll
+C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Maps\bin\Debug\DCP.ESB.Maps.pdb
+C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Maps\bin\Debug\DCP.ESB.Schemas.dll
+C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Maps\obj\Debug\DCP.ESB.Maps.dll
+C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\DCP.ESB.Maps\obj\Debug\DCP.ESB.Maps.pdb

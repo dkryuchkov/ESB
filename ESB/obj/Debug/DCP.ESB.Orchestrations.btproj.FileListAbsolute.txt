@@ -11,3 +11,4 @@ C:\git\ESB\ESB\bin\Debug\DCP.ESB.Utils.dll
 C:\git\ESB\ESB\obj\Debug\DCP.ESB.Orchestrations.dll
 C:\git\ESB\ESB\obj\Debug\DCP.ESB.Orchestrations.pdb
 C:\git\ESB\ESB\bin\Debug\DCP.ESB.Maps.dll
+C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\bin\Debug\DCP.ESB.Maps.dll
