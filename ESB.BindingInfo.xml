@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<BindingInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Assembly="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Version="3.5.1.0" BindingStatus="PartiallyBound" BoundEndpoints="10" TotalEndpoints="20">
-  <Timestamp>2017-11-30T08:23:21.7966251+11:00</Timestamp>
+<BindingInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Assembly="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Version="3.5.1.0" BindingStatus="PartiallyBound" BoundEndpoints="9" TotalEndpoints="20">
+  <Timestamp>2017-11-30T10:35:54.3958952+11:00</Timestamp>
   <ModuleRefCollection>
     <ModuleRef Name="[Application:ESB]" Version="" Culture="" PublicKeyToken="" FullName="[Application:ESB], Version=, Culture=, PublicKeyToken=">
       <Services />
@@ -82,7 +82,7 @@
             <Port Name="CasetrackServicePort" Modifier="2" BindingOption="1">
               <SendPortRef xsi:nil="true" />
               <DistributionListRef xsi:nil="true" />
-              <ReceivePortRef Name="CT_MESSAGE_IN" />
+              <ReceivePortRef xsi:nil="true" />
             </Port>
             <Port Name="CasetrackMessageArchivePort" Modifier="1" BindingOption="1">
               <SendPortRef Name="CMS_IN_ARCHIVE" />
@@ -574,41 +574,6 @@
   </SendPortCollection>
   <DistributionListCollection />
   <ReceivePortCollection>
-    <ReceivePort Name="CT_MESSAGE_IN" IsTwoWay="true" BindingOption="1">
-      <Description xsi:nil="true" />
-      <ReceiveLocations>
-        <ReceiveLocation Name="CT_MESSAGE_IN_LOCATION">
-          <Description xsi:nil="true" />
-          <Address>/dcf/DCP_ESB_Orchestrations_CasetrackService_CasetrackServicePort.svc</Address>
-          <PublicAddress />
-          <Primary>true</Primary>
-          <ReceiveLocationServiceWindowEnabled>false</ReceiveLocationServiceWindowEnabled>
-          <ReceiveLocationFromTime>2000-01-01T00:00:00</ReceiveLocationFromTime>
-          <ReceiveLocationToTime>2000-01-01T23:59:59</ReceiveLocationToTime>
-          <ReceiveLocationStartDateEnabled>false</ReceiveLocationStartDateEnabled>
-          <ReceiveLocationStartDate>2000-01-01T00:00:00</ReceiveLocationStartDate>
-          <ReceiveLocationEndDateEnabled>false</ReceiveLocationEndDateEnabled>
-          <ReceiveLocationEndDate>2000-01-01T23:59:59</ReceiveLocationEndDate>
-          <ReceiveLocationTransportType Name="WCF-BasicHttp" Capabilities="899" ConfigurationClsid="467c1a52-373f-4f09-9008-27af6b985f14" />
-          <ReceiveLocationTransportTypeData>&lt;CustomProps&gt;&lt;MessageEncoding vt="8"&gt;Text&lt;/MessageEncoding&gt;&lt;OutboundBodyLocation vt="8"&gt;UseBodyElement&lt;/OutboundBodyLocation&gt;&lt;MaxReceivedMessageSize vt="3"&gt;65536&lt;/MaxReceivedMessageSize&gt;&lt;InboundBodyLocation vt="8"&gt;UseBodyElement&lt;/InboundBodyLocation&gt;&lt;AlgorithmSuite vt="8"&gt;Basic256&lt;/AlgorithmSuite&gt;&lt;OutboundXmlTemplate vt="8"&gt;&amp;lt;bts-msg-body xmlns="http://www.microsoft.com/schemas/bts2007" encoding="xml"/&amp;gt;&lt;/OutboundXmlTemplate&gt;&lt;SecurityMode vt="8"&gt;None&lt;/SecurityMode&gt;&lt;IncludeExceptionDetailInFaults vt="11"&gt;0&lt;/IncludeExceptionDetailInFaults&gt;&lt;InboundNodeEncoding vt="8"&gt;Xml&lt;/InboundNodeEncoding&gt;&lt;OpenTimeout vt="8"&gt;00:01:00&lt;/OpenTimeout&gt;&lt;TransportClientCredentialType vt="8"&gt;None&lt;/TransportClientCredentialType&gt;&lt;MessageClientCredentialType vt="8"&gt;UserName&lt;/MessageClientCredentialType&gt;&lt;UseSSO vt="11"&gt;0&lt;/UseSSO&gt;&lt;SuspendMessageOnFailure vt="11"&gt;0&lt;/SuspendMessageOnFailure&gt;&lt;CloseTimeout vt="8"&gt;00:01:00&lt;/CloseTimeout&gt;&lt;SendTimeout vt="8"&gt;00:01:00&lt;/SendTimeout&gt;&lt;MaxConcurrentCalls vt="3"&gt;200&lt;/MaxConcurrentCalls&gt;&lt;/CustomProps&gt;</ReceiveLocationTransportTypeData>
-          <ReceivePipeline Name="Microsoft.BizTalk.DefaultPipelines.XMLReceive" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.XMLReceive, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="1" TrackingOption="None" Description="" />
-          <ReceivePipelineData xsi:nil="true" />
-          <SendPipeline Name="Microsoft.BizTalk.DefaultPipelines.PassThruTransmit" FullyQualifiedName="Microsoft.BizTalk.DefaultPipelines.PassThruTransmit, Microsoft.BizTalk.DefaultPipelines, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="2" TrackingOption="None" Description="" />
-          <SendPipelineData xsi:nil="true" />
-          <Enable>false</Enable>
-          <ReceiveHandler Name="BizTalkServerIsolatedHost" HostTrusted="false">
-            <TransportType Name="WCF-BasicHttp" Capabilities="899" ConfigurationClsid="467c1a52-373f-4f09-9008-27af6b985f14" />
-          </ReceiveHandler>
-        </ReceiveLocation>
-      </ReceiveLocations>
-      <SendPipelineData xsi:nil="true" />
-      <Authentication>0</Authentication>
-      <Tracking>255</Tracking>
-      <Transforms />
-      <OutboundTransforms />
-      <RouteFailedMessage>false</RouteFailedMessage>
-      <ApplicationName>ESB</ApplicationName>
-    </ReceivePort>
     <ReceivePort Name="DCF_IN" IsTwoWay="false" BindingOption="1">
       <Description xsi:nil="true" />
       <ReceiveLocations>
