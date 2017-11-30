@@ -41,21 +41,30 @@ namespace DCP.ESB.Utils
         public static XmlDocument getCmsSqlExecuteParamsXml(string sql,string parametersschema, string parameter)
         {
             XmlDocument XmlDocument = new XmlDocument();
-            XmlDocument.LoadXml("<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS\">" +
-              "<ns0:SQLSTATEMENT>" + sql + "</ns0:SQLSTATEMENT>" +
-              "<ns0:PARAMETERSCHEMA>" + parametersschema == null ? "" : parametersschema + "</ns0:PARAMETERSCHEMA>" +
-              "<ns0:PARAMETER>" + parameter == null ? "" : parameter + "</ns0:PARAMETER>" +
-              "</ns0:root>");
+            string xml = "<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS\">" +
+              "<ns0:SQLSTATEMENT>" + xmlEncode(sql) + "</ns0:SQLSTATEMENT>" +
+              "<ns0:PARAMETERSCHEMA>" + (System.String.IsNullOrWhiteSpace(parametersschema) ? String.Empty : parametersschema) + "</ns0:PARAMETERSCHEMA>" +
+              "<ns0:PARAMETER>" + (String.IsNullOrWhiteSpace(parameter) ? String.Empty : parameter) + "</ns0:PARAMETER>" +
+              "</ns0:root>";
+            XmlDocument.LoadXml(xml);
             return XmlDocument;
         }
 
-        public static XmlDocument getEsbExceptionXml(String code, Exception ex)
+        public static string xmlEncode(string text)
+        {
+            XmlNode _xmlNode = new XmlDocument().CreateNode("text", "mynode", "");
+            _xmlNode.InnerText = text;
+            return _xmlNode.OuterXml;
+        }
+
+
+    public static XmlDocument getEsbExceptionXml(String code, Exception ex)
         {
             XmlDocument XmlDocument = new XmlDocument();
             XmlDocument.LoadXml("<ns0:Root xmlns:ns0=\"http://DCP.ESB.Schemas\"><Code>" +
                DCP.ESB.Utils.Helper.getAppSettings(code) +
                 "</Code><Message>" +
-                ex.Message + ".\n" + ex.ToString() +
+                xmlEncode(ex.Message) + ".\n" + xmlEncode(ex.ToString()) +
                  "</Message></ns0:Root>");
             return XmlDocument;
         }

@@ -14,33 +14,31 @@ namespace DCP.ESB.Maps {
   <xsl:template match=""/s0:root"">
     <xsl:variable name=""var:v1"" select=""false()"" />
     <xsl:variable name=""var:v2"" select=""userCSharp:LogicalNot(string($var:v1))"" />
-    <xsl:variable name=""var:v3"" select=""userCSharp:StringSize(string(s0:PARAMETERSCHEMA/text()))"" />
-    <xsl:variable name=""var:v4"" select=""userCSharp:LogicalGt(string($var:v3) , &quot;0&quot;)"" />
-    <xsl:variable name=""var:v5"" select=""userCSharp:LogicalExistence(boolean(s0:PARAMETERSCHEMA))"" />
-    <xsl:variable name=""var:v6"" select=""userCSharp:LogicalAnd(string($var:v2) , string($var:v4) , string($var:v5))"" />
-    <xsl:variable name=""var:v8"" select=""string(s0:PARAMETERSCHEMA/text())"" />
-    <xsl:variable name=""var:v9"" select=""userCSharp:StringSize($var:v8)"" />
-    <xsl:variable name=""var:v10"" select=""userCSharp:LogicalGt(string($var:v9) , &quot;0&quot;)"" />
-    <xsl:variable name=""var:v11"" select=""boolean(s0:PARAMETERSCHEMA)"" />
-    <xsl:variable name=""var:v12"" select=""userCSharp:LogicalExistence($var:v11)"" />
-    <xsl:variable name=""var:v13"" select=""userCSharp:LogicalAnd(string($var:v2) , string($var:v10) , string($var:v12))"" />
+    <xsl:variable name=""var:v4"" select=""userCSharp:LogicalExistence(boolean(s0:PARAMETERSCHEMA))"" />
+    <xsl:variable name=""var:v7"" select=""string(s0:PARAMETERSCHEMA/text())"" />
+    <xsl:variable name=""var:v9"" select=""boolean(s0:PARAMETERSCHEMA)"" />
+    <xsl:variable name=""var:v10"" select=""userCSharp:LogicalExistence($var:v9)"" />
     <ns0:SQLEXECUTE>
       <ns0:SQLSTATEMENT>
         <xsl:value-of select=""s0:SQLSTATEMENT/text()"" />
       </ns0:SQLSTATEMENT>
-      <xsl:if test=""string($var:v6)='true'"">
-        <xsl:variable name=""var:v7"" select=""s0:PARAMETERSCHEMA/text()"" />
+      <xsl:variable name=""var:v3"" select=""userCSharp:MyConcat(string(s0:PARAMETERSCHEMA/text()))"" />
+      <xsl:variable name=""var:v5"" select=""userCSharp:LogicalAnd(string($var:v2) , string($var:v3) , string($var:v4))"" />
+      <xsl:if test=""string($var:v5)='true'"">
+        <xsl:variable name=""var:v6"" select=""s0:PARAMETERSCHEMA/text()"" />
         <ns0:PARAMETERSCHEMA>
-          <xsl:value-of select=""$var:v7"" />
+          <xsl:value-of select=""$var:v6"" />
         </ns0:PARAMETERSCHEMA>
       </xsl:if>
       <ns0:PARAMETERSET>
         <ns3:PARAMETERDATA>
           <ns3:PARAMETER>
-            <xsl:if test=""string($var:v13)='true'"">
-              <xsl:variable name=""var:v14"" select=""s0:PARAMETER/text()"" />
+            <xsl:variable name=""var:v8"" select=""userCSharp:MyConcat($var:v7)"" />
+            <xsl:variable name=""var:v11"" select=""userCSharp:LogicalAnd(string($var:v2) , string($var:v8) , string($var:v10))"" />
+            <xsl:if test=""string($var:v11)='true'"">
+              <xsl:variable name=""var:v12"" select=""s0:PARAMETER/text()"" />
               <ns1:string>
-                <xsl:value-of select=""$var:v14"" />
+                <xsl:value-of select=""$var:v12"" />
               </ns1:string>
             </xsl:if>
           </ns3:PARAMETER>
@@ -55,33 +53,6 @@ public bool LogicalNot(string val)
 }
 
 
-public int StringSize(string str)
-{
-	if (str == null)
-	{
-		return 0;
-	}
-	return str.Length;
-}
-
-
-public bool LogicalGt(string val1, string val2)
-{
-	bool ret = false;
-	double d1 = 0;
-	double d2 = 0;
-	if (IsNumeric(val1, ref d1) && IsNumeric(val2, ref d2))
-	{
-		ret = d1 > d2;
-	}
-	else
-	{
-		ret = String.Compare(val1, val2, StringComparison.Ordinal) > 0;
-	}
-	return ret;
-}
-
-
 public bool LogicalAnd(string param0, string param1, string param2)
 {
 	return ValToBool(param0) && ValToBool(param1) && ValToBool(param2);
@@ -92,6 +63,16 @@ public bool LogicalAnd(string param0, string param1, string param2)
 public bool LogicalExistence(bool val)
 {
 	return val;
+}
+
+
+///*Uncomment the following code for a sample Inline C# function
+//that concatenates two inputs. Change the number of parameters of
+//this function to be equal to the number of inputs connected to this functoid.*/
+
+public bool MyConcat(string param1)
+{
+	return param1 != null && param1.Trim().Length > 0;
 }
 
 

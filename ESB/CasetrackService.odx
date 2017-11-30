@@ -270,7 +270,7 @@
                                 <om:Property Name="OperationName" Value="DCFUpdateStatusMessage" />
                                 <om:Property Name="OperationMessageName" Value="Request" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
-                                <om:Property Name="Name" Value="S_ArchiveDCFResponseMessage" />
+                                <om:Property Name="Name" Value="S_DCFResponseMessage" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
                             <om:Element Type="Receive" OID="f7c2e28d-b18e-4b1c-b85a-c5c771b5e4f5" ParentLink="ListenBranch_Statement" LowerBound="139.1" HigherBound="140.116">

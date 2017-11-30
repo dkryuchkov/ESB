@@ -430,6 +430,52 @@ namespace DCP.ESB.Orchestrations
         }
         #endregion // port reflection support
     }
+
+    [System.SerializableAttribute]
+    sealed public class __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__ : Microsoft.XLANGs.Core.XSDPart
+    {
+        private static DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS _schema = new DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS();
+
+        public __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__(Microsoft.XLANGs.Core.XMessage msg, string name, int index) : base(msg, name, index) { }
+
+        
+        #region part reflection support
+        public static Microsoft.XLANGs.BaseTypes.SchemaBase PartSchema { get { return (Microsoft.XLANGs.BaseTypes.SchemaBase)_schema; } }
+        #endregion // part reflection support
+    }
+
+    [Microsoft.XLANGs.BaseTypes.MessageTypeAttribute(
+        Microsoft.XLANGs.BaseTypes.EXLangSAccess.ePublic,
+        Microsoft.XLANGs.BaseTypes.EXLangSMessageInfo.eThirdKind,
+        "DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS",
+        new System.Type[]{
+            typeof(DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS)
+        },
+        new string[]{
+            "part"
+        },
+        new System.Type[]{
+            typeof(__DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__)
+        },
+        0,
+        @"http://DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS#root"
+    )]
+    [System.SerializableAttribute]
+    sealed public class __messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS : Microsoft.BizTalk.XLANGs.BTXEngine.BTXMessage
+    {
+        public __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__ part;
+
+        private void __CreatePartWrappers()
+        {
+            part = new __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__(this, "part", 0);
+            this.AddPart("part", 0, part);
+        }
+
+        public __messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS(string msgName, Microsoft.XLANGs.Core.Context ctx) : base(msgName, ctx)
+        {
+            __CreatePartWrappers();
+        }
+    }
     [Microsoft.XLANGs.BaseTypes.CorrelationTypeAttribute(
         Microsoft.XLANGs.BaseTypes.EXLangSAccess.eInternal,
         new string[] {
@@ -496,7 +542,7 @@ namespace DCP.ESB.Orchestrations
     }
 
     [Microsoft.XLANGs.BaseTypes.PortTypeOperationAttribute(
-        "Send",
+        "SQLEXECUTE",
         new System.Type[]{
             typeof(DCP.ESB.Orchestrations.__messagetype_DCP_ESB_Schemas_CMSSQLEXECUTE_SQLEXECUTE)
         },
@@ -522,9 +568,9 @@ namespace DCP.ESB.Orchestrations
 
         public static readonly Microsoft.XLANGs.BaseTypes.EXLangSAccess __access = Microsoft.XLANGs.BaseTypes.EXLangSAccess.eInternal;
         #region port reflection support
-        static public Microsoft.XLANGs.Core.OperationInfo Send = new Microsoft.XLANGs.Core.OperationInfo
+        static public Microsoft.XLANGs.Core.OperationInfo SQLEXECUTE = new Microsoft.XLANGs.Core.OperationInfo
         (
-            "Send",
+            "SQLEXECUTE",
             System.Web.Services.Description.OperationFlow.OneWay,
             typeof(CMSSqlExecuteArchiveType),
             typeof(__messagetype_DCP_ESB_Schemas_CMSSQLEXECUTE_SQLEXECUTE),
@@ -537,7 +583,7 @@ namespace DCP.ESB.Orchestrations
             get
             {
                 System.Collections.Hashtable h = new System.Collections.Hashtable();
-                h[ "Send" ] = Send;
+                h[ "SQLEXECUTE" ] = SQLEXECUTE;
                 return h;
             }
         }
@@ -694,7 +740,7 @@ namespace DCP.ESB.Orchestrations
     }
 
     [Microsoft.XLANGs.BaseTypes.PortTypeOperationAttribute(
-        "Operation",
+        "Insert",
         new System.Type[]{
             typeof(DCP.ESB.Orchestrations.__messagetype_DCP_ESB_Schemas_CMSDCF_Table_DCF_IN_MESSAGE_LOG_Insert)
         },
@@ -720,9 +766,9 @@ namespace DCP.ESB.Orchestrations
 
         public static readonly Microsoft.XLANGs.BaseTypes.EXLangSAccess __access = Microsoft.XLANGs.BaseTypes.EXLangSAccess.eInternal;
         #region port reflection support
-        static public Microsoft.XLANGs.Core.OperationInfo Operation = new Microsoft.XLANGs.Core.OperationInfo
+        static public Microsoft.XLANGs.Core.OperationInfo Insert = new Microsoft.XLANGs.Core.OperationInfo
         (
-            "Operation",
+            "Insert",
             System.Web.Services.Description.OperationFlow.OneWay,
             typeof(SqlInsertArchiveType),
             typeof(__messagetype_DCP_ESB_Schemas_CMSDCF_Table_DCF_IN_MESSAGE_LOG_Insert),
@@ -735,7 +781,7 @@ namespace DCP.ESB.Orchestrations
             get
             {
                 System.Collections.Hashtable h = new System.Collections.Hashtable();
-                h[ "Operation" ] = Operation;
+                h[ "Insert" ] = Insert;
                 return h;
             }
         }
@@ -790,6 +836,55 @@ namespace DCP.ESB.Orchestrations
         }
         #endregion // port reflection support
     }
+
+    [Microsoft.XLANGs.BaseTypes.PortTypeOperationAttribute(
+        "Archive",
+        new System.Type[]{
+            typeof(DCP.ESB.Orchestrations.__messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS)
+        },
+        new string[]{
+        }
+    )]
+    [Microsoft.XLANGs.BaseTypes.PortTypeAttribute(Microsoft.XLANGs.BaseTypes.EXLangSAccess.eInternal, "")]
+    [System.SerializableAttribute]
+    sealed internal class SqlExecuteParamType : Microsoft.BizTalk.XLANGs.BTXEngine.BTXPortBase
+    {
+        public SqlExecuteParamType(int portInfo, Microsoft.XLANGs.Core.IServiceProxy s)
+            : base(portInfo, s)
+        { }
+        public SqlExecuteParamType(SqlExecuteParamType p)
+            : base(p)
+        { }
+
+        public override Microsoft.XLANGs.Core.PortBase Clone()
+        {
+            SqlExecuteParamType p = new SqlExecuteParamType(this);
+            return p;
+        }
+
+        public static readonly Microsoft.XLANGs.BaseTypes.EXLangSAccess __access = Microsoft.XLANGs.BaseTypes.EXLangSAccess.eInternal;
+        #region port reflection support
+        static public Microsoft.XLANGs.Core.OperationInfo Archive = new Microsoft.XLANGs.Core.OperationInfo
+        (
+            "Archive",
+            System.Web.Services.Description.OperationFlow.OneWay,
+            typeof(SqlExecuteParamType),
+            typeof(__messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS),
+            null,
+            new System.Type[]{},
+            new string[]{}
+        );
+        static public System.Collections.Hashtable OperationsInformation
+        {
+            get
+            {
+                System.Collections.Hashtable h = new System.Collections.Hashtable();
+                h[ "Archive" ] = Archive;
+                return h;
+            }
+        }
+        #endregion // port reflection support
+    }
     [Microsoft.XLANGs.BaseTypes.CorrelationTypeAttribute(
         Microsoft.XLANGs.BaseTypes.EXLangSAccess.eInternal,
         new string[] {
@@ -805,7 +900,7 @@ namespace DCP.ESB.Orchestrations
         public override Microsoft.XLANGs.BaseTypes.PropertyBase[] Properties { get { return _properties; } }
         public static Microsoft.XLANGs.BaseTypes.PropertyBase[] PropertiesList { get { return _properties; } }
     }
-    //#line 553 "C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\CasetrackService.odx"
+    //#line 553 "C:\git\ESB\ESB\CasetrackService.odx"
     [Microsoft.XLANGs.BaseTypes.StaticSubscriptionAttribute(
         0, "CasetrackServicePort", "UpdateDocument", -1, -1, true
     )]
@@ -1035,7 +1130,7 @@ namespace DCP.ESB.Orchestrations
                             
 <ShapeInfo>      <shapeType>ListenBranchShape</shapeType>      <ShapeID>2e8059d7-4e3f-481f-a033-a354f2c1f48a</ShapeID>      <ParentLink>ReallyComplexStatement_Branch</ParentLink>                <shapeText>ListenBranch_2</shapeText>                  
 <children>                          
-<ShapeInfo>      <shapeType>SendShape</shapeType>      <ShapeID>910c9936-dd0a-4eb9-93a7-4eda2547aa6a</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>S_ArchiveDCFResponseMessage</shapeText>                  
+<ShapeInfo>      <shapeType>SendShape</shapeType>      <ShapeID>910c9936-dd0a-4eb9-93a7-4eda2547aa6a</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>S_DCFResponseMessage</shapeText>                  
 <children>                </children>
   </ShapeInfo>
                             
@@ -1486,7 +1581,7 @@ namespace DCP.ESB.Orchestrations
                                 <om:Property Name='OperationName' Value='DCFUpdateStatusMessage' />
                                 <om:Property Name='OperationMessageName' Value='Request' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
-                                <om:Property Name='Name' Value='S_ArchiveDCFResponseMessage' />
+                                <om:Property Name='Name' Value='S_DCFResponseMessage' />
                                 <om:Property Name='Signal' Value='True' />
                             </om:Element>
                             <om:Element Type='Receive' OID='f7c2e28d-b18e-4b1c-b85a-c5c771b5e4f5' ParentLink='ListenBranch_Statement' LowerBound='139.1' HigherBound='140.116'>
@@ -1762,35 +1857,35 @@ namespace DCP.ESB.Orchestrations
                 CasetrackService __svc__ = (CasetrackService)_service;
                 __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)(__svc__._stateMgrs[0]);
 
-                if (__svc__.DCFServicePort != null)
+                if (__svc__.UpdateStatusPort != null)
                 {
-                    __svc__.DCFServicePort.Close(this, null);
-                    __svc__.DCFServicePort = null;
+                    __svc__.UpdateStatusPort.Close(this, null);
+                    __svc__.UpdateStatusPort = null;
                 }
                 if (__svc__.CasetrackServicePort != null)
                 {
                     __svc__.CasetrackServicePort.Close(this, null);
                     __svc__.CasetrackServicePort = null;
                 }
-                if (__svc__.UpdateStatusPort != null)
+                if (__svc__.CasetrackMessageArchivePort != null)
                 {
-                    __svc__.UpdateStatusPort.Close(this, null);
-                    __svc__.UpdateStatusPort = null;
-                }
-                if (__svc__.DCFResponseMessagePort != null)
-                {
-                    __svc__.DCFResponseMessagePort.Close(this, null);
-                    __svc__.DCFResponseMessagePort = null;
+                    __svc__.CasetrackMessageArchivePort.Close(this, null);
+                    __svc__.CasetrackMessageArchivePort = null;
                 }
                 if (__svc__.Exception_Port != null)
                 {
                     __svc__.Exception_Port.Close(this, null);
                     __svc__.Exception_Port = null;
                 }
-                if (__svc__.CasetrackMessageArchivePort != null)
+                if (__svc__.DCFServicePort != null)
                 {
-                    __svc__.CasetrackMessageArchivePort.Close(this, null);
-                    __svc__.CasetrackMessageArchivePort = null;
+                    __svc__.DCFServicePort.Close(this, null);
+                    __svc__.DCFServicePort = null;
+                }
+                if (__svc__.DCFResponseMessagePort != null)
+                {
+                    __svc__.DCFResponseMessagePort.Close(this, null);
+                    __svc__.DCFResponseMessagePort = null;
                 }
                 base.Finally();
             }
@@ -1901,9 +1996,32 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 CasetrackService __svc__ = (CasetrackService)_service;
-                __CasetrackService_1 __ctx1__ = (__CasetrackService_1)(__svc__._stateMgrs[1]);
                 ____scope34_2 __ctx2__ = (____scope34_2)(__svc__._stateMgrs[2]);
+                __CasetrackService_1 __ctx1__ = (__CasetrackService_1)(__svc__._stateMgrs[1]);
 
+                if (__ctx1__ != null && __ctx1__.__Correlation_id != null)
+                    __ctx1__.__Correlation_id = null;
+                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
+                    __ctx1__.__ExceptionMessage = null;
+                }
+                if (__ctx2__ != null)
+                    __ctx2__.__ex_0 = null;
+                if (__ctx1__ != null)
+                    __ctx1__.__xmlDocument = null;
+                if (__ctx1__ != null && __ctx1__.__DCFResponseMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__DCFResponseMessage);
+                    __ctx1__.__DCFResponseMessage = null;
+                }
+                if (__ctx1__ != null && __ctx1__.__UpdateDocMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__UpdateDocMessage);
+                    __ctx1__.__UpdateDocMessage = null;
+                }
+                if (__ctx1__ != null)
+                    __ctx1__.__noResponse_ex = null;
                 if (__ctx1__ != null && __ctx1__.__DCFMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__DCFMessage);
@@ -1914,29 +2032,6 @@ namespace DCP.ESB.Orchestrations
                     __ctx1__.UnrefMessage(__ctx1__.__StatusMessage);
                     __ctx1__.__StatusMessage = null;
                 }
-                if (__ctx1__ != null && __ctx1__.__DCFResponseMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__DCFResponseMessage);
-                    __ctx1__.__DCFResponseMessage = null;
-                }
-                if (__ctx1__ != null)
-                    __ctx1__.__noResponse_ex = null;
-                if (__ctx2__ != null)
-                    __ctx2__.__ex_0 = null;
-                if (__ctx1__ != null && __ctx1__.__UpdateDocMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__UpdateDocMessage);
-                    __ctx1__.__UpdateDocMessage = null;
-                }
-                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
-                    __ctx1__.__ExceptionMessage = null;
-                }
-                if (__ctx1__ != null)
-                    __ctx1__.__xmlDocument = null;
-                if (__ctx1__ != null && __ctx1__.__Correlation_id != null)
-                    __ctx1__.__Correlation_id = null;
                 if (__ctx2__ != null && __ctx2__.__subWrapper1 != null)
                 {
                     __ctx2__.__subWrapper1.Destroy(__svc__, __ctx2__);
@@ -2000,16 +2095,16 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 CasetrackService __svc__ = (CasetrackService)_service;
-                __CasetrackService_1 __ctx1__ = (__CasetrackService_1)(__svc__._stateMgrs[1]);
                 ____scope35_3 __ctx3__ = (____scope35_3)(__svc__._stateMgrs[3]);
+                __CasetrackService_1 __ctx1__ = (__CasetrackService_1)(__svc__._stateMgrs[1]);
 
-                if (__ctx3__ != null)
-                    __ctx3__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__ArchiveMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__ArchiveMessage);
                     __ctx1__.__ArchiveMessage = null;
                 }
+                if (__ctx3__ != null)
+                    __ctx3__.__ex_0 = null;
                 base.Finally();
             }
 
@@ -2260,8 +2355,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[0];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[0];
-            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -2309,9 +2404,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[1];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[1];
-            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
             ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -2416,10 +2511,10 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[2];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
-            ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
+            ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -2765,10 +2860,10 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[3];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[3];
-            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
-            ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
+            ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -2944,9 +3039,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[4];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[3];
-            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
             ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -3059,9 +3154,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[5];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
             ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -3165,11 +3260,11 @@ namespace DCP.ESB.Orchestrations
             return Microsoft.XLANGs.Core.StopConditions.Completed;
         }
         private static Microsoft.XLANGs.Core.CachedObject[] _locations = new Microsoft.XLANGs.Core.CachedObject[] {
-            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{E348C233-E243-4152-B71C-C7AD3215D519}"))
+            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{02033522-5732-451D-B4CB-0F05A49FBBBF}"))
         };
 
     }
-    //#line 234 "C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\DCFService.odx"
+    //#line 234 "C:\git\ESB\ESB\DCFService.odx"
     [Microsoft.XLANGs.BaseTypes.StaticSubscriptionAttribute(
         0, "DCFServiceInPort", "DCFMessage", -1, -1, true
     )]
@@ -3661,6 +3756,11 @@ namespace DCP.ESB.Orchestrations
                 DCFService __svc__ = (DCFService)_service;
                 __DCFService_root_0 __ctx0__ = (__DCFService_root_0)(__svc__._stateMgrs[0]);
 
+                if (__svc__.DCFServiceArchivePort != null)
+                {
+                    __svc__.DCFServiceArchivePort.Close(this, null);
+                    __svc__.DCFServiceArchivePort = null;
+                }
                 if (__svc__.DCFUpdateStatusMessageOutPort != null)
                 {
                     __svc__.DCFUpdateStatusMessageOutPort.Close(this, null);
@@ -3675,11 +3775,6 @@ namespace DCP.ESB.Orchestrations
                 {
                     __svc__.Exception_Port.Close(this, null);
                     __svc__.Exception_Port = null;
-                }
-                if (__svc__.DCFServiceArchivePort != null)
-                {
-                    __svc__.DCFServiceArchivePort.Close(this, null);
-                    __svc__.DCFServiceArchivePort = null;
                 }
                 base.Finally();
             }
@@ -3778,25 +3873,25 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 DCFService __svc__ = (DCFService)_service;
-                __DCFService_1 __ctx1__ = (__DCFService_1)(__svc__._stateMgrs[1]);
                 ____scope36_2 __ctx2__ = (____scope36_2)(__svc__._stateMgrs[2]);
+                __DCFService_1 __ctx1__ = (__DCFService_1)(__svc__._stateMgrs[1]);
 
+                if (__ctx2__ != null)
+                    __ctx2__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__DCFUpdateStatusMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__DCFUpdateStatusMessage);
                     __ctx1__.__DCFUpdateStatusMessage = null;
                 }
-                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
-                    __ctx1__.__ExceptionMessage = null;
-                }
-                if (__ctx2__ != null)
-                    __ctx2__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__DCFMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__DCFMessage);
                     __ctx1__.__DCFMessage = null;
+                }
+                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
+                    __ctx1__.__ExceptionMessage = null;
                 }
                 base.Finally();
             }
@@ -3984,8 +4079,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[0];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[0];
-            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
             __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
+            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -4031,9 +4126,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[1];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[1];
-            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
-            ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
             __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
+            ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
+            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -4126,9 +4221,9 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[2];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
-            ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
             __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
+            ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
+            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -4298,9 +4393,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[3];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
-            ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
             __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
+            ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
+            __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -4404,13 +4499,14 @@ namespace DCP.ESB.Orchestrations
             return Microsoft.XLANGs.Core.StopConditions.Completed;
         }
     }
-    //#line 772 "C:\Users\dmitry.kryuchkov\Documents\Visual Studio 2015\Projects\ESB\ESB\CasetrackUpdateStatus.odx"
+    //#line 832 "C:\git\ESB\ESB\CasetrackUpdateStatus.odx"
     [Microsoft.XLANGs.BaseTypes.StaticSubscriptionAttribute(
         0, "DCFUpdateStatusInPort", "DCFUpdateStatusMessage", -1, -1, true
     )]
     [Microsoft.XLANGs.BaseTypes.ServicePortsAttribute(
         new Microsoft.XLANGs.BaseTypes.EXLangSParameter[] {
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.ePort|Microsoft.XLANGs.BaseTypes.EXLangSParameter.eImplements,
+            Microsoft.XLANGs.BaseTypes.EXLangSParameter.ePort|Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses,
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.ePort|Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses,
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.ePort|Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses,
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.ePort|Microsoft.XLANGs.BaseTypes.EXLangSParameter.eImplements,
@@ -4423,6 +4519,7 @@ namespace DCP.ESB.Orchestrations
         },
         new System.Type[] {
             typeof(DCP.ESB.Orchestrations.DCFUpdateStatusType),
+            typeof(DCP.ESB.Orchestrations.SqlExecuteParamType),
             typeof(DCP.ESB.Orchestrations.CMSSqlExecuteArchiveType),
             typeof(DCP.ESB.Orchestrations.CMSSqlExecuteArchiveType),
             typeof(DCP.ESB.Orchestrations.CMSSqlExecuteResponseType),
@@ -4435,6 +4532,7 @@ namespace DCP.ESB.Orchestrations
         },
         new System.String[] {
             "DCFUpdateStatusInPort",
+            "SqlExecuteParamPort",
             "SqlExecuteArchivePort",
             "CMSSqlExecutePort",
             "CMSSqlExecuteResponsePort",
@@ -4446,6 +4544,7 @@ namespace DCP.ESB.Orchestrations
             "Exception_Port"
         },
         new System.Type[] {
+            null,
             null,
             null,
             null,
@@ -4549,16 +4648,40 @@ namespace DCP.ESB.Orchestrations
 <children>                          
 <ShapeInfo>      <shapeType>ScopeShape</shapeType>      <ShapeID>b93b041a-569a-41f9-a731-2e6de7af94b4</ShapeID>      <ParentLink>ServiceBody_Statement</ParentLink>                <shapeText>Scope_All</shapeText>                  
 <children>                          
+<ShapeInfo>      <shapeType>CorrelationDeclarationShape</shapeType>      <ShapeID>632a2c63-95b7-436b-8904-438149eaa2fd</ShapeID>      <ParentLink>Scope_CorrelationDeclaration</ParentLink>                <shapeText>Correlation_BTSCorrelationToken</shapeText>                  
+<children>                          
+<ShapeInfo>      <shapeType>StatementRefShape</shapeType>      <ShapeID>53b5b986-6905-4702-87d6-77c41f51bd18</ShapeID>      <ParentLink>CorrelationDeclaration_StatementRef</ParentLink>                <shapeText>StatementRef_3</shapeText>                  
+<children>                </children>
+  </ShapeInfo>
+                            
+<ShapeInfo>      <shapeType>StatementRefShape</shapeType>      <ShapeID>28b38f06-3e8e-4593-af8c-c8fe590869df</ShapeID>      <ParentLink>CorrelationDeclaration_StatementRef</ParentLink>                <shapeText>StatementRef_4</shapeText>                  
+<children>                </children>
+  </ShapeInfo>
+                  </children>
+  </ShapeInfo>
+                            
 <ShapeInfo>      <shapeType>ReceiveShape</shapeType>      <ShapeID>4877514f-ae5d-422a-ba4a-af306590c14a</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>R_DCFUpdateStatusMessage</shapeText>                  
 <children>                </children>
   </ShapeInfo>
                             
-<ShapeInfo>      <shapeType>ConstructShape</shapeType>      <ShapeID>44a6921d-92bc-4854-93d1-b31f991f259c</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>ConstructCMSSqlExecute</shapeText>                  
+<ShapeInfo>      <shapeType>ConstructShape</shapeType>      <ShapeID>eb382392-f811-445e-beb7-6c7215155f79</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>ConstructSqlExecuteParameterMessage</shapeText>                  
 <children>                          
 <ShapeInfo>      <shapeType>MessageAssignmentShape</shapeType>      <ShapeID>6f6877b7-dae2-4b06-9145-a4b2bb55fe30</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>MessageAssignment_CMSSqlExecParams</shapeText>                  
 <children>                </children>
   </ShapeInfo>
                             
+<ShapeInfo>      <shapeType>MessageRefShape</shapeType>      <ShapeID>e6bd3ab3-ce5a-43b2-8673-9da328f0ad16</ShapeID>      <ParentLink>Construct_MessageRef</ParentLink>                  
+<children>                </children>
+  </ShapeInfo>
+                  </children>
+  </ShapeInfo>
+                            
+<ShapeInfo>      <shapeType>SendShape</shapeType>      <ShapeID>725a4354-92a0-4c13-84f3-ad4062e6857f</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>S_SqlExecuteParamMessageArchive</shapeText>                  
+<children>                </children>
+  </ShapeInfo>
+                            
+<ShapeInfo>      <shapeType>ConstructShape</shapeType>      <ShapeID>44a6921d-92bc-4854-93d1-b31f991f259c</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>ConstructCMSSqlExecute</shapeText>                  
+<children>                          
 <ShapeInfo>      <shapeType>TransformShape</shapeType>      <ShapeID>8130bc83-9f52-487d-a6b3-29e569f9ef3c</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>T_SQLExecuteMessage</shapeText>                  
 <children>                          
 <ShapeInfo>      <shapeType>MessagePartRefShape</shapeType>      <ShapeID>3cb95fc8-68b4-4bfd-a176-f4f30984f213</ShapeID>      <ParentLink>Transform_InputMessagePartRef</ParentLink>                <shapeText>MessagePartReference_1</shapeText>                  
@@ -4572,10 +4695,6 @@ namespace DCP.ESB.Orchestrations
   </ShapeInfo>
                             
 <ShapeInfo>      <shapeType>MessageAssignmentShape</shapeType>      <ShapeID>260b37bd-3543-445a-9e17-683c83b52799</ShapeID>      <ParentLink>ComplexStatement_Statement</ParentLink>                <shapeText>MessageAssignment_1</shapeText>                  
-<children>                </children>
-  </ShapeInfo>
-                            
-<ShapeInfo>      <shapeType>MessageRefShape</shapeType>      <ShapeID>10afd786-8cfe-4307-ba7f-9a9daf24d18b</ShapeID>      <ParentLink>Construct_MessageRef</ParentLink>                  
 <children>                </children>
   </ShapeInfo>
                             
@@ -4709,18 +4828,6 @@ namespace DCP.ESB.Orchestrations
                   </children>
   </ShapeInfo>
                             
-<ShapeInfo>      <shapeType>CorrelationDeclarationShape</shapeType>      <ShapeID>632a2c63-95b7-436b-8904-438149eaa2fd</ShapeID>      <ParentLink>Scope_CorrelationDeclaration</ParentLink>                <shapeText>Correlation_BTSCorrelationToken</shapeText>                  
-<children>                          
-<ShapeInfo>      <shapeType>StatementRefShape</shapeType>      <ShapeID>53b5b986-6905-4702-87d6-77c41f51bd18</ShapeID>      <ParentLink>CorrelationDeclaration_StatementRef</ParentLink>                <shapeText>StatementRef_3</shapeText>                  
-<children>                </children>
-  </ShapeInfo>
-                            
-<ShapeInfo>      <shapeType>StatementRefShape</shapeType>      <ShapeID>28b38f06-3e8e-4593-af8c-c8fe590869df</ShapeID>      <ParentLink>CorrelationDeclaration_StatementRef</ParentLink>                <shapeText>StatementRef_4</shapeText>                  
-<children>                </children>
-  </ShapeInfo>
-                  </children>
-  </ShapeInfo>
-                            
 <ShapeInfo>      <shapeType>CatchShape</shapeType>      <ShapeID>619cb49c-f4b7-4c54-b433-63d72494b203</ShapeID>      <ParentLink>Scope_Catch</ParentLink>                <shapeText>CatchAllException</shapeText>                      <ExceptionType>System.Exception</ExceptionType>            
 <children>                          
 <ShapeInfo>      <shapeType>ConstructShape</shapeType>      <ShapeID>58882ad1-a77d-4e0e-a890-d1651f89869e</ShapeID>      <ParentLink>Catch_Statement</ParentLink>                <shapeText>ExceptionMessage_Construct</shapeText>                  
@@ -4746,85 +4853,98 @@ namespace DCP.ESB.Orchestrations
   </ProcessFlow><Metadata>
 
 <TrkMetadata>
-<ActionName>'CasetrackUpdateStatus'</ActionName><IsAtomic>0</IsAtomic><Line>772</Line><Position>14</Position><ShapeID>'e211a116-cb8b-44e7-a052-0de295aa0001'</ShapeID>
+<ActionName>'CasetrackUpdateStatus'</ActionName><IsAtomic>0</IsAtomic><Line>832</Line><Position>14</Position><ShapeID>'e211a116-cb8b-44e7-a052-0de295aa0001'</ShapeID>
 </TrkMetadata>
 
 <TrkMetadata>
-<ActionName>'??__scope37'</ActionName><IsAtomic>0</IsAtomic><Line>807</Line><Position>13</Position><ShapeID>'b93b041a-569a-41f9-a731-2e6de7af94b4'</ShapeID>
+<ActionName>'??__scope37'</ActionName><IsAtomic>0</IsAtomic><Line>869</Line><Position>13</Position><ShapeID>'b93b041a-569a-41f9-a731-2e6de7af94b4'</ShapeID>
 <Messages>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>813</Line><Position>30</Position><ShapeID>'4877514f-ae5d-422a-ba4a-af306590c14a'</ShapeID>
+<Line>875</Line><Position>30</Position><ShapeID>'4877514f-ae5d-422a-ba4a-af306590c14a'</ShapeID>
 <Messages>
 	<MsgInfo><name>DCFUpdateStatusMessage</name><part>part</part><schema>DCP.ESB.Schemas.DCFUpdateStatusMessage</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>818</Line><Position>21</Position><ShapeID>'44a6921d-92bc-4854-93d1-b31f991f259c'</ShapeID>
+<Line>880</Line><Position>21</Position><ShapeID>'eb382392-f811-445e-beb7-6c7215155f79'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSSqlExecuteParamsMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS</schema><direction>Out</direction></MsgInfo>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>886</Line><Position>21</Position><ShapeID>'725a4354-92a0-4c13-84f3-ad4062e6857f'</ShapeID>
+<Messages>
+	<MsgInfo><name>CMSSqlExecuteParamsMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS</schema><direction>Out</direction></MsgInfo>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>888</Line><Position>21</Position><ShapeID>'44a6921d-92bc-4854-93d1-b31f991f259c'</ShapeID>
+<Messages>
 	<MsgInfo><name>CMSSqlExecuteMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTE</schema><direction>Out</direction></MsgInfo>
 	<MsgInfo><name>CMSSqlExecuteParamsMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS</schema><direction>In</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>828</Line><Position>21</Position><ShapeID>'de335eb9-b6e7-49b2-8dd9-721941713698'</ShapeID>
+<Line>897</Line><Position>21</Position><ShapeID>'de335eb9-b6e7-49b2-8dd9-721941713698'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSSqlExecuteMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTE</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>830</Line><Position>21</Position><ShapeID>'7e3f9685-f33d-43ad-9049-d29ec3079e45'</ShapeID>
+<Line>899</Line><Position>21</Position><ShapeID>'7e3f9685-f33d-43ad-9049-d29ec3079e45'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSSqlExecuteMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTE</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<ActionName>'??__scope38'</ActionName><IsAtomic>0</IsAtomic><Line>832</Line><Position>21</Position><ShapeID>'32662c6e-e4bb-4eaa-8188-9bb69727e361'</ShapeID>
+<ActionName>'??__scope38'</ActionName><IsAtomic>0</IsAtomic><Line>901</Line><Position>21</Position><ShapeID>'32662c6e-e4bb-4eaa-8188-9bb69727e361'</ShapeID>
 <Messages>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>839</Line><Position>29</Position><ShapeID>'acc50781-18f0-41d7-a772-998db9d5dd90'</ShapeID>
+<Line>908</Line><Position>29</Position><ShapeID>'acc50781-18f0-41d7-a772-998db9d5dd90'</ShapeID>
 <Messages>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>850</Line><Position>39</Position><ShapeID>'703bbf55-2f95-4c9a-92b4-95e587588b78'</ShapeID>
-<Messages>
-	<MsgInfo><name>CMSSqlExecuteResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTEResponse</schema><direction>Out</direction></MsgInfo>
-</Messages>
-</TrkMetadata>
-
-<TrkMetadata>
-<Line>844</Line><Position>44</Position><ShapeID>'a3626248-9f83-425c-be98-0512feeb81f9'</ShapeID>
-<Messages>
-</Messages>
-</TrkMetadata>
-
-<TrkMetadata>
-<Line>847</Line><Position>37</Position><ShapeID>'4c5fa7e1-f84f-446e-a0c2-c2105641df45'</ShapeID>
-<Messages>
-</Messages>
-</TrkMetadata>
-
-<TrkMetadata>
-<Line>853</Line><Position>37</Position><ShapeID>'deb056cc-557c-4055-812e-e3cfdc3c7e54'</ShapeID>
+<Line>919</Line><Position>39</Position><ShapeID>'703bbf55-2f95-4c9a-92b4-95e587588b78'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSSqlExecuteResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTEResponse</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>855</Line><Position>37</Position><ShapeID>'82b60448-a7a8-4693-bfab-326c8533b4b5'</ShapeID>
+<Line>913</Line><Position>44</Position><ShapeID>'a3626248-9f83-425c-be98-0512feeb81f9'</ShapeID>
+<Messages>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>916</Line><Position>37</Position><ShapeID>'4c5fa7e1-f84f-446e-a0c2-c2105641df45'</ShapeID>
+<Messages>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>922</Line><Position>37</Position><ShapeID>'deb056cc-557c-4055-812e-e3cfdc3c7e54'</ShapeID>
+<Messages>
+	<MsgInfo><name>CMSSqlExecuteResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTEResponse</schema><direction>Out</direction></MsgInfo>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>924</Line><Position>37</Position><ShapeID>'82b60448-a7a8-4693-bfab-326c8533b4b5'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSInsertMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG+Insert</schema><direction>Out</direction></MsgInfo>
 	<MsgInfo><name>CMSSqlExecuteResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSSQLEXECUTE+SQLEXECUTEResponse</schema><direction>In</direction></MsgInfo>
@@ -4833,66 +4953,66 @@ namespace DCP.ESB.Orchestrations
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>863</Line><Position>37</Position><ShapeID>'6917ba92-7349-48f0-82ed-264b56f5183c'</ShapeID>
+<Line>933</Line><Position>37</Position><ShapeID>'6917ba92-7349-48f0-82ed-264b56f5183c'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSInsertMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG+Insert</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>865</Line><Position>37</Position><ShapeID>'594615aa-2823-4c46-a993-7dcdceb9bdce'</ShapeID>
+<Line>935</Line><Position>37</Position><ShapeID>'594615aa-2823-4c46-a993-7dcdceb9bdce'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSInsertMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG+Insert</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>868</Line><Position>37</Position><ShapeID>'b989b78c-2d1f-4263-92a8-42e1af80bdbf'</ShapeID>
+<Line>938</Line><Position>37</Position><ShapeID>'b989b78c-2d1f-4263-92a8-42e1af80bdbf'</ShapeID>
 <Messages>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>879</Line><Position>47</Position><ShapeID>'5715a494-7a04-42f8-9cfc-f99609234569'</ShapeID>
-<Messages>
-	<MsgInfo><name>CMSInsertResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG+InsertResponse</schema><direction>Out</direction></MsgInfo>
-</Messages>
-</TrkMetadata>
-
-<TrkMetadata>
-<Line>873</Line><Position>57</Position><ShapeID>'858e2af9-916e-46f1-aa08-5d3f7f7732fa'</ShapeID>
-<Messages>
-</Messages>
-</TrkMetadata>
-
-<TrkMetadata>
-<Line>876</Line><Position>45</Position><ShapeID>'5a0646fc-35a4-456b-93d9-5c22f3a8afb5'</ShapeID>
-<Messages>
-</Messages>
-</TrkMetadata>
-
-<TrkMetadata>
-<Line>882</Line><Position>45</Position><ShapeID>'90b23382-e3ff-41a5-8dc6-604de6173ce2'</ShapeID>
+<Line>949</Line><Position>47</Position><ShapeID>'5715a494-7a04-42f8-9cfc-f99609234569'</ShapeID>
 <Messages>
 	<MsgInfo><name>CMSInsertResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG+InsertResponse</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>893</Line><Position>21</Position><ShapeID>'619cb49c-f4b7-4c54-b433-63d72494b203'</ShapeID>
+<Line>943</Line><Position>57</Position><ShapeID>'858e2af9-916e-46f1-aa08-5d3f7f7732fa'</ShapeID>
 <Messages>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>896</Line><Position>25</Position><ShapeID>'58882ad1-a77d-4e0e-a890-d1651f89869e'</ShapeID>
+<Line>946</Line><Position>45</Position><ShapeID>'5a0646fc-35a4-456b-93d9-5c22f3a8afb5'</ShapeID>
+<Messages>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>952</Line><Position>45</Position><ShapeID>'90b23382-e3ff-41a5-8dc6-604de6173ce2'</ShapeID>
+<Messages>
+	<MsgInfo><name>CMSInsertResponseMessage</name><part>part</part><schema>DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG+InsertResponse</schema><direction>Out</direction></MsgInfo>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>963</Line><Position>21</Position><ShapeID>'619cb49c-f4b7-4c54-b433-63d72494b203'</ShapeID>
+<Messages>
+</Messages>
+</TrkMetadata>
+
+<TrkMetadata>
+<Line>966</Line><Position>25</Position><ShapeID>'58882ad1-a77d-4e0e-a890-d1651f89869e'</ShapeID>
 <Messages>
 	<MsgInfo><name>ExceptionMessage</name><part>part</part><schema>DCP.ESB.Schemas.Exception</schema><direction>Out</direction></MsgInfo>
 </Messages>
 </TrkMetadata>
 
 <TrkMetadata>
-<Line>903</Line><Position>25</Position><ShapeID>'b1817d55-b8dc-449d-a22d-289f442bd849'</ShapeID>
+<Line>973</Line><Position>25</Position><ShapeID>'b1817d55-b8dc-449d-a22d-289f442bd849'</ShapeID>
 <Messages>
 	<MsgInfo><name>ExceptionMessage</name><part>part</part><schema>DCP.ESB.Schemas.Exception</schema><direction>Out</direction></MsgInfo>
 </Messages>
@@ -4905,7 +5025,7 @@ namespace DCP.ESB.Orchestrations
         private const string _symODXML = @"
 <?xml version='1.0' encoding='utf-8' standalone='yes'?>
 <om:MetaModel MajorVersion='1' MinorVersion='3' Core='2b131234-7959-458d-834f-2dc0769ce683' ScheduleModel='66366196-361d-448d-976f-cab5e87496d2' xmlns:om='http://schemas.microsoft.com/BizTalk/2003/DesignerData'>
-    <om:Element Type='Module' OID='3890413f-8219-49e8-a1d1-7ae82ff9e9ea' LowerBound='1.1' HigherBound='189.1'>
+    <om:Element Type='Module' OID='3890413f-8219-49e8-a1d1-7ae82ff9e9ea' LowerBound='1.1' HigherBound='206.1'>
         <om:Property Name='ReportToAnalyst' Value='True' />
         <om:Property Name='Name' Value='DCP.ESB.Orchestrations' />
         <om:Property Name='Signal' Value='False' />
@@ -4918,12 +5038,12 @@ namespace DCP.ESB.Orchestrations
             <om:Element Type='OperationDeclaration' OID='fc3403ff-720b-4032-b2b9-bcfb93f59e3f' ParentLink='PortType_OperationDeclaration' LowerBound='6.1' HigherBound='10.1'>
                 <om:Property Name='OperationType' Value='OneWay' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
-                <om:Property Name='Name' Value='Send' />
+                <om:Property Name='Name' Value='SQLEXECUTE' />
                 <om:Property Name='Signal' Value='True' />
                 <om:Element Type='MessageRef' OID='b974ecd9-7db8-4747-a380-bd6e5a50b2a1' ParentLink='OperationDeclaration_RequestMessageRef' LowerBound='8.13' HigherBound='8.53'>
                     <om:Property Name='Ref' Value='DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE' />
                     <om:Property Name='ReportToAnalyst' Value='True' />
-                    <om:Property Name='Name' Value='Request' />
+                    <om:Property Name='Name' Value='Send' />
                     <om:Property Name='Signal' Value='True' />
                 </om:Element>
             </om:Element>
@@ -5006,12 +5126,12 @@ namespace DCP.ESB.Orchestrations
             <om:Element Type='OperationDeclaration' OID='03ed0ff2-88eb-4d96-bb5b-e76690a8d398' ParentLink='PortType_OperationDeclaration' LowerBound='34.1' HigherBound='38.1'>
                 <om:Property Name='OperationType' Value='OneWay' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
-                <om:Property Name='Name' Value='Operation' />
+                <om:Property Name='Name' Value='Insert' />
                 <om:Property Name='Signal' Value='True' />
                 <om:Element Type='MessageRef' OID='7e109f71-6720-46ac-abbe-44a798292f9c' ParentLink='OperationDeclaration_RequestMessageRef' LowerBound='36.13' HigherBound='36.67'>
                     <om:Property Name='Ref' Value='DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert' />
                     <om:Property Name='ReportToAnalyst' Value='True' />
-                    <om:Property Name='Name' Value='Request' />
+                    <om:Property Name='Name' Value='Send' />
                     <om:Property Name='Signal' Value='True' />
                 </om:Element>
             </om:Element>
@@ -5030,31 +5150,50 @@ namespace DCP.ESB.Orchestrations
                 <om:Element Type='MessageRef' OID='fa972120-9e13-4f8e-9923-a71454cc2a0e' ParentLink='OperationDeclaration_RequestMessageRef' LowerBound='43.13' HigherBound='43.75'>
                     <om:Property Name='Ref' Value='DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.InsertResponse' />
                     <om:Property Name='ReportToAnalyst' Value='True' />
+                    <om:Property Name='Name' Value='Operation' />
+                    <om:Property Name='Signal' Value='True' />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type='PortType' OID='823ee51b-b7de-4dac-8784-4db5807f5f82' ParentLink='Module_PortType' LowerBound='46.1' HigherBound='53.1'>
+            <om:Property Name='Synchronous' Value='False' />
+            <om:Property Name='TypeModifier' Value='Internal' />
+            <om:Property Name='ReportToAnalyst' Value='True' />
+            <om:Property Name='Name' Value='SqlExecuteParamType' />
+            <om:Property Name='Signal' Value='False' />
+            <om:Element Type='OperationDeclaration' OID='0a89cf99-6108-4a72-a24a-e8082d667899' ParentLink='PortType_OperationDeclaration' LowerBound='48.1' HigherBound='52.1'>
+                <om:Property Name='OperationType' Value='OneWay' />
+                <om:Property Name='ReportToAnalyst' Value='True' />
+                <om:Property Name='Name' Value='Archive' />
+                <om:Property Name='Signal' Value='True' />
+                <om:Element Type='MessageRef' OID='2324664b-f0b4-44f1-9b05-a84d8404ab5c' ParentLink='OperationDeclaration_RequestMessageRef' LowerBound='50.13' HigherBound='50.50'>
+                    <om:Property Name='Ref' Value='DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS' />
+                    <om:Property Name='ReportToAnalyst' Value='True' />
                     <om:Property Name='Name' Value='Request' />
                     <om:Property Name='Signal' Value='True' />
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type='CorrelationType' OID='2de8f2d8-9c80-4278-9223-5b5e5fe60e02' ParentLink='Module_CorrelationType' LowerBound='46.1' HigherBound='50.1'>
+        <om:Element Type='CorrelationType' OID='2de8f2d8-9c80-4278-9223-5b5e5fe60e02' ParentLink='Module_CorrelationType' LowerBound='53.1' HigherBound='57.1'>
             <om:Property Name='TypeModifier' Value='Internal' />
             <om:Property Name='ReportToAnalyst' Value='True' />
             <om:Property Name='Name' Value='CorrelationType_BTSCorrelationToken' />
             <om:Property Name='Signal' Value='True' />
-            <om:Element Type='PropertyRef' OID='70e507f9-e06e-4c7e-ac7b-5391aaf444c0' ParentLink='CorrelationType_PropertyRef' LowerBound='48.9' HigherBound='48.29'>
+            <om:Element Type='PropertyRef' OID='70e507f9-e06e-4c7e-ac7b-5391aaf444c0' ParentLink='CorrelationType_PropertyRef' LowerBound='55.9' HigherBound='55.29'>
                 <om:Property Name='Ref' Value='BTS.CorrelationToken' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='PropertyRef_1' />
                 <om:Property Name='Signal' Value='False' />
             </om:Element>
         </om:Element>
-        <om:Element Type='ServiceDeclaration' OID='2774ff96-d411-4bf0-9738-8f2e3efffba5' ParentLink='Module_ServiceDeclaration' LowerBound='50.1' HigherBound='188.1'>
+        <om:Element Type='ServiceDeclaration' OID='2774ff96-d411-4bf0-9738-8f2e3efffba5' ParentLink='Module_ServiceDeclaration' LowerBound='57.1' HigherBound='205.1'>
             <om:Property Name='InitializedTransactionType' Value='False' />
             <om:Property Name='IsInvokable' Value='False' />
             <om:Property Name='TypeModifier' Value='Internal' />
             <om:Property Name='ReportToAnalyst' Value='True' />
             <om:Property Name='Name' Value='CasetrackUpdateStatus' />
             <om:Property Name='Signal' Value='False' />
-            <om:Element Type='VariableDeclaration' OID='aaf6374e-73e1-481a-bac1-91d48f2d9bf4' ParentLink='ServiceDeclaration_VariableDeclaration' LowerBound='80.1' HigherBound='81.1'>
+            <om:Element Type='VariableDeclaration' OID='aaf6374e-73e1-481a-bac1-91d48f2d9bf4' ParentLink='ServiceDeclaration_VariableDeclaration' LowerBound='89.1' HigherBound='90.1'>
                 <om:Property Name='UseDefaultConstructor' Value='True' />
                 <om:Property Name='Type' Value='System.Xml.XmlDocument' />
                 <om:Property Name='ParamDirection' Value='In' />
@@ -5062,7 +5201,7 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='Name' Value='xmlDocument' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='VariableDeclaration' OID='1d2e3b05-e018-4435-af54-b15e47ba5d0f' ParentLink='ServiceDeclaration_VariableDeclaration' LowerBound='81.1' HigherBound='82.1'>
+            <om:Element Type='VariableDeclaration' OID='1d2e3b05-e018-4435-af54-b15e47ba5d0f' ParentLink='ServiceDeclaration_VariableDeclaration' LowerBound='90.1' HigherBound='91.1'>
                 <om:Property Name='UseDefaultConstructor' Value='True' />
                 <om:Property Name='Type' Value='System.Exception' />
                 <om:Property Name='ParamDirection' Value='In' />
@@ -5070,7 +5209,7 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='Name' Value='noResponse_ex' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='VariableDeclaration' OID='745065e8-f762-4c20-8185-bed5bdb0a831' ParentLink='ServiceDeclaration_VariableDeclaration' LowerBound='82.1' HigherBound='83.1'>
+            <om:Element Type='VariableDeclaration' OID='745065e8-f762-4c20-8185-bed5bdb0a831' ParentLink='ServiceDeclaration_VariableDeclaration' LowerBound='91.1' HigherBound='92.1'>
                 <om:Property Name='UseDefaultConstructor' Value='False' />
                 <om:Property Name='Type' Value='System.String' />
                 <om:Property Name='ParamDirection' Value='In' />
@@ -5078,49 +5217,49 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='Name' Value='s_temp' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='dcbbb068-05a4-4cc8-b152-27c33de2b343' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='73.1' HigherBound='74.1'>
+            <om:Element Type='MessageDeclaration' OID='dcbbb068-05a4-4cc8-b152-27c33de2b343' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='82.1' HigherBound='83.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.DCFUpdateStatusMessage' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='DCFUpdateStatusMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='f2686180-6fae-4b59-9423-b680c5262ccb' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='74.1' HigherBound='75.1'>
+            <om:Element Type='MessageDeclaration' OID='f2686180-6fae-4b59-9423-b680c5262ccb' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='83.1' HigherBound='84.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.Exception' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='ExceptionMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='dd764129-71fa-45f3-87a5-5a96b5c79197' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='75.1' HigherBound='76.1'>
+            <om:Element Type='MessageDeclaration' OID='dd764129-71fa-45f3-87a5-5a96b5c79197' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='84.1' HigherBound='85.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSSqlExecuteParamsMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='9702c9a3-8ecc-4cfa-828c-f405492b7e40' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='76.1' HigherBound='77.1'>
+            <om:Element Type='MessageDeclaration' OID='9702c9a3-8ecc-4cfa-828c-f405492b7e40' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='85.1' HigherBound='86.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSSqlExecuteMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='31d19fc4-d32a-454b-95c4-6432eff0ca17' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='77.1' HigherBound='78.1'>
+            <om:Element Type='MessageDeclaration' OID='31d19fc4-d32a-454b-95c4-6432eff0ca17' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='86.1' HigherBound='87.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTEResponse' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSSqlExecuteResponseMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='21258cf7-bce2-4924-98f6-750cd276058d' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='78.1' HigherBound='79.1'>
+            <om:Element Type='MessageDeclaration' OID='21258cf7-bce2-4924-98f6-750cd276058d' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='87.1' HigherBound='88.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSInsertMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
-            <om:Element Type='MessageDeclaration' OID='e61eabf8-25c6-41cd-8a3c-fcabe2f10a96' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='79.1' HigherBound='80.1'>
+            <om:Element Type='MessageDeclaration' OID='e61eabf8-25c6-41cd-8a3c-fcabe2f10a96' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='88.1' HigherBound='89.1'>
                 <om:Property Name='Type' Value='DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.InsertResponse' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
@@ -5129,13 +5268,34 @@ namespace DCP.ESB.Orchestrations
             </om:Element>
             <om:Element Type='ServiceBody' OID='20d807d0-9002-4c92-ae3c-00ac9b334bf6' ParentLink='ServiceDeclaration_ServiceBody'>
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='Scope' OID='b93b041a-569a-41f9-a731-2e6de7af94b4' ParentLink='ServiceBody_Statement' LowerBound='85.1' HigherBound='186.1'>
+                <om:Element Type='Scope' OID='b93b041a-569a-41f9-a731-2e6de7af94b4' ParentLink='ServiceBody_Statement' LowerBound='94.1' HigherBound='203.1'>
                     <om:Property Name='InitializedTransactionType' Value='True' />
                     <om:Property Name='IsSynchronized' Value='False' />
                     <om:Property Name='ReportToAnalyst' Value='True' />
                     <om:Property Name='Name' Value='Scope_All' />
                     <om:Property Name='Signal' Value='False' />
-                    <om:Element Type='Receive' OID='4877514f-ae5d-422a-ba4a-af306590c14a' ParentLink='ComplexStatement_Statement' LowerBound='91.1' HigherBound='96.1'>
+                    <om:Element Type='CorrelationDeclaration' OID='632a2c63-95b7-436b-8904-438149eaa2fd' ParentLink='Scope_CorrelationDeclaration' LowerBound='97.1' HigherBound='98.1'>
+                        <om:Property Name='Type' Value='DCP.ESB.Orchestrations.CorrelationType_BTSCorrelationToken' />
+                        <om:Property Name='ParamDirection' Value='In' />
+                        <om:Property Name='ReportToAnalyst' Value='True' />
+                        <om:Property Name='Name' Value='Correlation_BTSCorrelationToken' />
+                        <om:Property Name='Signal' Value='True' />
+                        <om:Element Type='StatementRef' OID='53b5b986-6905-4702-87d6-77c41f51bd18' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='125.79' HigherBound='125.121'>
+                            <om:Property Name='Initializes' Value='True' />
+                            <om:Property Name='Ref' Value='7e3f9685-f33d-43ad-9049-d29ec3079e45' />
+                            <om:Property Name='ReportToAnalyst' Value='True' />
+                            <om:Property Name='Name' Value='StatementRef_3' />
+                            <om:Property Name='Signal' Value='False' />
+                        </om:Element>
+                        <om:Element Type='StatementRef' OID='28b38f06-3e8e-4593-af8c-c8fe590869df' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='145.115' HigherBound='145.146'>
+                            <om:Property Name='Initializes' Value='False' />
+                            <om:Property Name='Ref' Value='703bbf55-2f95-4c9a-92b4-95e587588b78' />
+                            <om:Property Name='ReportToAnalyst' Value='True' />
+                            <om:Property Name='Name' Value='StatementRef_4' />
+                            <om:Property Name='Signal' Value='False' />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type='Receive' OID='4877514f-ae5d-422a-ba4a-af306590c14a' ParentLink='ComplexStatement_Statement' LowerBound='100.1' HigherBound='105.1'>
                         <om:Property Name='Activate' Value='True' />
                         <om:Property Name='PortName' Value='DCFUpdateStatusInPort' />
                         <om:Property Name='MessageName' Value='DCFUpdateStatusMessage' />
@@ -5145,89 +5305,103 @@ namespace DCP.ESB.Orchestrations
                         <om:Property Name='Name' Value='R_DCFUpdateStatusMessage' />
                         <om:Property Name='Signal' Value='True' />
                     </om:Element>
-                    <om:Element Type='Construct' OID='44a6921d-92bc-4854-93d1-b31f991f259c' ParentLink='ComplexStatement_Statement' LowerBound='96.1' HigherBound='106.1'>
+                    <om:Element Type='Construct' OID='eb382392-f811-445e-beb7-6c7215155f79' ParentLink='ComplexStatement_Statement' LowerBound='105.1' HigherBound='111.1'>
+                        <om:Property Name='ReportToAnalyst' Value='True' />
+                        <om:Property Name='Name' Value='ConstructSqlExecuteParameterMessage' />
+                        <om:Property Name='Signal' Value='True' />
+                        <om:Element Type='MessageAssignment' OID='6f6877b7-dae2-4b06-9145-a4b2bb55fe30' ParentLink='ComplexStatement_Statement' LowerBound='108.1' HigherBound='110.1'>
+                            <om:Property Name='Expression' Value='CMSSqlExecuteParamsMessage = DCP.ESB.Utils.Helper.getCmsSqlExecuteParamsXml(&quot;select dcf.dim_SEQ.nextval from dual&quot;,System.String.Empty,System.String.Empty);&#xD;&#xA;' />
+                            <om:Property Name='ReportToAnalyst' Value='False' />
+                            <om:Property Name='Name' Value='MessageAssignment_CMSSqlExecParams' />
+                            <om:Property Name='Signal' Value='False' />
+                        </om:Element>
+                        <om:Element Type='MessageRef' OID='e6bd3ab3-ce5a-43b2-8673-9da328f0ad16' ParentLink='Construct_MessageRef' LowerBound='106.31' HigherBound='106.57'>
+                            <om:Property Name='Ref' Value='CMSSqlExecuteParamsMessage' />
+                            <om:Property Name='ReportToAnalyst' Value='True' />
+                            <om:Property Name='Signal' Value='False' />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type='Send' OID='725a4354-92a0-4c13-84f3-ad4062e6857f' ParentLink='ComplexStatement_Statement' LowerBound='111.1' HigherBound='113.1'>
+                        <om:Property Name='PortName' Value='SqlExecuteParamPort' />
+                        <om:Property Name='MessageName' Value='CMSSqlExecuteParamsMessage' />
+                        <om:Property Name='OperationName' Value='Archive' />
+                        <om:Property Name='OperationMessageName' Value='Request' />
+                        <om:Property Name='ReportToAnalyst' Value='True' />
+                        <om:Property Name='Name' Value='S_SqlExecuteParamMessageArchive' />
+                        <om:Property Name='Signal' Value='True' />
+                    </om:Element>
+                    <om:Element Type='Construct' OID='44a6921d-92bc-4854-93d1-b31f991f259c' ParentLink='ComplexStatement_Statement' LowerBound='113.1' HigherBound='122.1'>
                         <om:Property Name='ReportToAnalyst' Value='True' />
                         <om:Property Name='Name' Value='ConstructCMSSqlExecute' />
                         <om:Property Name='Signal' Value='True' />
-                        <om:Element Type='MessageAssignment' OID='6f6877b7-dae2-4b06-9145-a4b2bb55fe30' ParentLink='ComplexStatement_Statement' LowerBound='99.1' HigherBound='101.1'>
-                            <om:Property Name='Expression' Value='CMSSqlExecuteParamsMessage = DCP.ESB.Utils.Helper.getCmsSqlExecuteParamsXml(&quot;select dcf.dim_SEQ.nextval from dual&quot;,null,null);&#xD;&#xA;' />
-                            <om:Property Name='ReportToAnalyst' Value='False' />
-                            <om:Property Name='Name' Value='MessageAssignment_CMSSqlExecParams' />
-                            <om:Property Name='Signal' Value='True' />
-                        </om:Element>
-                        <om:Element Type='Transform' OID='8130bc83-9f52-487d-a6b3-29e569f9ef3c' ParentLink='ComplexStatement_Statement' LowerBound='101.1' HigherBound='103.1'>
+                        <om:Element Type='Transform' OID='8130bc83-9f52-487d-a6b3-29e569f9ef3c' ParentLink='ComplexStatement_Statement' LowerBound='116.1' HigherBound='118.1'>
                             <om:Property Name='ClassName' Value='DCP.ESB.Maps.CMS_BUILD_SQLEXECUTE_' />
                             <om:Property Name='ReportToAnalyst' Value='True' />
                             <om:Property Name='Name' Value='T_SQLExecuteMessage' />
                             <om:Property Name='Signal' Value='True' />
-                            <om:Element Type='MessagePartRef' OID='3cb95fc8-68b4-4bfd-a176-f4f30984f213' ParentLink='Transform_InputMessagePartRef' LowerBound='102.96' HigherBound='102.122'>
+                            <om:Element Type='MessagePartRef' OID='3cb95fc8-68b4-4bfd-a176-f4f30984f213' ParentLink='Transform_InputMessagePartRef' LowerBound='117.96' HigherBound='117.122'>
                                 <om:Property Name='MessageRef' Value='CMSSqlExecuteParamsMessage' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
                                 <om:Property Name='Name' Value='MessagePartReference_1' />
                                 <om:Property Name='Signal' Value='False' />
                             </om:Element>
-                            <om:Element Type='MessagePartRef' OID='b51873b7-ad7e-460f-b3de-309591a66105' ParentLink='Transform_OutputMessagePartRef' LowerBound='102.36' HigherBound='102.56'>
+                            <om:Element Type='MessagePartRef' OID='b51873b7-ad7e-460f-b3de-309591a66105' ParentLink='Transform_OutputMessagePartRef' LowerBound='117.36' HigherBound='117.56'>
                                 <om:Property Name='MessageRef' Value='CMSSqlExecuteMessage' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
                                 <om:Property Name='Name' Value='MessagePartReference_2' />
                                 <om:Property Name='Signal' Value='False' />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type='MessageAssignment' OID='260b37bd-3543-445a-9e17-683c83b52799' ParentLink='ComplexStatement_Statement' LowerBound='103.1' HigherBound='105.1'>
-                            <om:Property Name='Expression' Value='CMSSqlExecuteMessage(BTS.CorrelationToken) = DCP.ESB.Utils.Helper.getGuid();' />
+                        <om:Element Type='MessageAssignment' OID='260b37bd-3543-445a-9e17-683c83b52799' ParentLink='ComplexStatement_Statement' LowerBound='118.1' HigherBound='121.1'>
+                            <om:Property Name='Expression' Value='CMSSqlExecuteMessage(BTS.CorrelationToken) = DCP.ESB.Utils.Helper.getGuid();&#xD;&#xA;CMSSqlExecuteMessage(WCF.Action) = &quot;http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE&quot;;' />
                             <om:Property Name='ReportToAnalyst' Value='False' />
                             <om:Property Name='Name' Value='MessageAssignment_1' />
-                            <om:Property Name='Signal' Value='False' />
+                            <om:Property Name='Signal' Value='True' />
                         </om:Element>
-                        <om:Element Type='MessageRef' OID='10afd786-8cfe-4307-ba7f-9a9daf24d18b' ParentLink='Construct_MessageRef' LowerBound='97.31' HigherBound='97.57'>
-                            <om:Property Name='Ref' Value='CMSSqlExecuteParamsMessage' />
-                            <om:Property Name='ReportToAnalyst' Value='True' />
-                            <om:Property Name='Signal' Value='False' />
-                        </om:Element>
-                        <om:Element Type='MessageRef' OID='f446a737-a02e-4983-91d1-bc860d0ed1d7' ParentLink='Construct_MessageRef' LowerBound='97.59' HigherBound='97.79'>
+                        <om:Element Type='MessageRef' OID='f446a737-a02e-4983-91d1-bc860d0ed1d7' ParentLink='Construct_MessageRef' LowerBound='114.31' HigherBound='114.51'>
                             <om:Property Name='Ref' Value='CMSSqlExecuteMessage' />
                             <om:Property Name='ReportToAnalyst' Value='True' />
                             <om:Property Name='Signal' Value='False' />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type='Send' OID='de335eb9-b6e7-49b2-8dd9-721941713698' ParentLink='ComplexStatement_Statement' LowerBound='106.1' HigherBound='108.1'>
+                    <om:Element Type='Send' OID='de335eb9-b6e7-49b2-8dd9-721941713698' ParentLink='ComplexStatement_Statement' LowerBound='122.1' HigherBound='124.1'>
                         <om:Property Name='PortName' Value='SqlExecuteArchivePort' />
                         <om:Property Name='MessageName' Value='CMSSqlExecuteMessage' />
-                        <om:Property Name='OperationName' Value='Send' />
-                        <om:Property Name='OperationMessageName' Value='Request' />
+                        <om:Property Name='OperationName' Value='SQLEXECUTE' />
+                        <om:Property Name='OperationMessageName' Value='Send' />
                         <om:Property Name='ReportToAnalyst' Value='True' />
                         <om:Property Name='Name' Value='S_CMSSqlExecuteMessageArchive' />
                         <om:Property Name='Signal' Value='True' />
                     </om:Element>
-                    <om:Element Type='Send' OID='7e3f9685-f33d-43ad-9049-d29ec3079e45' ParentLink='ComplexStatement_Statement' LowerBound='108.1' HigherBound='110.1'>
+                    <om:Element Type='Send' OID='7e3f9685-f33d-43ad-9049-d29ec3079e45' ParentLink='ComplexStatement_Statement' LowerBound='124.1' HigherBound='126.1'>
                         <om:Property Name='PortName' Value='CMSSqlExecutePort' />
                         <om:Property Name='MessageName' Value='CMSSqlExecuteMessage' />
-                        <om:Property Name='OperationName' Value='Send' />
-                        <om:Property Name='OperationMessageName' Value='Request' />
+                        <om:Property Name='OperationName' Value='SQLEXECUTE' />
+                        <om:Property Name='OperationMessageName' Value='Send' />
                         <om:Property Name='ReportToAnalyst' Value='True' />
                         <om:Property Name='Name' Value='S_CMSSqlExecuteMessage' />
                         <om:Property Name='Signal' Value='True' />
                     </om:Element>
-                    <om:Element Type='Scope' OID='32662c6e-e4bb-4eaa-8188-9bb69727e361' ParentLink='ComplexStatement_Statement' LowerBound='110.1' HigherBound='168.1'>
+                    <om:Element Type='Scope' OID='32662c6e-e4bb-4eaa-8188-9bb69727e361' ParentLink='ComplexStatement_Statement' LowerBound='126.1' HigherBound='185.1'>
                         <om:Property Name='InitializedTransactionType' Value='True' />
                         <om:Property Name='IsSynchronized' Value='False' />
                         <om:Property Name='ReportToAnalyst' Value='True' />
                         <om:Property Name='Name' Value='Scope_SQL' />
                         <om:Property Name='Signal' Value='True' />
-                        <om:Element Type='CorrelationDeclaration' OID='a40f5f52-e406-463e-8bb0-eba75ce41463' ParentLink='Scope_CorrelationDeclaration' LowerBound='113.1' HigherBound='114.1'>
+                        <om:Element Type='CorrelationDeclaration' OID='a40f5f52-e406-463e-8bb0-eba75ce41463' ParentLink='Scope_CorrelationDeclaration' LowerBound='129.1' HigherBound='130.1'>
                             <om:Property Name='Type' Value='DCP.ESB.Orchestrations.CorrelationType_BTSCorrelationToken' />
                             <om:Property Name='ParamDirection' Value='In' />
                             <om:Property Name='ReportToAnalyst' Value='True' />
                             <om:Property Name='Name' Value='Correlation_SQL_BTSCorrelationToken' />
                             <om:Property Name='Signal' Value='True' />
-                            <om:Element Type='StatementRef' OID='ea04bf64-6d73-4760-a40e-848a25d63fa3' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='144.93' HigherBound='144.139'>
+                            <om:Element Type='StatementRef' OID='ea04bf64-6d73-4760-a40e-848a25d63fa3' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='161.90' HigherBound='161.136'>
                                 <om:Property Name='Initializes' Value='True' />
                                 <om:Property Name='Ref' Value='594615aa-2823-4c46-a993-7dcdceb9bdce' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
                                 <om:Property Name='Name' Value='StatementRef_5' />
                                 <om:Property Name='Signal' Value='False' />
                             </om:Element>
-                            <om:Element Type='StatementRef' OID='786f46fa-7efd-4134-ab8c-ed7c01a8b866' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='158.122' HigherBound='158.157'>
+                            <om:Element Type='StatementRef' OID='786f46fa-7efd-4134-ab8c-ed7c01a8b866' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='175.122' HigherBound='175.157'>
                                 <om:Property Name='Initializes' Value='False' />
                                 <om:Property Name='Ref' Value='5715a494-7a04-42f8-9cfc-f99609234569' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
@@ -5235,40 +5409,40 @@ namespace DCP.ESB.Orchestrations
                                 <om:Property Name='Signal' Value='False' />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type='Listen' OID='acc50781-18f0-41d7-a772-998db9d5dd90' ParentLink='ComplexStatement_Statement' LowerBound='116.1' HigherBound='166.1'>
+                        <om:Element Type='Listen' OID='acc50781-18f0-41d7-a772-998db9d5dd90' ParentLink='ComplexStatement_Statement' LowerBound='132.1' HigherBound='183.1'>
                             <om:Property Name='ReportToAnalyst' Value='True' />
                             <om:Property Name='Name' Value='Listen_Response' />
                             <om:Property Name='Signal' Value='True' />
-                            <om:Element Type='ListenBranch' OID='6d2b07e2-3db2-4ac3-a368-f8f9173eeb90' ParentLink='ReallyComplexStatement_Branch' LowerBound='116.1' HigherBound='116.1'>
+                            <om:Element Type='ListenBranch' OID='6d2b07e2-3db2-4ac3-a368-f8f9173eeb90' ParentLink='ReallyComplexStatement_Branch' LowerBound='132.1' HigherBound='132.1'>
                                 <om:Property Name='IsGhostBranch' Value='True' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
                                 <om:Property Name='Name' Value='ListenBranch_1' />
                                 <om:Property Name='Signal' Value='False' />
-                                <om:Element Type='VariableAssignment' OID='a3626248-9f83-425c-be98-0512feeb81f9' ParentLink='ComplexStatement_Statement' LowerBound='122.1' HigherBound='125.1'>
+                                <om:Element Type='VariableAssignment' OID='a3626248-9f83-425c-be98-0512feeb81f9' ParentLink='ComplexStatement_Statement' LowerBound='138.1' HigherBound='141.1'>
                                     <om:Property Name='Expression' Value='s_temp = xpath(CMSSqlExecuteMessage,&quot;//local-name()=&apos;SQLSTATEMENT&apos;/text()&quot;);&#xD;&#xA;noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.NO.CMS.SQL.EXECUTE.RESPONSE&quot;) + s_temp);' />
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='Expression_build_noAck_exc' />
                                     <om:Property Name='Signal' Value='True' />
                                 </om:Element>
-                                <om:Element Type='Throw' OID='4c5fa7e1-f84f-446e-a0c2-c2105641df45' ParentLink='ComplexStatement_Statement' LowerBound='125.1' HigherBound='127.1'>
+                                <om:Element Type='Throw' OID='4c5fa7e1-f84f-446e-a0c2-c2105641df45' ParentLink='ComplexStatement_Statement' LowerBound='141.1' HigherBound='143.1'>
                                     <om:Property Name='ThrownReference' Value='noResponse_ex' />
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='ThrowNoReponseException' />
                                     <om:Property Name='Signal' Value='True' />
                                 </om:Element>
-                                <om:Element Type='Delay' OID='219c534f-97ba-409b-9cd1-19e5df1ad009' ParentLink='ListenBranch_Statement' LowerBound='119.1' HigherBound='120.151'>
+                                <om:Element Type='Delay' OID='219c534f-97ba-409b-9cd1-19e5df1ad009' ParentLink='ListenBranch_Statement' LowerBound='135.1' HigherBound='136.151'>
                                     <om:Property Name='Timeout' Value='new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.RESPONSE.WAIT.TIME.MIN&quot;)),0)' />
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='Delay_60s' />
                                     <om:Property Name='Signal' Value='False' />
                                 </om:Element>
                             </om:Element>
-                            <om:Element Type='ListenBranch' OID='6b7be308-6787-4974-a122-268d66fcd9fa' ParentLink='ReallyComplexStatement_Branch' LowerBound='116.1' HigherBound='116.1'>
+                            <om:Element Type='ListenBranch' OID='6b7be308-6787-4974-a122-268d66fcd9fa' ParentLink='ReallyComplexStatement_Branch' LowerBound='132.1' HigherBound='132.1'>
                                 <om:Property Name='IsGhostBranch' Value='True' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
                                 <om:Property Name='Name' Value='ListenBranch_2' />
                                 <om:Property Name='Signal' Value='True' />
-                                <om:Element Type='Send' OID='deb056cc-557c-4055-812e-e3cfdc3c7e54' ParentLink='ComplexStatement_Statement' LowerBound='131.1' HigherBound='133.1'>
+                                <om:Element Type='Send' OID='deb056cc-557c-4055-812e-e3cfdc3c7e54' ParentLink='ComplexStatement_Statement' LowerBound='147.1' HigherBound='149.1'>
                                     <om:Property Name='PortName' Value='CMSSqlExecuteResponseArchivePort' />
                                     <om:Property Name='MessageName' Value='CMSSqlExecuteResponseMessage' />
                                     <om:Property Name='OperationName' Value='Operation' />
@@ -5277,119 +5451,119 @@ namespace DCP.ESB.Orchestrations
                                     <om:Property Name='Name' Value='S_CMSSqlExecuteResponse' />
                                     <om:Property Name='Signal' Value='True' />
                                 </om:Element>
-                                <om:Element Type='Construct' OID='82b60448-a7a8-4693-bfab-326c8533b4b5' ParentLink='ComplexStatement_Statement' LowerBound='133.1' HigherBound='141.1'>
+                                <om:Element Type='Construct' OID='82b60448-a7a8-4693-bfab-326c8533b4b5' ParentLink='ComplexStatement_Statement' LowerBound='149.1' HigherBound='158.1'>
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='ConstructCMSInsertMessage' />
                                     <om:Property Name='Signal' Value='True' />
-                                    <om:Element Type='Transform' OID='ed4a3605-6d68-4447-8bc5-d74d89ee5180' ParentLink='ComplexStatement_Statement' LowerBound='136.1' HigherBound='138.1'>
+                                    <om:Element Type='Transform' OID='ed4a3605-6d68-4447-8bc5-d74d89ee5180' ParentLink='ComplexStatement_Statement' LowerBound='152.1' HigherBound='154.1'>
                                         <om:Property Name='ClassName' Value='DCP.ESB.Maps.DCFStatus_CMSInsert' />
                                         <om:Property Name='ReportToAnalyst' Value='True' />
                                         <om:Property Name='Name' Value='T_DCFStatus_CMSInsert' />
                                         <om:Property Name='Signal' Value='True' />
-                                        <om:Element Type='MessagePartRef' OID='e482cd12-dbdf-4f1e-a3d2-a9f4815a97fc' ParentLink='Transform_InputMessagePartRef' LowerBound='137.106' HigherBound='137.134'>
+                                        <om:Element Type='MessagePartRef' OID='e482cd12-dbdf-4f1e-a3d2-a9f4815a97fc' ParentLink='Transform_InputMessagePartRef' LowerBound='153.106' HigherBound='153.134'>
                                             <om:Property Name='MessageRef' Value='CMSSqlExecuteResponseMessage' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='MessagePartReference_3' />
                                             <om:Property Name='Signal' Value='False' />
                                         </om:Element>
-                                        <om:Element Type='MessagePartRef' OID='a3aa6a02-2055-47d1-884f-f928b88f06e1' ParentLink='Transform_InputMessagePartRef' LowerBound='137.136' HigherBound='137.158'>
+                                        <om:Element Type='MessagePartRef' OID='a3aa6a02-2055-47d1-884f-f928b88f06e1' ParentLink='Transform_InputMessagePartRef' LowerBound='153.136' HigherBound='153.158'>
                                             <om:Property Name='MessageRef' Value='DCFUpdateStatusMessage' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='MessagePartReference_4' />
                                             <om:Property Name='Signal' Value='False' />
                                         </om:Element>
-                                        <om:Element Type='MessagePartRef' OID='9ac48ea5-6612-4d10-b7ba-208e6d15c20e' ParentLink='Transform_OutputMessagePartRef' LowerBound='137.52' HigherBound='137.68'>
+                                        <om:Element Type='MessagePartRef' OID='9ac48ea5-6612-4d10-b7ba-208e6d15c20e' ParentLink='Transform_OutputMessagePartRef' LowerBound='153.52' HigherBound='153.68'>
                                             <om:Property Name='MessageRef' Value='CMSInsertMessage' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='MessagePartReference_5' />
                                             <om:Property Name='Signal' Value='False' />
                                         </om:Element>
                                     </om:Element>
-                                    <om:Element Type='MessageAssignment' OID='c155a4cc-1b39-4386-b4e2-d969792b2d55' ParentLink='ComplexStatement_Statement' LowerBound='138.1' HigherBound='140.1'>
-                                        <om:Property Name='Expression' Value='CMSInsertMessage(BTS.CorrelationToken) = DCP.ESB.Utils.Helper.getGuid();&#xD;&#xA;' />
+                                    <om:Element Type='MessageAssignment' OID='c155a4cc-1b39-4386-b4e2-d969792b2d55' ParentLink='ComplexStatement_Statement' LowerBound='154.1' HigherBound='157.1'>
+                                        <om:Property Name='Expression' Value='CMSInsertMessage(BTS.CorrelationToken) = DCP.ESB.Utils.Helper.getGuid();&#xD;&#xA;CMSInsertMessage(WCF.Action) = &quot;http://Microsoft.LobServices.OracleDB/2007/03/DCF/Table/DCF_IN_MESSAGE_LOG/Insert&quot;;&#xD;&#xA;' />
                                         <om:Property Name='ReportToAnalyst' Value='False' />
                                         <om:Property Name='Name' Value='CMSInsertArchiveMessageAssignment' />
                                         <om:Property Name='Signal' Value='True' />
                                     </om:Element>
-                                    <om:Element Type='MessageRef' OID='7725302b-57a3-4c5a-87e1-e93a22889cc9' ParentLink='Construct_MessageRef' LowerBound='134.47' HigherBound='134.63'>
+                                    <om:Element Type='MessageRef' OID='7725302b-57a3-4c5a-87e1-e93a22889cc9' ParentLink='Construct_MessageRef' LowerBound='150.47' HigherBound='150.63'>
                                         <om:Property Name='Ref' Value='CMSInsertMessage' />
                                         <om:Property Name='ReportToAnalyst' Value='True' />
                                         <om:Property Name='Signal' Value='False' />
                                     </om:Element>
                                 </om:Element>
-                                <om:Element Type='Send' OID='6917ba92-7349-48f0-82ed-264b56f5183c' ParentLink='ComplexStatement_Statement' LowerBound='141.1' HigherBound='143.1'>
+                                <om:Element Type='Send' OID='6917ba92-7349-48f0-82ed-264b56f5183c' ParentLink='ComplexStatement_Statement' LowerBound='158.1' HigherBound='160.1'>
                                     <om:Property Name='PortName' Value='SqlInsertArchivePort' />
                                     <om:Property Name='MessageName' Value='CMSInsertMessage' />
-                                    <om:Property Name='OperationName' Value='Operation' />
-                                    <om:Property Name='OperationMessageName' Value='Request' />
+                                    <om:Property Name='OperationName' Value='Insert' />
+                                    <om:Property Name='OperationMessageName' Value='Send' />
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='S_CMSInsertArchiveMessage' />
                                     <om:Property Name='Signal' Value='True' />
                                 </om:Element>
-                                <om:Element Type='Send' OID='594615aa-2823-4c46-a993-7dcdceb9bdce' ParentLink='ComplexStatement_Statement' LowerBound='143.1' HigherBound='145.1'>
+                                <om:Element Type='Send' OID='594615aa-2823-4c46-a993-7dcdceb9bdce' ParentLink='ComplexStatement_Statement' LowerBound='160.1' HigherBound='162.1'>
                                     <om:Property Name='PortName' Value='CMSInsertMessagePort' />
                                     <om:Property Name='MessageName' Value='CMSInsertMessage' />
-                                    <om:Property Name='OperationName' Value='Operation' />
-                                    <om:Property Name='OperationMessageName' Value='Request' />
+                                    <om:Property Name='OperationName' Value='Insert' />
+                                    <om:Property Name='OperationMessageName' Value='Send' />
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='S_CMSInsertMessage' />
                                     <om:Property Name='Signal' Value='True' />
                                 </om:Element>
-                                <om:Element Type='Listen' OID='b989b78c-2d1f-4263-92a8-42e1af80bdbf' ParentLink='ComplexStatement_Statement' LowerBound='145.1' HigherBound='164.1'>
+                                <om:Element Type='Listen' OID='b989b78c-2d1f-4263-92a8-42e1af80bdbf' ParentLink='ComplexStatement_Statement' LowerBound='162.1' HigherBound='181.1'>
                                     <om:Property Name='ReportToAnalyst' Value='True' />
                                     <om:Property Name='Name' Value='Listen_CMSInsertResponse' />
                                     <om:Property Name='Signal' Value='True' />
-                                    <om:Element Type='ListenBranch' OID='4925c8bb-e646-4d51-9ccd-b1d3054d578a' ParentLink='ReallyComplexStatement_Branch' LowerBound='145.1' HigherBound='145.1'>
+                                    <om:Element Type='ListenBranch' OID='4925c8bb-e646-4d51-9ccd-b1d3054d578a' ParentLink='ReallyComplexStatement_Branch' LowerBound='162.1' HigherBound='162.1'>
                                         <om:Property Name='IsGhostBranch' Value='True' />
                                         <om:Property Name='ReportToAnalyst' Value='True' />
                                         <om:Property Name='Name' Value='ListenBranch_3' />
                                         <om:Property Name='Signal' Value='False' />
-                                        <om:Element Type='VariableAssignment' OID='858e2af9-916e-46f1-aa08-5d3f7f7732fa' ParentLink='ComplexStatement_Statement' LowerBound='151.1' HigherBound='154.1'>
+                                        <om:Element Type='VariableAssignment' OID='858e2af9-916e-46f1-aa08-5d3f7f7732fa' ParentLink='ComplexStatement_Statement' LowerBound='168.1' HigherBound='171.1'>
                                             <om:Property Name='Expression' Value='xmlDocument = CMSInsertMessage;&#xD;&#xA;noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.NO.CMS.SQL.INSERT.RESPONSE&quot;) + xmlDocument.OuterXml);' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='Expression_build_noAck_exc' />
                                             <om:Property Name='Signal' Value='False' />
                                         </om:Element>
-                                        <om:Element Type='Throw' OID='5a0646fc-35a4-456b-93d9-5c22f3a8afb5' ParentLink='ComplexStatement_Statement' LowerBound='154.1' HigherBound='156.1'>
+                                        <om:Element Type='Throw' OID='5a0646fc-35a4-456b-93d9-5c22f3a8afb5' ParentLink='ComplexStatement_Statement' LowerBound='171.1' HigherBound='173.1'>
                                             <om:Property Name='ThrownReference' Value='noResponse_ex' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='ThrowException_1' />
                                             <om:Property Name='Signal' Value='True' />
                                         </om:Element>
-                                        <om:Element Type='Delay' OID='472950c5-523e-4385-834c-7372117f8951' ParentLink='ListenBranch_Statement' LowerBound='148.1' HigherBound='149.159'>
+                                        <om:Element Type='Delay' OID='472950c5-523e-4385-834c-7372117f8951' ParentLink='ListenBranch_Statement' LowerBound='165.1' HigherBound='166.159'>
                                             <om:Property Name='Timeout' Value='new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.RESPONSE.WAIT.TIME.MIN&quot;)),0)' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='Delay_60s' />
                                             <om:Property Name='Signal' Value='False' />
                                         </om:Element>
                                     </om:Element>
-                                    <om:Element Type='ListenBranch' OID='c136782b-062b-46d6-936a-30c6d311ecc7' ParentLink='ReallyComplexStatement_Branch' LowerBound='145.1' HigherBound='145.1'>
+                                    <om:Element Type='ListenBranch' OID='c136782b-062b-46d6-936a-30c6d311ecc7' ParentLink='ReallyComplexStatement_Branch' LowerBound='162.1' HigherBound='162.1'>
                                         <om:Property Name='IsGhostBranch' Value='True' />
                                         <om:Property Name='ReportToAnalyst' Value='True' />
                                         <om:Property Name='Name' Value='ListenBranch_4' />
                                         <om:Property Name='Signal' Value='True' />
-                                        <om:Element Type='Send' OID='90b23382-e3ff-41a5-8dc6-604de6173ce2' ParentLink='ComplexStatement_Statement' LowerBound='160.1' HigherBound='162.1'>
+                                        <om:Element Type='Send' OID='90b23382-e3ff-41a5-8dc6-604de6173ce2' ParentLink='ComplexStatement_Statement' LowerBound='177.1' HigherBound='179.1'>
                                             <om:Property Name='PortName' Value='SqlInsertResponseArchivePort' />
                                             <om:Property Name='MessageName' Value='CMSInsertResponseMessage' />
                                             <om:Property Name='OperationName' Value='Operation' />
-                                            <om:Property Name='OperationMessageName' Value='Request' />
+                                            <om:Property Name='OperationMessageName' Value='Operation' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='S_CMSInsertResponseMessage' />
                                             <om:Property Name='Signal' Value='True' />
                                         </om:Element>
-                                        <om:Element Type='Receive' OID='5715a494-7a04-42f8-9cfc-f99609234569' ParentLink='ListenBranch_Statement' LowerBound='157.1' HigherBound='158.158'>
+                                        <om:Element Type='Receive' OID='5715a494-7a04-42f8-9cfc-f99609234569' ParentLink='ListenBranch_Statement' LowerBound='174.1' HigherBound='175.158'>
                                             <om:Property Name='Activate' Value='False' />
                                             <om:Property Name='PortName' Value='CMSInsertResponseMessagePort' />
                                             <om:Property Name='MessageName' Value='CMSInsertResponseMessage' />
                                             <om:Property Name='OperationName' Value='Operation' />
-                                            <om:Property Name='OperationMessageName' Value='Request' />
+                                            <om:Property Name='OperationMessageName' Value='Operation' />
                                             <om:Property Name='ReportToAnalyst' Value='True' />
                                             <om:Property Name='Name' Value='R_CMSInsertResponseMessage' />
                                             <om:Property Name='Signal' Value='True' />
                                         </om:Element>
                                     </om:Element>
                                 </om:Element>
-                                <om:Element Type='Receive' OID='703bbf55-2f95-4c9a-92b4-95e587588b78' ParentLink='ListenBranch_Statement' LowerBound='128.1' HigherBound='129.147'>
+                                <om:Element Type='Receive' OID='703bbf55-2f95-4c9a-92b4-95e587588b78' ParentLink='ListenBranch_Statement' LowerBound='144.1' HigherBound='145.147'>
                                     <om:Property Name='Activate' Value='False' />
                                     <om:Property Name='PortName' Value='CMSSqlExecuteResponsePort' />
                                     <om:Property Name='MessageName' Value='CMSSqlExecuteResponseMessage' />
@@ -5402,51 +5576,30 @@ namespace DCP.ESB.Orchestrations
                             </om:Element>
                         </om:Element>
                     </om:Element>
-                    <om:Element Type='CorrelationDeclaration' OID='632a2c63-95b7-436b-8904-438149eaa2fd' ParentLink='Scope_CorrelationDeclaration' LowerBound='88.1' HigherBound='89.1'>
-                        <om:Property Name='Type' Value='DCP.ESB.Orchestrations.CorrelationType_BTSCorrelationToken' />
-                        <om:Property Name='ParamDirection' Value='In' />
-                        <om:Property Name='ReportToAnalyst' Value='True' />
-                        <om:Property Name='Name' Value='Correlation_BTSCorrelationToken' />
-                        <om:Property Name='Signal' Value='True' />
-                        <om:Element Type='StatementRef' OID='53b5b986-6905-4702-87d6-77c41f51bd18' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='109.73' HigherBound='109.115'>
-                            <om:Property Name='Initializes' Value='True' />
-                            <om:Property Name='Ref' Value='7e3f9685-f33d-43ad-9049-d29ec3079e45' />
-                            <om:Property Name='ReportToAnalyst' Value='True' />
-                            <om:Property Name='Name' Value='StatementRef_3' />
-                            <om:Property Name='Signal' Value='False' />
-                        </om:Element>
-                        <om:Element Type='StatementRef' OID='28b38f06-3e8e-4593-af8c-c8fe590869df' ParentLink='CorrelationDeclaration_StatementRef' LowerBound='129.115' HigherBound='129.146'>
-                            <om:Property Name='Initializes' Value='False' />
-                            <om:Property Name='Ref' Value='703bbf55-2f95-4c9a-92b4-95e587588b78' />
-                            <om:Property Name='ReportToAnalyst' Value='True' />
-                            <om:Property Name='Name' Value='StatementRef_4' />
-                            <om:Property Name='Signal' Value='False' />
-                        </om:Element>
-                    </om:Element>
-                    <om:Element Type='Catch' OID='619cb49c-f4b7-4c54-b433-63d72494b203' ParentLink='Scope_Catch' LowerBound='171.1' HigherBound='184.1'>
+                    <om:Element Type='Catch' OID='619cb49c-f4b7-4c54-b433-63d72494b203' ParentLink='Scope_Catch' LowerBound='188.1' HigherBound='201.1'>
                         <om:Property Name='ExceptionName' Value='ex' />
                         <om:Property Name='ExceptionType' Value='System.Exception' />
                         <om:Property Name='IsFaultMessage' Value='False' />
                         <om:Property Name='ReportToAnalyst' Value='True' />
                         <om:Property Name='Name' Value='CatchAllException' />
                         <om:Property Name='Signal' Value='True' />
-                        <om:Element Type='Construct' OID='58882ad1-a77d-4e0e-a890-d1651f89869e' ParentLink='Catch_Statement' LowerBound='174.1' HigherBound='181.1'>
+                        <om:Element Type='Construct' OID='58882ad1-a77d-4e0e-a890-d1651f89869e' ParentLink='Catch_Statement' LowerBound='191.1' HigherBound='198.1'>
                             <om:Property Name='ReportToAnalyst' Value='True' />
                             <om:Property Name='Name' Value='ExceptionMessage_Construct' />
                             <om:Property Name='Signal' Value='True' />
-                            <om:Element Type='MessageAssignment' OID='b643036b-ff49-438e-9887-1a2235b33aba' ParentLink='ComplexStatement_Statement' LowerBound='177.1' HigherBound='180.1'>
+                            <om:Element Type='MessageAssignment' OID='b643036b-ff49-438e-9887-1a2235b33aba' ParentLink='ComplexStatement_Statement' LowerBound='194.1' HigherBound='197.1'>
                                 <om:Property Name='Expression' Value='&#xD;&#xA;ExceptionMessage = DCP.ESB.Utils.Helper.getEsbExceptionXml(&quot;ESB.CATCH.ALL.EXCEPTION.CODE&quot;,ex);&#xD;&#xA;' />
                                 <om:Property Name='ReportToAnalyst' Value='False' />
                                 <om:Property Name='Name' Value='Exception_Message_Assigment' />
                                 <om:Property Name='Signal' Value='False' />
                             </om:Element>
-                            <om:Element Type='MessageRef' OID='0fa295d6-9557-450d-b477-c00404422177' ParentLink='Construct_MessageRef' LowerBound='175.35' HigherBound='175.51'>
+                            <om:Element Type='MessageRef' OID='0fa295d6-9557-450d-b477-c00404422177' ParentLink='Construct_MessageRef' LowerBound='192.35' HigherBound='192.51'>
                                 <om:Property Name='Ref' Value='ExceptionMessage' />
                                 <om:Property Name='ReportToAnalyst' Value='True' />
                                 <om:Property Name='Signal' Value='False' />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type='Send' OID='b1817d55-b8dc-449d-a22d-289f442bd849' ParentLink='Catch_Statement' LowerBound='181.1' HigherBound='183.1'>
+                        <om:Element Type='Send' OID='b1817d55-b8dc-449d-a22d-289f442bd849' ParentLink='Catch_Statement' LowerBound='198.1' HigherBound='200.1'>
                             <om:Property Name='PortName' Value='Exception_Port' />
                             <om:Property Name='MessageName' Value='ExceptionMessage' />
                             <om:Property Name='OperationName' Value='WriteException' />
@@ -5458,7 +5611,7 @@ namespace DCP.ESB.Orchestrations
                     </om:Element>
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='e3f6d626-84b2-4eeb-899f-f7e1a8947935' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='53.1' HigherBound='55.1'>
+            <om:Element Type='PortDeclaration' OID='e3f6d626-84b2-4eeb-899f-f7e1a8947935' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='60.1' HigherBound='62.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Left' />
                 <om:Property Name='PortIndex' Value='12' />
@@ -5470,11 +5623,11 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='Exception_Port' />
                 <om:Property Name='Signal' Value='True' />
-                <om:Element Type='LogicalBindingAttribute' OID='d0453bb8-53d2-4ec4-b145-bf711f16a753' ParentLink='PortDeclaration_CLRAttribute' LowerBound='53.1' HigherBound='54.1'>
+                <om:Element Type='LogicalBindingAttribute' OID='d0453bb8-53d2-4ec4-b145-bf711f16a753' ParentLink='PortDeclaration_CLRAttribute' LowerBound='60.1' HigherBound='61.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='d83461b9-043e-4d91-bc43-4a0af74ac4d4' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='55.1' HigherBound='57.1'>
+            <om:Element Type='PortDeclaration' OID='d83461b9-043e-4d91-bc43-4a0af74ac4d4' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='62.1' HigherBound='64.1'>
                 <om:Property Name='PortModifier' Value='Implements' />
                 <om:Property Name='Orientation' Value='Left' />
                 <om:Property Name='PortIndex' Value='5' />
@@ -5486,11 +5639,11 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='DCFUpdateStatusInPort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='0d8d83ca-3986-4249-afd2-a6218a6ed474' ParentLink='PortDeclaration_CLRAttribute' LowerBound='55.1' HigherBound='56.1'>
+                <om:Element Type='LogicalBindingAttribute' OID='0d8d83ca-3986-4249-afd2-a6218a6ed474' ParentLink='PortDeclaration_CLRAttribute' LowerBound='62.1' HigherBound='63.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='93671791-a610-423b-97f1-307916c85e01' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='57.1' HigherBound='59.1'>
+            <om:Element Type='PortDeclaration' OID='93671791-a610-423b-97f1-307916c85e01' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='64.1' HigherBound='66.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='-1' />
@@ -5502,11 +5655,11 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='SqlExecuteArchivePort' />
                 <om:Property Name='Signal' Value='True' />
-                <om:Element Type='LogicalBindingAttribute' OID='c7d80b24-5ee7-48f3-b6ca-903c05f4a556' ParentLink='PortDeclaration_CLRAttribute' LowerBound='57.1' HigherBound='58.1'>
+                <om:Element Type='LogicalBindingAttribute' OID='c7d80b24-5ee7-48f3-b6ca-903c05f4a556' ParentLink='PortDeclaration_CLRAttribute' LowerBound='64.1' HigherBound='65.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='33c586a6-42c4-4e73-bb51-c125f5747796' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='59.1' HigherBound='61.1'>
+            <om:Element Type='PortDeclaration' OID='33c586a6-42c4-4e73-bb51-c125f5747796' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='66.1' HigherBound='68.1'>
                 <om:Property Name='PortModifier' Value='Implements' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='42' />
@@ -5518,11 +5671,12 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSInsertResponseMessagePort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='14911c6b-c686-4afb-af33-bf6bd6ab32f7' ParentLink='PortDeclaration_CLRAttribute' LowerBound='59.1' HigherBound='60.1'>
+                <om:Element Type='DirectBindingAttribute' OID='a80c94e4-d4cc-4806-a41f-4f84d6d25fd3' ParentLink='PortDeclaration_CLRAttribute' LowerBound='66.1' HigherBound='67.1'>
+                    <om:Property Name='DirectBindingType' Value='MessageBox' />
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='5491bf6c-ff66-4353-a6bf-25935ab19a49' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='61.1' HigherBound='63.1'>
+            <om:Element Type='PortDeclaration' OID='5491bf6c-ff66-4353-a6bf-25935ab19a49' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='68.1' HigherBound='70.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='44' />
@@ -5534,11 +5688,11 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='SqlInsertResponseArchivePort' />
                 <om:Property Name='Signal' Value='True' />
-                <om:Element Type='LogicalBindingAttribute' OID='cff2eeaf-d4d8-44f2-9729-c7446cf6657c' ParentLink='PortDeclaration_CLRAttribute' LowerBound='61.1' HigherBound='62.1'>
+                <om:Element Type='LogicalBindingAttribute' OID='cff2eeaf-d4d8-44f2-9729-c7446cf6657c' ParentLink='PortDeclaration_CLRAttribute' LowerBound='68.1' HigherBound='69.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='67b67abd-be05-451d-ab05-e8c9878bdab1' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='63.1' HigherBound='65.1'>
+            <om:Element Type='PortDeclaration' OID='67b67abd-be05-451d-ab05-e8c9878bdab1' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='70.1' HigherBound='72.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='36' />
@@ -5550,11 +5704,12 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSInsertMessagePort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='66e3581d-da57-431d-9517-0f87a5452697' ParentLink='PortDeclaration_CLRAttribute' LowerBound='63.1' HigherBound='64.1'>
+                <om:Element Type='DirectBindingAttribute' OID='f76dd8d3-2144-4b6b-b3b4-2c41138a643c' ParentLink='PortDeclaration_CLRAttribute' LowerBound='70.1' HigherBound='71.1'>
+                    <om:Property Name='DirectBindingType' Value='MessageBox' />
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='d9795458-15e4-4e35-8727-e61eb915f9ed' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='65.1' HigherBound='67.1'>
+            <om:Element Type='PortDeclaration' OID='d9795458-15e4-4e35-8727-e61eb915f9ed' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='72.1' HigherBound='74.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='32' />
@@ -5566,11 +5721,11 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='SqlInsertArchivePort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='ee5e8d98-b42a-47e3-a26f-e50b9fe1d7d1' ParentLink='PortDeclaration_CLRAttribute' LowerBound='65.1' HigherBound='66.1'>
+                <om:Element Type='LogicalBindingAttribute' OID='ee5e8d98-b42a-47e3-a26f-e50b9fe1d7d1' ParentLink='PortDeclaration_CLRAttribute' LowerBound='72.1' HigherBound='73.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='649565f5-1068-431b-b93d-700c5d226ee4' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='67.1' HigherBound='69.1'>
+            <om:Element Type='PortDeclaration' OID='649565f5-1068-431b-b93d-700c5d226ee4' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='74.1' HigherBound='76.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='30' />
@@ -5582,11 +5737,11 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSSqlExecuteResponseArchivePort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='031d1697-78ab-482d-b17d-8fa92a7b501a' ParentLink='PortDeclaration_CLRAttribute' LowerBound='67.1' HigherBound='68.1'>
+                <om:Element Type='LogicalBindingAttribute' OID='031d1697-78ab-482d-b17d-8fa92a7b501a' ParentLink='PortDeclaration_CLRAttribute' LowerBound='74.1' HigherBound='75.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='43d96975-a3df-48e1-8336-5eb985777c76' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='69.1' HigherBound='71.1'>
+            <om:Element Type='PortDeclaration' OID='43d96975-a3df-48e1-8336-5eb985777c76' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='76.1' HigherBound='78.1'>
                 <om:Property Name='PortModifier' Value='Implements' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='26' />
@@ -5598,11 +5753,12 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSSqlExecuteResponsePort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='ab8cf222-91b5-4693-bc52-1e5df7495d49' ParentLink='PortDeclaration_CLRAttribute' LowerBound='69.1' HigherBound='70.1'>
+                <om:Element Type='DirectBindingAttribute' OID='5d6c9f00-9c56-4637-a64a-023748361ec6' ParentLink='PortDeclaration_CLRAttribute' LowerBound='76.1' HigherBound='77.1'>
+                    <om:Property Name='DirectBindingType' Value='MessageBox' />
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
-            <om:Element Type='PortDeclaration' OID='e0829a81-f6e1-46f5-b670-8d96202ef8c6' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='71.1' HigherBound='73.1'>
+            <om:Element Type='PortDeclaration' OID='e0829a81-f6e1-46f5-b670-8d96202ef8c6' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='78.1' HigherBound='80.1'>
                 <om:Property Name='PortModifier' Value='Uses' />
                 <om:Property Name='Orientation' Value='Right' />
                 <om:Property Name='PortIndex' Value='17' />
@@ -5614,7 +5770,24 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='ReportToAnalyst' Value='True' />
                 <om:Property Name='Name' Value='CMSSqlExecutePort' />
                 <om:Property Name='Signal' Value='False' />
-                <om:Element Type='LogicalBindingAttribute' OID='f33386cb-f402-4009-abe3-406cced0e8f2' ParentLink='PortDeclaration_CLRAttribute' LowerBound='71.1' HigherBound='72.1'>
+                <om:Element Type='DirectBindingAttribute' OID='811f95d8-50b4-4cfe-b9e6-a5e013b6ad98' ParentLink='PortDeclaration_CLRAttribute' LowerBound='78.1' HigherBound='79.1'>
+                    <om:Property Name='DirectBindingType' Value='MessageBox' />
+                    <om:Property Name='Signal' Value='False' />
+                </om:Element>
+            </om:Element>
+            <om:Element Type='PortDeclaration' OID='b5aaca7e-1f00-4106-ae54-a1930a9f6dca' ParentLink='ServiceDeclaration_PortDeclaration' LowerBound='80.1' HigherBound='82.1'>
+                <om:Property Name='PortModifier' Value='Uses' />
+                <om:Property Name='Orientation' Value='Right' />
+                <om:Property Name='PortIndex' Value='11' />
+                <om:Property Name='IsWebPort' Value='False' />
+                <om:Property Name='OrderedDelivery' Value='False' />
+                <om:Property Name='DeliveryNotification' Value='None' />
+                <om:Property Name='Type' Value='DCP.ESB.Orchestrations.SqlExecuteParamType' />
+                <om:Property Name='ParamDirection' Value='In' />
+                <om:Property Name='ReportToAnalyst' Value='True' />
+                <om:Property Name='Name' Value='SqlExecuteParamPort' />
+                <om:Property Name='Signal' Value='False' />
+                <om:Element Type='LogicalBindingAttribute' OID='5ecc2c11-df05-4f0d-b68f-16e000b99835' ParentLink='PortDeclaration_CLRAttribute' LowerBound='80.1' HigherBound='81.1'>
                     <om:Property Name='Signal' Value='False' />
                 </om:Element>
             </om:Element>
@@ -5654,35 +5827,50 @@ namespace DCP.ESB.Orchestrations
                 CasetrackUpdateStatus __svc__ = (CasetrackUpdateStatus)_service;
                 __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)(__svc__._stateMgrs[0]);
 
-                if (__svc__.Exception_Port != null)
+                if (__svc__.SqlExecuteParamPort != null)
                 {
-                    __svc__.Exception_Port.Close(this, null);
-                    __svc__.Exception_Port = null;
-                }
-                if (__svc__.SqlExecuteArchivePort != null)
-                {
-                    __svc__.SqlExecuteArchivePort.Close(this, null);
-                    __svc__.SqlExecuteArchivePort = null;
-                }
-                if (__svc__.CMSSqlExecuteResponsePort != null)
-                {
-                    __svc__.CMSSqlExecuteResponsePort.Close(this, null);
-                    __svc__.CMSSqlExecuteResponsePort = null;
+                    __svc__.SqlExecuteParamPort.Close(this, null);
+                    __svc__.SqlExecuteParamPort = null;
                 }
                 if (__svc__.CMSInsertResponseMessagePort != null)
                 {
                     __svc__.CMSInsertResponseMessagePort.Close(this, null);
                     __svc__.CMSInsertResponseMessagePort = null;
                 }
-                if (__svc__.CMSInsertMessagePort != null)
+                if (__svc__.SqlExecuteArchivePort != null)
                 {
-                    __svc__.CMSInsertMessagePort.Close(this, null);
-                    __svc__.CMSInsertMessagePort = null;
+                    __svc__.SqlExecuteArchivePort.Close(this, null);
+                    __svc__.SqlExecuteArchivePort = null;
+                }
+                if (__svc__.Exception_Port != null)
+                {
+                    __svc__.Exception_Port.Close(this, null);
+                    __svc__.Exception_Port = null;
+                }
+                if (__svc__.CMSSqlExecutePort != null)
+                {
+                    __svc__.CMSSqlExecutePort.Close(this, null);
+                    __svc__.CMSSqlExecutePort = null;
                 }
                 if (__svc__.DCFUpdateStatusInPort != null)
                 {
                     __svc__.DCFUpdateStatusInPort.Close(this, null);
                     __svc__.DCFUpdateStatusInPort = null;
+                }
+                if (__svc__.CMSInsertMessagePort != null)
+                {
+                    __svc__.CMSInsertMessagePort.Close(this, null);
+                    __svc__.CMSInsertMessagePort = null;
+                }
+                if (__svc__.SqlInsertArchivePort != null)
+                {
+                    __svc__.SqlInsertArchivePort.Close(this, null);
+                    __svc__.SqlInsertArchivePort = null;
+                }
+                if (__svc__.CMSSqlExecuteResponsePort != null)
+                {
+                    __svc__.CMSSqlExecuteResponsePort.Close(this, null);
+                    __svc__.CMSSqlExecuteResponsePort = null;
                 }
                 if (__svc__.SqlInsertResponseArchivePort != null)
                 {
@@ -5693,16 +5881,6 @@ namespace DCP.ESB.Orchestrations
                 {
                     __svc__.CMSSqlExecuteResponseArchivePort.Close(this, null);
                     __svc__.CMSSqlExecuteResponseArchivePort = null;
-                }
-                if (__svc__.CMSSqlExecutePort != null)
-                {
-                    __svc__.CMSSqlExecutePort.Close(this, null);
-                    __svc__.CMSSqlExecutePort = null;
-                }
-                if (__svc__.SqlInsertArchivePort != null)
-                {
-                    __svc__.SqlInsertArchivePort.Close(this, null);
-                    __svc__.SqlInsertArchivePort = null;
                 }
                 base.Finally();
             }
@@ -5815,16 +5993,16 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 CasetrackUpdateStatus __svc__ = (CasetrackUpdateStatus)_service;
-                __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
                 ____scope37_2 __ctx2__ = (____scope37_2)(__svc__._stateMgrs[2]);
+                __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
 
-                if (__ctx2__ != null)
-                    __ctx2__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
                     __ctx1__.__ExceptionMessage = null;
                 }
+                if (__ctx2__ != null)
+                    __ctx2__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteParamsMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteParamsMessage);
@@ -5876,54 +6054,54 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 CasetrackUpdateStatus __svc__ = (CasetrackUpdateStatus)_service;
-                __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
-                ____scope38_3 __ctx3__ = (____scope38_3)(__svc__._stateMgrs[3]);
                 ____scope37_2 __ctx2__ = (____scope37_2)(__svc__._stateMgrs[2]);
+                ____scope38_3 __ctx3__ = (____scope38_3)(__svc__._stateMgrs[3]);
+                __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
 
-                if (__ctx1__ != null)
-                    __ctx1__.__noResponse_ex = null;
+                if (__ctx3__ != null && __ctx3__.__Correlation_SQL_BTSCorrelationToken != null)
+                    __ctx3__.__Correlation_SQL_BTSCorrelationToken = null;
+                if (__ctx2__ != null && __ctx2__.__Correlation_BTSCorrelationToken != null)
+                    __ctx2__.__Correlation_BTSCorrelationToken = null;
+                if (__ctx1__ != null && __ctx1__.__CMSInsertResponseMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__CMSInsertResponseMessage);
+                    __ctx1__.__CMSInsertResponseMessage = null;
+                }
                 if (__ctx1__ != null && __ctx1__.__CMSInsertMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__CMSInsertMessage);
                     __ctx1__.__CMSInsertMessage = null;
                 }
+                if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteResponseMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteResponseMessage);
+                    __ctx1__.__CMSSqlExecuteResponseMessage = null;
+                }
+                if (__ctx1__ != null)
+                    __ctx1__.__s_temp = null;
                 if (__ctx1__ != null && __ctx1__.__DCFUpdateStatusMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__DCFUpdateStatusMessage);
                     __ctx1__.__DCFUpdateStatusMessage = null;
                 }
                 if (__ctx1__ != null)
-                    __ctx1__.__s_temp = null;
-                if (__ctx1__ != null && __ctx1__.__CMSInsertResponseMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__CMSInsertResponseMessage);
-                    __ctx1__.__CMSInsertResponseMessage = null;
-                }
-                if (__ctx1__ != null)
                     __ctx1__.__xmlDocument = null;
-                if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteResponseMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteResponseMessage);
-                    __ctx1__.__CMSSqlExecuteResponseMessage = null;
-                }
                 if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteMessage);
                     __ctx1__.__CMSSqlExecuteMessage = null;
                 }
-                if (__ctx3__ != null && __ctx3__.__Correlation_SQL_BTSCorrelationToken != null)
-                    __ctx3__.__Correlation_SQL_BTSCorrelationToken = null;
-                if (__ctx2__ != null && __ctx2__.__Correlation_BTSCorrelationToken != null)
-                    __ctx2__.__Correlation_BTSCorrelationToken = null;
-                if (__ctx2__ != null && __ctx2__.__subWrapper1 != null)
-                {
-                    __ctx2__.__subWrapper1.Destroy(__svc__, __ctx2__);
-                    __ctx2__.__subWrapper1 = null;
-                }
+                if (__ctx1__ != null)
+                    __ctx1__.__noResponse_ex = null;
                 if (__ctx3__ != null && __ctx3__.__subWrapper2 != null)
                 {
                     __ctx3__.__subWrapper2.Destroy(__svc__, __ctx3__);
                     __ctx3__.__subWrapper2 = null;
+                }
+                if (__ctx2__ != null && __ctx2__.__subWrapper1 != null)
+                {
+                    __ctx2__.__subWrapper1.Destroy(__svc__, __ctx2__);
+                    __ctx2__.__subWrapper1 = null;
                 }
                 base.Finally();
             }
@@ -5961,15 +6139,21 @@ namespace DCP.ESB.Orchestrations
         [Microsoft.XLANGs.BaseTypes.PortAttribute(
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses
         )]
+        [Microsoft.XLANGs.Core.UserVariableAttribute("SqlExecuteParamPort")]
+        internal SqlExecuteParamType SqlExecuteParamPort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBindingAttribute()]
+        [Microsoft.XLANGs.BaseTypes.PortAttribute(
+            Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses
+        )]
         [Microsoft.XLANGs.Core.UserVariableAttribute("SqlExecuteArchivePort")]
         internal CMSSqlExecuteArchiveType SqlExecuteArchivePort;
-        [Microsoft.XLANGs.BaseTypes.LogicalBindingAttribute()]
+        [Microsoft.XLANGs.BaseTypes.DirectBindingAttribute()]
         [Microsoft.XLANGs.BaseTypes.PortAttribute(
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses
         )]
         [Microsoft.XLANGs.Core.UserVariableAttribute("CMSSqlExecutePort")]
         internal CMSSqlExecuteArchiveType CMSSqlExecutePort;
-        [Microsoft.XLANGs.BaseTypes.LogicalBindingAttribute()]
+        [Microsoft.XLANGs.BaseTypes.DirectBindingAttribute()]
         [Microsoft.XLANGs.BaseTypes.PortAttribute(
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.eImplements
         )]
@@ -5987,13 +6171,13 @@ namespace DCP.ESB.Orchestrations
         )]
         [Microsoft.XLANGs.Core.UserVariableAttribute("SqlInsertArchivePort")]
         internal SqlInsertArchiveType SqlInsertArchivePort;
-        [Microsoft.XLANGs.BaseTypes.LogicalBindingAttribute()]
+        [Microsoft.XLANGs.BaseTypes.DirectBindingAttribute()]
         [Microsoft.XLANGs.BaseTypes.PortAttribute(
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.eUses
         )]
         [Microsoft.XLANGs.Core.UserVariableAttribute("CMSInsertMessagePort")]
         internal SqlInsertArchiveType CMSInsertMessagePort;
-        [Microsoft.XLANGs.BaseTypes.LogicalBindingAttribute()]
+        [Microsoft.XLANGs.BaseTypes.DirectBindingAttribute()]
         [Microsoft.XLANGs.BaseTypes.PortAttribute(
             Microsoft.XLANGs.BaseTypes.EXLangSParameter.eImplements
         )]
@@ -6021,13 +6205,19 @@ namespace DCP.ESB.Orchestrations
                                                false,
                                                Microsoft.XLANGs.Core.HashHelper.HashPort(typeof(CasetrackUpdateStatus), "DCFUpdateStatusInPort"),
                                                null),
-            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {CMSSqlExecuteArchiveType.Send},
+            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {SqlExecuteParamType.Archive},
+                                               typeof(CasetrackUpdateStatus).GetField("SqlExecuteParamPort", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance),
+                                               Microsoft.XLANGs.BaseTypes.Polarity.uses,
+                                               false,
+                                               Microsoft.XLANGs.Core.HashHelper.HashPort(typeof(CasetrackUpdateStatus), "SqlExecuteParamPort"),
+                                               null),
+            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {CMSSqlExecuteArchiveType.SQLEXECUTE},
                                                typeof(CasetrackUpdateStatus).GetField("SqlExecuteArchivePort", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance),
                                                Microsoft.XLANGs.BaseTypes.Polarity.uses,
                                                false,
                                                Microsoft.XLANGs.Core.HashHelper.HashPort(typeof(CasetrackUpdateStatus), "SqlExecuteArchivePort"),
                                                null),
-            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {CMSSqlExecuteArchiveType.Send},
+            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {CMSSqlExecuteArchiveType.SQLEXECUTE},
                                                typeof(CasetrackUpdateStatus).GetField("CMSSqlExecutePort", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance),
                                                Microsoft.XLANGs.BaseTypes.Polarity.uses,
                                                false,
@@ -6045,13 +6235,13 @@ namespace DCP.ESB.Orchestrations
                                                false,
                                                Microsoft.XLANGs.Core.HashHelper.HashPort(typeof(CasetrackUpdateStatus), "CMSSqlExecuteResponseArchivePort"),
                                                null),
-            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {SqlInsertArchiveType.Operation},
+            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {SqlInsertArchiveType.Insert},
                                                typeof(CasetrackUpdateStatus).GetField("SqlInsertArchivePort", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance),
                                                Microsoft.XLANGs.BaseTypes.Polarity.uses,
                                                false,
                                                Microsoft.XLANGs.Core.HashHelper.HashPort(typeof(CasetrackUpdateStatus), "SqlInsertArchivePort"),
                                                null),
-            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {SqlInsertArchiveType.Operation},
+            new Microsoft.XLANGs.Core.PortInfo(new Microsoft.XLANGs.Core.OperationInfo[] {SqlInsertArchiveType.Insert},
                                                typeof(CasetrackUpdateStatus).GetField("CMSInsertMessagePort", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance),
                                                Microsoft.XLANGs.BaseTypes.Polarity.uses,
                                                false,
@@ -6097,6 +6287,7 @@ namespace DCP.ESB.Orchestrations
                 h[_portInfo[7].Name] = _portInfo[7];
                 h[_portInfo[8].Name] = _portInfo[8];
                 h[_portInfo[9].Name] = _portInfo[9];
+                h[_portInfo[10].Name] = _portInfo[10];
                 return h;
             }
         }
@@ -6144,52 +6335,56 @@ namespace DCP.ESB.Orchestrations
             new Microsoft.XLANGs.RuntimeTypes.Location(3, "4877514f-ae5d-422a-ba4a-af306590c14a", 2, true),
             new Microsoft.XLANGs.RuntimeTypes.Location(4, "4877514f-ae5d-422a-ba4a-af306590c14a", 2, false),
             new Microsoft.XLANGs.RuntimeTypes.Location(5, "00000000-0000-0000-0000-000000000000", 2, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(6, "44a6921d-92bc-4854-93d1-b31f991f259c", 2, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(7, "44a6921d-92bc-4854-93d1-b31f991f259c", 2, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(8, "de335eb9-b6e7-49b2-8dd9-721941713698", 2, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(9, "de335eb9-b6e7-49b2-8dd9-721941713698", 2, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(10, "7e3f9685-f33d-43ad-9049-d29ec3079e45", 2, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(11, "7e3f9685-f33d-43ad-9049-d29ec3079e45", 2, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(12, "32662c6e-e4bb-4eaa-8188-9bb69727e361", 2, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(13, "00000000-0000-0000-0000-000000000000", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(14, "acc50781-18f0-41d7-a772-998db9d5dd90", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(15, "219c534f-97ba-409b-9cd1-19e5df1ad009", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(16, "219c534f-97ba-409b-9cd1-19e5df1ad009", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(17, "a3626248-9f83-425c-be98-0512feeb81f9", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(18, "a3626248-9f83-425c-be98-0512feeb81f9", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(19, "00000000-0000-0000-0000-000000000000", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(20, "4c5fa7e1-f84f-446e-a0c2-c2105641df45", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(21, "703bbf55-2f95-4c9a-92b4-95e587588b78", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(22, "703bbf55-2f95-4c9a-92b4-95e587588b78", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(23, "deb056cc-557c-4055-812e-e3cfdc3c7e54", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(24, "deb056cc-557c-4055-812e-e3cfdc3c7e54", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(25, "82b60448-a7a8-4693-bfab-326c8533b4b5", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(26, "82b60448-a7a8-4693-bfab-326c8533b4b5", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(27, "6917ba92-7349-48f0-82ed-264b56f5183c", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(28, "6917ba92-7349-48f0-82ed-264b56f5183c", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(29, "594615aa-2823-4c46-a993-7dcdceb9bdce", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(30, "594615aa-2823-4c46-a993-7dcdceb9bdce", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(31, "b989b78c-2d1f-4263-92a8-42e1af80bdbf", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(32, "472950c5-523e-4385-834c-7372117f8951", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(33, "472950c5-523e-4385-834c-7372117f8951", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(34, "858e2af9-916e-46f1-aa08-5d3f7f7732fa", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(35, "858e2af9-916e-46f1-aa08-5d3f7f7732fa", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(36, "5a0646fc-35a4-456b-93d9-5c22f3a8afb5", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(37, "5715a494-7a04-42f8-9cfc-f99609234569", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(38, "5715a494-7a04-42f8-9cfc-f99609234569", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(39, "90b23382-e3ff-41a5-8dc6-604de6173ce2", 3, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(40, "90b23382-e3ff-41a5-8dc6-604de6173ce2", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(41, "b989b78c-2d1f-4263-92a8-42e1af80bdbf", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(42, "acc50781-18f0-41d7-a772-998db9d5dd90", 3, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(43, "32662c6e-e4bb-4eaa-8188-9bb69727e361", 2, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(44, "619cb49c-f4b7-4c54-b433-63d72494b203", 4, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(45, "58882ad1-a77d-4e0e-a890-d1651f89869e", 4, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(46, "58882ad1-a77d-4e0e-a890-d1651f89869e", 4, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(47, "b1817d55-b8dc-449d-a22d-289f442bd849", 4, true),
-            new Microsoft.XLANGs.RuntimeTypes.Location(48, "b1817d55-b8dc-449d-a22d-289f442bd849", 4, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(49, "619cb49c-f4b7-4c54-b433-63d72494b203", 4, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(50, "b93b041a-569a-41f9-a731-2e6de7af94b4", 1, false),
-            new Microsoft.XLANGs.RuntimeTypes.Location(51, "00000000-0000-0000-0000-000000000000", 1, false)
+            new Microsoft.XLANGs.RuntimeTypes.Location(6, "eb382392-f811-445e-beb7-6c7215155f79", 2, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(7, "eb382392-f811-445e-beb7-6c7215155f79", 2, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(8, "725a4354-92a0-4c13-84f3-ad4062e6857f", 2, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(9, "725a4354-92a0-4c13-84f3-ad4062e6857f", 2, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(10, "44a6921d-92bc-4854-93d1-b31f991f259c", 2, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(11, "44a6921d-92bc-4854-93d1-b31f991f259c", 2, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(12, "de335eb9-b6e7-49b2-8dd9-721941713698", 2, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(13, "de335eb9-b6e7-49b2-8dd9-721941713698", 2, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(14, "7e3f9685-f33d-43ad-9049-d29ec3079e45", 2, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(15, "7e3f9685-f33d-43ad-9049-d29ec3079e45", 2, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(16, "32662c6e-e4bb-4eaa-8188-9bb69727e361", 2, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(17, "00000000-0000-0000-0000-000000000000", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(18, "acc50781-18f0-41d7-a772-998db9d5dd90", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(19, "219c534f-97ba-409b-9cd1-19e5df1ad009", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(20, "219c534f-97ba-409b-9cd1-19e5df1ad009", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(21, "a3626248-9f83-425c-be98-0512feeb81f9", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(22, "a3626248-9f83-425c-be98-0512feeb81f9", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(23, "00000000-0000-0000-0000-000000000000", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(24, "4c5fa7e1-f84f-446e-a0c2-c2105641df45", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(25, "703bbf55-2f95-4c9a-92b4-95e587588b78", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(26, "703bbf55-2f95-4c9a-92b4-95e587588b78", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(27, "deb056cc-557c-4055-812e-e3cfdc3c7e54", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(28, "deb056cc-557c-4055-812e-e3cfdc3c7e54", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(29, "82b60448-a7a8-4693-bfab-326c8533b4b5", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(30, "82b60448-a7a8-4693-bfab-326c8533b4b5", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(31, "6917ba92-7349-48f0-82ed-264b56f5183c", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(32, "6917ba92-7349-48f0-82ed-264b56f5183c", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(33, "594615aa-2823-4c46-a993-7dcdceb9bdce", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(34, "594615aa-2823-4c46-a993-7dcdceb9bdce", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(35, "b989b78c-2d1f-4263-92a8-42e1af80bdbf", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(36, "472950c5-523e-4385-834c-7372117f8951", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(37, "472950c5-523e-4385-834c-7372117f8951", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(38, "858e2af9-916e-46f1-aa08-5d3f7f7732fa", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(39, "858e2af9-916e-46f1-aa08-5d3f7f7732fa", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(40, "5a0646fc-35a4-456b-93d9-5c22f3a8afb5", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(41, "5715a494-7a04-42f8-9cfc-f99609234569", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(42, "5715a494-7a04-42f8-9cfc-f99609234569", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(43, "90b23382-e3ff-41a5-8dc6-604de6173ce2", 3, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(44, "90b23382-e3ff-41a5-8dc6-604de6173ce2", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(45, "b989b78c-2d1f-4263-92a8-42e1af80bdbf", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(46, "acc50781-18f0-41d7-a772-998db9d5dd90", 3, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(47, "32662c6e-e4bb-4eaa-8188-9bb69727e361", 2, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(48, "619cb49c-f4b7-4c54-b433-63d72494b203", 4, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(49, "58882ad1-a77d-4e0e-a890-d1651f89869e", 4, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(50, "58882ad1-a77d-4e0e-a890-d1651f89869e", 4, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(51, "b1817d55-b8dc-449d-a22d-289f442bd849", 4, true),
+            new Microsoft.XLANGs.RuntimeTypes.Location(52, "b1817d55-b8dc-449d-a22d-289f442bd849", 4, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(53, "619cb49c-f4b7-4c54-b433-63d72494b203", 4, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(54, "b93b041a-569a-41f9-a731-2e6de7af94b4", 1, false),
+            new Microsoft.XLANGs.RuntimeTypes.Location(55, "00000000-0000-0000-0000-000000000000", 1, false)
         };
 
         public override Microsoft.XLANGs.RuntimeTypes.Location[] EventLocations
@@ -6216,11 +6411,11 @@ namespace DCP.ESB.Orchestrations
             new Microsoft.XLANGs.RuntimeTypes.EventData( Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Body)
         };
 
-        public static int[] __progressLocation0 = new int[] { 0,0,0,51,51,};
-        public static int[] __progressLocation1 = new int[] { 0,0,1,1,1,50,51,51,51,51,};
-        public static int[] __progressLocation2 = new int[] { 3,3,3,4,4,4,4,6,6,7,8,8,8,9,10,10,10,11,12,12,12,43,43,43,43,};
-        public static int[] __progressLocation3 = new int[] { 14,14,14,14,15,16,17,17,18,18,20,20,14,21,22,23,23,23,24,25,25,26,27,27,27,28,29,29,29,30,31,31,31,32,33,34,34,35,35,36,36,31,37,38,39,39,39,40,31,31,41,14,14,42,42,42,42,};
-        public static int[] __progressLocation4 = new int[] { 44,44,45,45,46,47,47,47,48,49,49,};
+        public static int[] __progressLocation0 = new int[] { 0,0,0,55,55,};
+        public static int[] __progressLocation1 = new int[] { 0,0,1,1,1,54,55,55,55,55,};
+        public static int[] __progressLocation2 = new int[] { 3,3,3,4,4,4,4,6,6,7,8,8,8,9,10,10,11,12,12,12,13,14,14,14,15,16,16,16,47,47,47,47,};
+        public static int[] __progressLocation3 = new int[] { 18,18,18,18,19,20,21,21,22,22,24,24,18,25,26,27,27,27,28,29,29,30,31,31,31,32,33,33,33,34,35,35,35,36,37,38,38,39,39,40,40,35,41,42,43,43,43,44,35,35,45,18,18,46,46,46,46,};
+        public static int[] __progressLocation4 = new int[] { 48,48,49,49,50,51,51,51,52,53,53,};
 
         public static int[][] __progressLocations = new int[5] [] {__progressLocation0,__progressLocation1,__progressLocation2,__progressLocation3,__progressLocation4};
         public override int[][] ProgressLocations {get {return __progressLocations;} }
@@ -6229,22 +6424,23 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[0];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[0];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
             case 0:
-                Exception_Port = new Exception(9, this);
+                Exception_Port = new Exception(10, this);
                 DCFUpdateStatusInPort = new DCFUpdateStatusType(0, this);
-                SqlExecuteArchivePort = new CMSSqlExecuteArchiveType(1, this);
-                CMSInsertResponseMessagePort = new SqlInsertResponseType(7, this);
-                SqlInsertResponseArchivePort = new SqlInsertResponseType(8, this);
-                CMSInsertMessagePort = new SqlInsertArchiveType(6, this);
-                SqlInsertArchivePort = new SqlInsertArchiveType(5, this);
-                CMSSqlExecuteResponseArchivePort = new CMSSqlExecuteResponseType(4, this);
-                CMSSqlExecuteResponsePort = new CMSSqlExecuteResponseType(3, this);
-                CMSSqlExecutePort = new CMSSqlExecuteArchiveType(2, this);
+                SqlExecuteArchivePort = new CMSSqlExecuteArchiveType(2, this);
+                CMSInsertResponseMessagePort = new SqlInsertResponseType(8, this);
+                SqlInsertResponseArchivePort = new SqlInsertResponseType(9, this);
+                CMSInsertMessagePort = new SqlInsertArchiveType(7, this);
+                SqlInsertArchivePort = new SqlInsertArchiveType(6, this);
+                CMSSqlExecuteResponseArchivePort = new CMSSqlExecuteResponseType(5, this);
+                CMSSqlExecuteResponsePort = new CMSSqlExecuteResponseType(4, this);
+                CMSSqlExecutePort = new CMSSqlExecuteArchiveType(3, this);
+                SqlExecuteParamPort = new SqlExecuteParamType(1, this);
                 __ctx__.PrologueCompleted = true;
                 __ctx0__.__subWrapper0 = new Microsoft.XLANGs.Core.SubscriptionWrapper(ActivationSubGuids[0], DCFUpdateStatusInPort, this);
                 if ( !PostProgressInc( __seg__, __ctx__, 1 ) )
@@ -6282,9 +6478,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[1];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[1];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
-            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
+            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -6324,6 +6520,11 @@ namespace DCP.ESB.Orchestrations
             case 5:
                 if ( !PreProgressInc( __seg__, __ctx__, 6 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
+                if (SqlExecuteParamPort != null)
+                {
+                    SqlExecuteParamPort.Close(__ctx1__, __seg__);
+                    SqlExecuteParamPort = null;
+                }
                 if (CMSSqlExecutePort != null)
                 {
                     CMSSqlExecutePort.Close(__ctx1__, __seg__);
@@ -6374,7 +6575,7 @@ namespace DCP.ESB.Orchestrations
                     Exception_Port.Close(__ctx1__, __seg__);
                     Exception_Port = null;
                 }
-                Tracker.FireEvent(__eventLocations[50],__eventData[12],_stateMgrs[1].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[54],__eventData[12],_stateMgrs[1].TrackDataStream );
                 __ctx2__.Finally();
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6382,7 +6583,7 @@ namespace DCP.ESB.Orchestrations
             case 6:
                 if ( !PreProgressInc( __seg__, __ctx__, 7 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[51],__eventData[15],_stateMgrs[1].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[55],__eventData[15],_stateMgrs[1].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 7;
@@ -6410,10 +6611,10 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[2];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
-            ____scope38_3 __ctx3__ = (____scope38_3)_stateMgrs[3];
-            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
+            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
+            ____scope38_3 __ctx3__ = (____scope38_3)_stateMgrs[3];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -6477,23 +6678,15 @@ namespace DCP.ESB.Orchestrations
             case 8:
                 {
                     __messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS __CMSSqlExecuteParamsMessage = new __messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS("CMSSqlExecuteParamsMessage", __ctx1__);
-                    __messagetype_DCP_ESB_Schemas_CMSSQLEXECUTE_SQLEXECUTE __CMSSqlExecuteMessage = new __messagetype_DCP_ESB_Schemas_CMSSQLEXECUTE_SQLEXECUTE("CMSSqlExecuteMessage", __ctx1__);
 
-                    __CMSSqlExecuteParamsMessage.part.LoadFrom(DCP.ESB.Utils.Helper.getCmsSqlExecuteParamsXml("select dcf.dim_SEQ.nextval from dual", null, null));
-                    ApplyTransform(typeof(DCP.ESB.Maps.CMS_BUILD_SQLEXECUTE_), new object[] {__CMSSqlExecuteMessage.part}, new object[] {__CMSSqlExecuteParamsMessage.part});
-                    __CMSSqlExecuteMessage.SetPropertyValue(typeof(BTS.CorrelationToken), DCP.ESB.Utils.Helper.getGuid());
+                    __CMSSqlExecuteParamsMessage.part.LoadFrom(DCP.ESB.Utils.Helper.getCmsSqlExecuteParamsXml("select dcf.dim_SEQ.nextval from dual", System.String.Empty, System.String.Empty));
 
                     if (__ctx1__.__CMSSqlExecuteParamsMessage != null)
                         __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteParamsMessage);
                     __ctx1__.__CMSSqlExecuteParamsMessage = __CMSSqlExecuteParamsMessage;
                     __ctx1__.RefMessage(__ctx1__.__CMSSqlExecuteParamsMessage);
-                    if (__ctx1__.__CMSSqlExecuteMessage != null)
-                        __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteMessage);
-                    __ctx1__.__CMSSqlExecuteMessage = __CMSSqlExecuteMessage;
-                    __ctx1__.RefMessage(__ctx1__.__CMSSqlExecuteMessage);
                 }
-                __ctx1__.__CMSSqlExecuteParamsMessage.ConstructionCompleteEvent(true);
-                __ctx1__.__CMSSqlExecuteMessage.ConstructionCompleteEvent(true);
+                __ctx1__.__CMSSqlExecuteParamsMessage.ConstructionCompleteEvent(false);
                 if ( !PostProgressInc( __seg__, __ctx__, 9 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
                 goto case 9;
@@ -6503,13 +6696,7 @@ namespace DCP.ESB.Orchestrations
                 {
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Construct);
                     __edata.Messages.Add(__ctx1__.__CMSSqlExecuteParamsMessage);
-                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteMessage);
                     Tracker.FireEvent(__eventLocations[7],__edata,_stateMgrs[2].TrackDataStream );
-                }
-                if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteParamsMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteParamsMessage);
-                    __ctx1__.__CMSSqlExecuteParamsMessage = null;
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6530,7 +6717,7 @@ namespace DCP.ESB.Orchestrations
             case 12:
                 if ( !PreProgressInc( __seg__, __ctx__, 13 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                SqlExecuteArchivePort.SendMessage(0, __ctx1__.__CMSSqlExecuteMessage, null, null, __ctx2__, __seg__ , Microsoft.XLANGs.Core.ActivityFlags.None );
+                SqlExecuteParamPort.SendMessage(0, __ctx1__.__CMSSqlExecuteParamsMessage, null, null, __ctx2__, __seg__ , Microsoft.XLANGs.Core.ActivityFlags.None );
                 if ((stopOn & Microsoft.XLANGs.Core.StopConditions.OutgoingRqst) != 0)
                     return Microsoft.XLANGs.Core.StopConditions.OutgoingRqst;
                 goto case 13;
@@ -6539,8 +6726,8 @@ namespace DCP.ESB.Orchestrations
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
                 {
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
-                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteMessage);
-                    __edata.PortName = @"SqlExecuteArchivePort";
+                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteParamsMessage);
+                    __edata.PortName = @"SqlExecuteParamPort";
                     Tracker.FireEvent(__eventLocations[9],__edata,_stateMgrs[2].TrackDataStream );
                 }
                 if (IsDebugged)
@@ -6549,66 +6736,88 @@ namespace DCP.ESB.Orchestrations
             case 14:
                 if ( !PreProgressInc( __seg__, __ctx__, 15 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[10],__eventData[4],_stateMgrs[2].TrackDataStream );
-                __ctx2__.__subWrapper1 = new Microsoft.XLANGs.Core.SubscriptionWrapper(1, System.Guid.Empty, CMSSqlExecuteResponsePort, 0, __ctx0__);
-                __ctx2__.__Correlation_BTSCorrelationToken = new Microsoft.XLANGs.Core.Correlation(this, 0, 1);
-                __ctx2__.__Correlation_BTSCorrelationToken.AddSubscription(((____scope37_2)_stateMgrs[2]).__subWrapper1.getSubscription(this), __ctx2__);
+                Tracker.FireEvent(__eventLocations[10],__eventData[3],_stateMgrs[2].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 15;
             case 15:
-                if (!__ctx2__.PrepareToPendingCommit(__seg__))
-                    return Microsoft.XLANGs.Core.StopConditions.Blocked;
+                {
+                    __messagetype_DCP_ESB_Schemas_CMSSQLEXECUTE_SQLEXECUTE __CMSSqlExecuteMessage = new __messagetype_DCP_ESB_Schemas_CMSSQLEXECUTE_SQLEXECUTE("CMSSqlExecuteMessage", __ctx1__);
+
+                    ApplyTransform(typeof(DCP.ESB.Maps.CMS_BUILD_SQLEXECUTE_), new object[] {__CMSSqlExecuteMessage.part}, new object[] {__ctx1__.__CMSSqlExecuteParamsMessage.part});
+                    __CMSSqlExecuteMessage.SetPropertyValue(typeof(BTS.CorrelationToken), DCP.ESB.Utils.Helper.getGuid());
+                    __CMSSqlExecuteMessage.SetPropertyValue(typeof(WCF.Action), "http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE");
+
+                    if (__ctx1__.__CMSSqlExecuteMessage != null)
+                        __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteMessage);
+                    __ctx1__.__CMSSqlExecuteMessage = __CMSSqlExecuteMessage;
+                    __ctx1__.RefMessage(__ctx1__.__CMSSqlExecuteMessage);
+                }
+                __ctx1__.__CMSSqlExecuteMessage.ConstructionCompleteEvent(true);
                 if ( !PostProgressInc( __seg__, __ctx__, 16 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
                 goto case 16;
             case 16:
                 if ( !PreProgressInc( __seg__, __ctx__, 17 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                CMSSqlExecutePort.SendMessage(0, __ctx1__.__CMSSqlExecuteMessage, new Microsoft.XLANGs.Core.Correlation[] { __ctx2__.__Correlation_BTSCorrelationToken }, null, __ctx2__, __seg__ , Microsoft.XLANGs.Core.ActivityFlags.None );
-                if ((stopOn & Microsoft.XLANGs.Core.StopConditions.OutgoingRqst) != 0)
-                    return Microsoft.XLANGs.Core.StopConditions.OutgoingRqst;
+                {
+                    Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Construct);
+                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteMessage);
+                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteParamsMessage);
+                    Tracker.FireEvent(__eventLocations[11],__edata,_stateMgrs[2].TrackDataStream );
+                }
+                if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteParamsMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteParamsMessage);
+                    __ctx1__.__CMSSqlExecuteParamsMessage = null;
+                }
+                if (IsDebugged)
+                    return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 17;
             case 17:
                 if ( !PreProgressInc( __seg__, __ctx__, 18 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                {
-                    Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
-                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteMessage);
-                    __edata.PortName = @"CMSSqlExecutePort";
-                    Tracker.FireEvent(__eventLocations[11],__edata,_stateMgrs[2].TrackDataStream );
-                }
+                Tracker.FireEvent(__eventLocations[12],__eventData[4],_stateMgrs[2].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 18;
             case 18:
-                if ( !PreProgressInc( __seg__, __ctx__, 19 ) )
+                if (!__ctx2__.PrepareToPendingCommit(__seg__))
+                    return Microsoft.XLANGs.Core.StopConditions.Blocked;
+                if ( !PostProgressInc( __seg__, __ctx__, 19 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[12],__eventData[1],_stateMgrs[2].TrackDataStream );
-                if (IsDebugged)
-                    return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 19;
             case 19:
-                __ctx3__ = new ____scope38_3(this);
-                _stateMgrs[3] = __ctx3__;
-                if ( !PostProgressInc( __seg__, __ctx__, 20 ) )
+                if ( !PreProgressInc( __seg__, __ctx__, 20 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
+                SqlExecuteArchivePort.SendMessage(0, __ctx1__.__CMSSqlExecuteMessage, null, null, __ctx2__, __seg__ , Microsoft.XLANGs.Core.ActivityFlags.None );
+                if ((stopOn & Microsoft.XLANGs.Core.StopConditions.OutgoingRqst) != 0)
+                    return Microsoft.XLANGs.Core.StopConditions.OutgoingRqst;
                 goto case 20;
             case 20:
-                __ctx2__.StartContext(__seg__, __ctx3__);
-                if ( !PostProgressInc( __seg__, __ctx__, 21 ) )
+                if ( !PreProgressInc( __seg__, __ctx__, 21 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                return Microsoft.XLANGs.Core.StopConditions.Blocked;
+                {
+                    Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
+                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteMessage);
+                    __edata.PortName = @"SqlExecuteArchivePort";
+                    Tracker.FireEvent(__eventLocations[13],__edata,_stateMgrs[2].TrackDataStream );
+                }
+                if (IsDebugged)
+                    return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
+                goto case 21;
             case 21:
                 if ( !PreProgressInc( __seg__, __ctx__, 22 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[43],__eventData[12],_stateMgrs[2].TrackDataStream );
-                __ctx3__.Finally();
+                Tracker.FireEvent(__eventLocations[14],__eventData[4],_stateMgrs[2].TrackDataStream );
+                __ctx2__.__subWrapper1 = new Microsoft.XLANGs.Core.SubscriptionWrapper(1, System.Guid.Empty, CMSSqlExecuteResponsePort, 0, __ctx0__);
+                __ctx2__.__Correlation_BTSCorrelationToken = new Microsoft.XLANGs.Core.Correlation(this, 0, 1);
+                __ctx2__.__Correlation_BTSCorrelationToken.AddSubscription(((____scope37_2)_stateMgrs[2]).__subWrapper1.getSubscription(this), __ctx2__);
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 22;
             case 22:
-                if (!__ctx2__.CleanupAndPrepareToCommit(__seg__))
+                if (!__ctx2__.PrepareToPendingCommit(__seg__))
                     return Microsoft.XLANGs.Core.StopConditions.Blocked;
                 if ( !PostProgressInc( __seg__, __ctx__, 23 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
@@ -6616,9 +6825,60 @@ namespace DCP.ESB.Orchestrations
             case 23:
                 if ( !PreProgressInc( __seg__, __ctx__, 24 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                __ctx2__.OnCommit();
+                CMSSqlExecutePort.SendMessage(0, __ctx1__.__CMSSqlExecuteMessage, new Microsoft.XLANGs.Core.Correlation[] { __ctx2__.__Correlation_BTSCorrelationToken }, null, __ctx2__, __seg__ , Microsoft.XLANGs.Core.ActivityFlags.None );
+                if ((stopOn & Microsoft.XLANGs.Core.StopConditions.OutgoingRqst) != 0)
+                    return Microsoft.XLANGs.Core.StopConditions.OutgoingRqst;
                 goto case 24;
             case 24:
+                if ( !PreProgressInc( __seg__, __ctx__, 25 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                {
+                    Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
+                    __edata.Messages.Add(__ctx1__.__CMSSqlExecuteMessage);
+                    __edata.PortName = @"CMSSqlExecutePort";
+                    Tracker.FireEvent(__eventLocations[15],__edata,_stateMgrs[2].TrackDataStream );
+                }
+                if (IsDebugged)
+                    return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
+                goto case 25;
+            case 25:
+                if ( !PreProgressInc( __seg__, __ctx__, 26 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                Tracker.FireEvent(__eventLocations[16],__eventData[1],_stateMgrs[2].TrackDataStream );
+                if (IsDebugged)
+                    return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
+                goto case 26;
+            case 26:
+                __ctx3__ = new ____scope38_3(this);
+                _stateMgrs[3] = __ctx3__;
+                if ( !PostProgressInc( __seg__, __ctx__, 27 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                goto case 27;
+            case 27:
+                __ctx2__.StartContext(__seg__, __ctx3__);
+                if ( !PostProgressInc( __seg__, __ctx__, 28 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                return Microsoft.XLANGs.Core.StopConditions.Blocked;
+            case 28:
+                if ( !PreProgressInc( __seg__, __ctx__, 29 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                Tracker.FireEvent(__eventLocations[47],__eventData[12],_stateMgrs[2].TrackDataStream );
+                __ctx3__.Finally();
+                if (IsDebugged)
+                    return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
+                goto case 29;
+            case 29:
+                if (!__ctx2__.CleanupAndPrepareToCommit(__seg__))
+                    return Microsoft.XLANGs.Core.StopConditions.Blocked;
+                if ( !PostProgressInc( __seg__, __ctx__, 30 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                goto case 30;
+            case 30:
+                if ( !PreProgressInc( __seg__, __ctx__, 31 ) )
+                    return Microsoft.XLANGs.Core.StopConditions.Paused;
+                __ctx2__.OnCommit();
+                goto case 31;
+            case 31:
                 __seg__.SegmentDone();
                 _segments[1].PredecessorDone(this);
                 break;
@@ -6631,10 +6891,10 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[3];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[3];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
-            ____scope38_3 __ctx3__ = (____scope38_3)_stateMgrs[3];
-            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
+            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
+            ____scope38_3 __ctx3__ = (____scope38_3)_stateMgrs[3];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -6646,7 +6906,7 @@ namespace DCP.ESB.Orchestrations
             case 1:
                 if ( !PreProgressInc( __seg__, __ctx__, 2 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[14],__eventData[5],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[18],__eventData[5],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 2;
@@ -6685,21 +6945,21 @@ namespace DCP.ESB.Orchestrations
             case 4:
                 if ( !PreProgressInc( __seg__, __ctx__, 5 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[15],__eventData[6],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[19],__eventData[6],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 5;
             case 5:
                 if ( !PreProgressInc( __seg__, __ctx__, 6 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[16],__eventData[7],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[20],__eventData[7],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 6;
             case 6:
                 if ( !PreProgressInc( __seg__, __ctx__, 7 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[17],__eventData[8],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[21],__eventData[8],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 7;
@@ -6711,7 +6971,7 @@ namespace DCP.ESB.Orchestrations
             case 8:
                 if ( !PreProgressInc( __seg__, __ctx__, 9 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[18],__eventData[9],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[22],__eventData[9],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 9;
@@ -6723,7 +6983,7 @@ namespace DCP.ESB.Orchestrations
             case 10:
                 if ( !PreProgressInc( __seg__, __ctx__, 11 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[20],__eventData[10],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[24],__eventData[10],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 11;
@@ -6736,7 +6996,7 @@ namespace DCP.ESB.Orchestrations
             case 13:
                 if ( !PreProgressInc( __seg__, __ctx__, 14 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[21],__eventData[2],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[25],__eventData[2],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 14;
@@ -6747,7 +7007,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Receive);
                     __edata.Messages.Add(__ctx1__.__CMSSqlExecuteResponseMessage);
                     __edata.PortName = @"CMSSqlExecuteResponsePort";
-                    Tracker.FireEvent(__eventLocations[22],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[26],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6755,7 +7015,7 @@ namespace DCP.ESB.Orchestrations
             case 15:
                 if ( !PreProgressInc( __seg__, __ctx__, 16 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[23],__eventData[4],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[27],__eventData[4],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 16;
@@ -6779,7 +7039,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
                     __edata.Messages.Add(__ctx1__.__CMSSqlExecuteResponseMessage);
                     __edata.PortName = @"CMSSqlExecuteResponseArchivePort";
-                    Tracker.FireEvent(__eventLocations[24],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[28],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6787,7 +7047,7 @@ namespace DCP.ESB.Orchestrations
             case 19:
                 if ( !PreProgressInc( __seg__, __ctx__, 20 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[25],__eventData[3],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[29],__eventData[3],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 20;
@@ -6797,6 +7057,7 @@ namespace DCP.ESB.Orchestrations
 
                     ApplyTransform(typeof(DCP.ESB.Maps.DCFStatus_CMSInsert), new object[] {__CMSInsertMessage.part}, new object[] {__ctx1__.__CMSSqlExecuteResponseMessage.part, __ctx1__.__DCFUpdateStatusMessage.part});
                     __CMSInsertMessage.SetPropertyValue(typeof(BTS.CorrelationToken), DCP.ESB.Utils.Helper.getGuid());
+                    __CMSInsertMessage.SetPropertyValue(typeof(WCF.Action), "http://Microsoft.LobServices.OracleDB/2007/03/DCF/Table/DCF_IN_MESSAGE_LOG/Insert");
 
                     if (__ctx1__.__CMSInsertMessage != null)
                         __ctx1__.UnrefMessage(__ctx1__.__CMSInsertMessage);
@@ -6815,7 +7076,7 @@ namespace DCP.ESB.Orchestrations
                     __edata.Messages.Add(__ctx1__.__CMSInsertMessage);
                     __edata.Messages.Add(__ctx1__.__CMSSqlExecuteResponseMessage);
                     __edata.Messages.Add(__ctx1__.__DCFUpdateStatusMessage);
-                    Tracker.FireEvent(__eventLocations[26],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[30],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6823,7 +7084,7 @@ namespace DCP.ESB.Orchestrations
             case 22:
                 if ( !PreProgressInc( __seg__, __ctx__, 23 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[27],__eventData[4],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[31],__eventData[4],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 23;
@@ -6847,7 +7108,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
                     __edata.Messages.Add(__ctx1__.__CMSInsertMessage);
                     __edata.PortName = @"SqlInsertArchivePort";
-                    Tracker.FireEvent(__eventLocations[28],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[32],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6855,7 +7116,7 @@ namespace DCP.ESB.Orchestrations
             case 26:
                 if ( !PreProgressInc( __seg__, __ctx__, 27 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[29],__eventData[4],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[33],__eventData[4],_stateMgrs[3].TrackDataStream );
                 __ctx3__.__subWrapper2 = new Microsoft.XLANGs.Core.SubscriptionWrapper(1, System.Guid.Empty, CMSInsertResponseMessagePort, 0, __ctx0__);
                 __ctx3__.__Correlation_SQL_BTSCorrelationToken = new Microsoft.XLANGs.Core.Correlation(this, 0, 1);
                 __ctx3__.__Correlation_SQL_BTSCorrelationToken.AddSubscription(((____scope38_3)_stateMgrs[3]).__subWrapper2.getSubscription(this), __ctx3__);
@@ -6882,7 +7143,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
                     __edata.Messages.Add(__ctx1__.__CMSInsertMessage);
                     __edata.PortName = @"CMSInsertMessagePort";
-                    Tracker.FireEvent(__eventLocations[30],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[34],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6890,7 +7151,7 @@ namespace DCP.ESB.Orchestrations
             case 30:
                 if ( !PreProgressInc( __seg__, __ctx__, 31 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[31],__eventData[5],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[35],__eventData[5],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 31;
@@ -6929,21 +7190,21 @@ namespace DCP.ESB.Orchestrations
             case 33:
                 if ( !PreProgressInc( __seg__, __ctx__, 34 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[32],__eventData[6],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[36],__eventData[6],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 34;
             case 34:
                 if ( !PreProgressInc( __seg__, __ctx__, 35 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[33],__eventData[7],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[37],__eventData[7],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 35;
             case 35:
                 if ( !PreProgressInc( __seg__, __ctx__, 36 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[34],__eventData[8],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[38],__eventData[8],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 36;
@@ -6955,7 +7216,7 @@ namespace DCP.ESB.Orchestrations
             case 37:
                 if ( !PreProgressInc( __seg__, __ctx__, 38 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[35],__eventData[9],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[39],__eventData[9],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 38;
@@ -6967,7 +7228,7 @@ namespace DCP.ESB.Orchestrations
             case 39:
                 if ( !PreProgressInc( __seg__, __ctx__, 40 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[36],__eventData[10],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[40],__eventData[10],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 40;
@@ -6980,7 +7241,7 @@ namespace DCP.ESB.Orchestrations
             case 42:
                 if ( !PreProgressInc( __seg__, __ctx__, 43 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[37],__eventData[2],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[41],__eventData[2],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 43;
@@ -6991,7 +7252,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Receive);
                     __edata.Messages.Add(__ctx1__.__CMSInsertResponseMessage);
                     __edata.PortName = @"CMSInsertResponseMessagePort";
-                    Tracker.FireEvent(__eventLocations[38],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[42],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -6999,7 +7260,7 @@ namespace DCP.ESB.Orchestrations
             case 44:
                 if ( !PreProgressInc( __seg__, __ctx__, 45 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[39],__eventData[4],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[43],__eventData[4],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 45;
@@ -7023,7 +7284,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
                     __edata.Messages.Add(__ctx1__.__CMSInsertResponseMessage);
                     __edata.PortName = @"SqlInsertResponseArchivePort";
-                    Tracker.FireEvent(__eventLocations[40],__edata,_stateMgrs[3].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[44],__edata,_stateMgrs[3].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -7055,7 +7316,7 @@ namespace DCP.ESB.Orchestrations
             case 50:
                 if ( !PreProgressInc( __seg__, __ctx__, 51 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[41],__eventData[11],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[45],__eventData[11],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 51;
@@ -7097,7 +7358,7 @@ namespace DCP.ESB.Orchestrations
             case 53:
                 if ( !PreProgressInc( __seg__, __ctx__, 54 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[42],__eventData[11],_stateMgrs[3].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[46],__eventData[11],_stateMgrs[3].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 54;
@@ -7124,9 +7385,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[4];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
-            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
+            ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -7138,14 +7399,14 @@ namespace DCP.ESB.Orchestrations
             case 1:
                 if ( !PreProgressInc( __seg__, __ctx__, 2 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[44],__eventData[13],_stateMgrs[2].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[48],__eventData[13],_stateMgrs[2].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 2;
             case 2:
                 if ( !PreProgressInc( __seg__, __ctx__, 3 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[45],__eventData[3],_stateMgrs[2].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[49],__eventData[3],_stateMgrs[2].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 3;
@@ -7172,7 +7433,7 @@ namespace DCP.ESB.Orchestrations
                 {
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Construct);
                     __edata.Messages.Add(__ctx1__.__ExceptionMessage);
-                    Tracker.FireEvent(__eventLocations[46],__edata,_stateMgrs[2].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[50],__edata,_stateMgrs[2].TrackDataStream );
                 }
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
@@ -7180,7 +7441,7 @@ namespace DCP.ESB.Orchestrations
             case 5:
                 if ( !PreProgressInc( __seg__, __ctx__, 6 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[47],__eventData[4],_stateMgrs[2].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[51],__eventData[4],_stateMgrs[2].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 6;
@@ -7204,7 +7465,7 @@ namespace DCP.ESB.Orchestrations
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Send);
                     __edata.Messages.Add(__ctx1__.__ExceptionMessage);
                     __edata.PortName = @"Exception_Port";
-                    Tracker.FireEvent(__eventLocations[48],__edata,_stateMgrs[2].TrackDataStream );
+                    Tracker.FireEvent(__eventLocations[52],__edata,_stateMgrs[2].TrackDataStream );
                 }
                 if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
                 {
@@ -7217,7 +7478,7 @@ namespace DCP.ESB.Orchestrations
             case 9:
                 if ( !PreProgressInc( __seg__, __ctx__, 10 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
-                Tracker.FireEvent(__eventLocations[49],__eventData[14],_stateMgrs[2].TrackDataStream );
+                Tracker.FireEvent(__eventLocations[53],__eventData[14],_stateMgrs[2].TrackDataStream );
                 if (IsDebugged)
                     return Microsoft.XLANGs.Core.StopConditions.InBreakpoint;
                 goto case 10;
@@ -7230,8 +7491,8 @@ namespace DCP.ESB.Orchestrations
             return Microsoft.XLANGs.Core.StopConditions.Completed;
         }
         private static Microsoft.XLANGs.Core.CachedObject[] _locations = new Microsoft.XLANGs.Core.CachedObject[] {
-            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{4963C815-6999-4966-AEF2-FFB1E6DB2935}")),
-            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{151DCA83-1F19-4466-BEAC-5CA378F1CFF8}"))
+            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{F111366F-E8EA-4E92-8948-CF6644D0C241}")),
+            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{94AF2DC0-3BB9-4E4B-BD44-D1F4494B0533}"))
         };
 
     }
@@ -7472,52 +7733,6 @@ namespace DCP.ESB.Orchestrations
         }
 
         public __messagetype_DCP_ESB_Schemas_ESBMessage(string msgName, Microsoft.XLANGs.Core.Context ctx) : base(msgName, ctx)
-        {
-            __CreatePartWrappers();
-        }
-    }
-
-    [System.SerializableAttribute]
-    sealed public class __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__ : Microsoft.XLANGs.Core.XSDPart
-    {
-        private static DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS _schema = new DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS();
-
-        public __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__(Microsoft.XLANGs.Core.XMessage msg, string name, int index) : base(msg, name, index) { }
-
-        
-        #region part reflection support
-        public static Microsoft.XLANGs.BaseTypes.SchemaBase PartSchema { get { return (Microsoft.XLANGs.BaseTypes.SchemaBase)_schema; } }
-        #endregion // part reflection support
-    }
-
-    [Microsoft.XLANGs.BaseTypes.MessageTypeAttribute(
-        Microsoft.XLANGs.BaseTypes.EXLangSAccess.ePublic,
-        Microsoft.XLANGs.BaseTypes.EXLangSMessageInfo.eThirdKind,
-        "DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS",
-        new System.Type[]{
-            typeof(DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS)
-        },
-        new string[]{
-            "part"
-        },
-        new System.Type[]{
-            typeof(__DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__)
-        },
-        0,
-        @"http://DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS#root"
-    )]
-    [System.SerializableAttribute]
-    sealed public class __messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS : Microsoft.BizTalk.XLANGs.BTXEngine.BTXMessage
-    {
-        public __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__ part;
-
-        private void __CreatePartWrappers()
-        {
-            part = new __DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS__(this, "part", 0);
-            this.AddPart("part", 0, part);
-        }
-
-        public __messagetype_DCP_ESB_Schemas_CMS_SQLEXECUTE_PARAMS(string msgName, Microsoft.XLANGs.Core.Context ctx) : base(msgName, ctx)
         {
             __CreatePartWrappers();
         }
