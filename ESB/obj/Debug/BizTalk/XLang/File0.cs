@@ -1372,7 +1372,7 @@ namespace DCP.ESB.Orchestrations
                 <om:Property Name='Type' Value='System.String' />
                 <om:Property Name='ParamDirection' Value='In' />
                 <om:Property Name='ReportToAnalyst' Value='True' />
-                <om:Property Name='Name' Value='UpdateDocMessage' />
+                <om:Property Name='Name' Value='CasetrackMessage' />
                 <om:Property Name='Signal' Value='True' />
             </om:Element>
             <om:Element Type='MessageDeclaration' OID='ac03fffe-12b9-419b-9030-4ee0619112c9' ParentLink='ServiceDeclaration_MessageDeclaration' LowerBound='54.1' HigherBound='55.1'>
@@ -1414,7 +1414,7 @@ namespace DCP.ESB.Orchestrations
                     <om:Element Type='Receive' OID='18468299-f424-42c4-9e8e-b1a0dec0d751' ParentLink='ComplexStatement_Statement' LowerBound='67.1' HigherBound='71.1'>
                         <om:Property Name='Activate' Value='True' />
                         <om:Property Name='PortName' Value='CasetrackServicePort' />
-                        <om:Property Name='MessageName' Value='UpdateDocMessage' />
+                        <om:Property Name='MessageName' Value='CasetrackMessage' />
                         <om:Property Name='OperationName' Value='UpdateDocument' />
                         <om:Property Name='OperationMessageName' Value='Request' />
                         <om:Property Name='ReportToAnalyst' Value='True' />
@@ -1432,10 +1432,10 @@ namespace DCP.ESB.Orchestrations
                             <om:Property Name='Name' Value='Construct_ArchiveMessage' />
                             <om:Property Name='Signal' Value='True' />
                             <om:Element Type='MessageAssignment' OID='e49a92ee-f780-4124-93ad-3690ac58046e' ParentLink='ComplexStatement_Statement' LowerBound='79.1' HigherBound='82.1'>
-                                <om:Property Name='Expression' Value='ArchiveMessage = new System.Xml.XmlDocument();&#xD;&#xA;DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(UpdateDocMessage, ArchiveMessage);' />
+                                <om:Property Name='Expression' Value='ArchiveMessage = new System.Xml.XmlDocument();&#xD;&#xA;DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(CasetrackMessage, ArchiveMessage);' />
                                 <om:Property Name='ReportToAnalyst' Value='False' />
                                 <om:Property Name='Name' Value='MessageAssignment_2' />
-                                <om:Property Name='Signal' Value='True' />
+                                <om:Property Name='Signal' Value='False' />
                             </om:Element>
                             <om:Element Type='MessageRef' OID='fcb14602-07f1-459c-b60d-9c62d90a36c2' ParentLink='Construct_MessageRef' LowerBound='77.39' HigherBound='77.53'>
                                 <om:Property Name='Ref' Value='ArchiveMessage' />
@@ -1457,10 +1457,10 @@ namespace DCP.ESB.Orchestrations
                             <om:Property Name='Name' Value='Construct_DCFMessage' />
                             <om:Property Name='Signal' Value='True' />
                             <om:Element Type='MessageAssignment' OID='29362359-29f5-4784-8a63-5248d38b5986' ParentLink='ComplexStatement_Statement' LowerBound='88.1' HigherBound='97.1'>
-                                <om:Property Name='Expression' Value='xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(&quot;&lt;ns0:root xmlns:ns0=\&quot;http://DCP.ESB.Schemas.DCFMessage\&quot;&gt;&lt;ns0:operation&gt;operation_0&lt;/ns0:operation&gt;&lt;ns0:xml&gt;xml_0&lt;/ns0:xml&gt;&lt;ns0:id&gt;id_0&lt;/ns0:id&gt;&lt;/ns0:root&gt;&quot;);&#xD;&#xA;DCFMessage = xmlDocument;&#xD;&#xA;xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(UpdateDocMessage);&#xD;&#xA;DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;id&quot;);&#xD;&#xA;DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;operation&quot;);&#xD;&#xA;DCFMessage.xml = UpdateDocMessage;&#xD;&#xA;' />
+                                <om:Property Name='Expression' Value='xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(&quot;&lt;ns0:root xmlns:ns0=\&quot;http://DCP.ESB.Schemas.DCFMessage\&quot;&gt;&lt;ns0:operation&gt;operation_0&lt;/ns0:operation&gt;&lt;ns0:xml&gt;xml_0&lt;/ns0:xml&gt;&lt;ns0:id&gt;id_0&lt;/ns0:id&gt;&lt;/ns0:root&gt;&quot;);&#xD;&#xA;DCFMessage = xmlDocument;&#xD;&#xA;xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(CasetrackMessage);&#xD;&#xA;DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;id&quot;);&#xD;&#xA;DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;operation&quot;);&#xD;&#xA;DCFMessage.xml = CasetrackMessage;&#xD;&#xA;' />
                                 <om:Property Name='ReportToAnalyst' Value='False' />
                                 <om:Property Name='Name' Value='MessageAssignment_DCF' />
-                                <om:Property Name='Signal' Value='False' />
+                                <om:Property Name='Signal' Value='True' />
                             </om:Element>
                             <om:Element Type='MessageRef' OID='12cb457a-1eca-46cd-a0a5-c9fc6a481400' ParentLink='Construct_MessageRef' LowerBound='86.39' HigherBound='86.49'>
                                 <om:Property Name='Ref' Value='DCFMessage' />
@@ -1862,6 +1862,16 @@ namespace DCP.ESB.Orchestrations
                     __svc__.UpdateStatusPort.Close(this, null);
                     __svc__.UpdateStatusPort = null;
                 }
+                if (__svc__.DCFServicePort != null)
+                {
+                    __svc__.DCFServicePort.Close(this, null);
+                    __svc__.DCFServicePort = null;
+                }
+                if (__svc__.Exception_Port != null)
+                {
+                    __svc__.Exception_Port.Close(this, null);
+                    __svc__.Exception_Port = null;
+                }
                 if (__svc__.CasetrackServicePort != null)
                 {
                     __svc__.CasetrackServicePort.Close(this, null);
@@ -1871,16 +1881,6 @@ namespace DCP.ESB.Orchestrations
                 {
                     __svc__.CasetrackMessageArchivePort.Close(this, null);
                     __svc__.CasetrackMessageArchivePort = null;
-                }
-                if (__svc__.Exception_Port != null)
-                {
-                    __svc__.Exception_Port.Close(this, null);
-                    __svc__.Exception_Port = null;
-                }
-                if (__svc__.DCFServicePort != null)
-                {
-                    __svc__.DCFServicePort.Close(this, null);
-                    __svc__.DCFServicePort = null;
                 }
                 if (__svc__.DCFResponseMessagePort != null)
                 {
@@ -1930,8 +1930,8 @@ namespace DCP.ESB.Orchestrations
 
             [Microsoft.XLANGs.Core.UserVariableAttribute("ExceptionMessage")]
             public __messagetype_DCP_ESB_Schemas_Exception __ExceptionMessage;
-            [Microsoft.XLANGs.Core.UserVariableAttribute("UpdateDocMessage")]
-            public __messagetype_System_String __UpdateDocMessage;
+            [Microsoft.XLANGs.Core.UserVariableAttribute("CasetrackMessage")]
+            public __messagetype_System_String __CasetrackMessage;
             [Microsoft.XLANGs.Core.UserVariableAttribute("DCFMessage")]
             public __messagetype_DCP_ESB_Schemas_DCFMessage __DCFMessage;
             [Microsoft.XLANGs.Core.UserVariableAttribute("DCFResponseMessage")]
@@ -2006,19 +2006,15 @@ namespace DCP.ESB.Orchestrations
                     __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
                     __ctx1__.__ExceptionMessage = null;
                 }
-                if (__ctx2__ != null)
-                    __ctx2__.__ex_0 = null;
-                if (__ctx1__ != null)
-                    __ctx1__.__xmlDocument = null;
-                if (__ctx1__ != null && __ctx1__.__DCFResponseMessage != null)
+                if (__ctx1__ != null && __ctx1__.__StatusMessage != null)
                 {
-                    __ctx1__.UnrefMessage(__ctx1__.__DCFResponseMessage);
-                    __ctx1__.__DCFResponseMessage = null;
+                    __ctx1__.UnrefMessage(__ctx1__.__StatusMessage);
+                    __ctx1__.__StatusMessage = null;
                 }
-                if (__ctx1__ != null && __ctx1__.__UpdateDocMessage != null)
+                if (__ctx1__ != null && __ctx1__.__CasetrackMessage != null)
                 {
-                    __ctx1__.UnrefMessage(__ctx1__.__UpdateDocMessage);
-                    __ctx1__.__UpdateDocMessage = null;
+                    __ctx1__.UnrefMessage(__ctx1__.__CasetrackMessage);
+                    __ctx1__.__CasetrackMessage = null;
                 }
                 if (__ctx1__ != null)
                     __ctx1__.__noResponse_ex = null;
@@ -2027,11 +2023,15 @@ namespace DCP.ESB.Orchestrations
                     __ctx1__.UnrefMessage(__ctx1__.__DCFMessage);
                     __ctx1__.__DCFMessage = null;
                 }
-                if (__ctx1__ != null && __ctx1__.__StatusMessage != null)
+                if (__ctx1__ != null)
+                    __ctx1__.__xmlDocument = null;
+                if (__ctx1__ != null && __ctx1__.__DCFResponseMessage != null)
                 {
-                    __ctx1__.UnrefMessage(__ctx1__.__StatusMessage);
-                    __ctx1__.__StatusMessage = null;
+                    __ctx1__.UnrefMessage(__ctx1__.__DCFResponseMessage);
+                    __ctx1__.__DCFResponseMessage = null;
                 }
+                if (__ctx2__ != null)
+                    __ctx2__.__ex_0 = null;
                 if (__ctx2__ != null && __ctx2__.__subWrapper1 != null)
                 {
                     __ctx2__.__subWrapper1.Destroy(__svc__, __ctx2__);
@@ -2404,8 +2404,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[1];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[1];
-            ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -2511,9 +2511,9 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[2];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
+            __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
             ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
-            __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
             __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -2533,11 +2533,11 @@ namespace DCP.ESB.Orchestrations
             case 2:
                 if (!CasetrackServicePort.GetMessageId(__ctx0__.__subWrapper0.getSubscription(this), __seg__, __ctx1__, out __msgEnv__))
                     return Microsoft.XLANGs.Core.StopConditions.Blocked;
-                if (__ctx1__.__UpdateDocMessage != null)
-                    __ctx1__.UnrefMessage(__ctx1__.__UpdateDocMessage);
-                __ctx1__.__UpdateDocMessage = new __messagetype_System_String("UpdateDocMessage", __ctx1__);
-                __ctx1__.RefMessage(__ctx1__.__UpdateDocMessage);
-                CasetrackServicePort.ReceiveMessage(0, __msgEnv__, __ctx1__.__UpdateDocMessage, null, (Microsoft.XLANGs.Core.Context)_stateMgrs[2], __seg__);
+                if (__ctx1__.__CasetrackMessage != null)
+                    __ctx1__.UnrefMessage(__ctx1__.__CasetrackMessage);
+                __ctx1__.__CasetrackMessage = new __messagetype_System_String("CasetrackMessage", __ctx1__);
+                __ctx1__.RefMessage(__ctx1__.__CasetrackMessage);
+                CasetrackServicePort.ReceiveMessage(0, __msgEnv__, __ctx1__.__CasetrackMessage, null, (Microsoft.XLANGs.Core.Context)_stateMgrs[2], __seg__);
                 if ( !PostProgressInc( __seg__, __ctx__, 3 ) )
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
                 goto case 3;
@@ -2546,7 +2546,7 @@ namespace DCP.ESB.Orchestrations
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
                 {
                     Microsoft.XLANGs.RuntimeTypes.EventData __edata = new Microsoft.XLANGs.RuntimeTypes.EventData(Microsoft.XLANGs.RuntimeTypes.Operation.End | Microsoft.XLANGs.RuntimeTypes.Operation.Receive);
-                    __edata.Messages.Add(__ctx1__.__UpdateDocMessage);
+                    __edata.Messages.Add(__ctx1__.__CasetrackMessage);
                     __edata.PortName = @"CasetrackServicePort";
                     Tracker.FireEvent(__eventLocations[4],__edata,_stateMgrs[2].TrackDataStream );
                 }
@@ -2586,10 +2586,10 @@ namespace DCP.ESB.Orchestrations
                     return Microsoft.XLANGs.Core.StopConditions.Paused;
                 if (__ctx1__ != null)
                     __ctx1__.__xmlDocument = null;
-                if (__ctx1__ != null && __ctx1__.__UpdateDocMessage != null)
+                if (__ctx1__ != null && __ctx1__.__CasetrackMessage != null)
                 {
-                    __ctx1__.UnrefMessage(__ctx1__.__UpdateDocMessage);
-                    __ctx1__.__UpdateDocMessage = null;
+                    __ctx1__.UnrefMessage(__ctx1__.__CasetrackMessage);
+                    __ctx1__.__CasetrackMessage = null;
                 }
                 Tracker.FireEvent(__eventLocations[23],__eventData[8],_stateMgrs[2].TrackDataStream );
                 __ctx3__.Finally();
@@ -2860,9 +2860,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[3];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[3];
+            __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
             ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
-            __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
             __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -2884,7 +2884,7 @@ namespace DCP.ESB.Orchestrations
                     __messagetype_System_Xml_XmlDocument __ArchiveMessage = new __messagetype_System_Xml_XmlDocument("ArchiveMessage", __ctx1__);
 
                     __ArchiveMessage.part.LoadFrom(new System.Xml.XmlDocument());
-                    DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(__ctx1__.__UpdateDocMessage.part.TypedValue, CreateMessageWrapperForUserCode(__ArchiveMessage));
+                    DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(__ctx1__.__CasetrackMessage.part.TypedValue, CreateMessageWrapperForUserCode(__ArchiveMessage));
 
                     if (__ctx1__.__ArchiveMessage != null)
                         __ctx1__.UnrefMessage(__ctx1__.__ArchiveMessage);
@@ -2958,10 +2958,10 @@ namespace DCP.ESB.Orchestrations
                     __ctx1__.__xmlDocument.UnderlyingXmlDocument.LoadXml("<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.DCFMessage\"><ns0:operation>operation_0</ns0:operation><ns0:xml>xml_0</ns0:xml><ns0:id>id_0</ns0:id></ns0:root>");
                     __DCFMessage.part.LoadFrom((System.Xml.XmlDocument)__ctx1__.__xmlDocument.UnderlyingXmlDocument);
                     __ctx1__.__xmlDocument.UnderlyingXmlDocument = new System.Xml.XmlDocument();
-                    __ctx1__.__xmlDocument.UnderlyingXmlDocument.LoadXml(__ctx1__.__UpdateDocMessage.part.TypedValue);
+                    __ctx1__.__xmlDocument.UnderlyingXmlDocument.LoadXml(__ctx1__.__CasetrackMessage.part.TypedValue);
                     __DCFMessage.part.SetDistinguishedField("id", DCP.ESB.Utils.Helper.getInnerText((System.Xml.XmlDocument)__ctx1__.__xmlDocument.UnderlyingXmlDocument, "id"));
                     __DCFMessage.part.SetDistinguishedField("operation", DCP.ESB.Utils.Helper.getInnerText((System.Xml.XmlDocument)__ctx1__.__xmlDocument.UnderlyingXmlDocument, "operation"));
-                    __DCFMessage.part.SetDistinguishedField("xml", __ctx1__.__UpdateDocMessage.part.TypedValue);
+                    __DCFMessage.part.SetDistinguishedField("xml", __ctx1__.__CasetrackMessage.part.TypedValue);
 
                     if (__ctx1__.__DCFMessage != null)
                         __ctx1__.UnrefMessage(__ctx1__.__DCFMessage);
@@ -3039,8 +3039,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[4];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[3];
-            ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            ____scope35_3 __ctx3__ = (____scope35_3)_stateMgrs[3];
             __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -3154,8 +3154,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[5];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             __CasetrackService_root_0 __ctx0__ = (__CasetrackService_root_0)_stateMgrs[0];
+            ____scope34_2 __ctx2__ = (____scope34_2)_stateMgrs[2];
             __CasetrackService_1 __ctx1__ = (__CasetrackService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -3260,7 +3260,7 @@ namespace DCP.ESB.Orchestrations
             return Microsoft.XLANGs.Core.StopConditions.Completed;
         }
         private static Microsoft.XLANGs.Core.CachedObject[] _locations = new Microsoft.XLANGs.Core.CachedObject[] {
-            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{02033522-5732-451D-B4CB-0F05A49FBBBF}"))
+            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{0AC5DA1A-F98D-4328-9C46-3B781B23DF75}"))
         };
 
     }
@@ -3756,16 +3756,6 @@ namespace DCP.ESB.Orchestrations
                 DCFService __svc__ = (DCFService)_service;
                 __DCFService_root_0 __ctx0__ = (__DCFService_root_0)(__svc__._stateMgrs[0]);
 
-                if (__svc__.DCFServiceArchivePort != null)
-                {
-                    __svc__.DCFServiceArchivePort.Close(this, null);
-                    __svc__.DCFServiceArchivePort = null;
-                }
-                if (__svc__.DCFUpdateStatusMessageOutPort != null)
-                {
-                    __svc__.DCFUpdateStatusMessageOutPort.Close(this, null);
-                    __svc__.DCFUpdateStatusMessageOutPort = null;
-                }
                 if (__svc__.DCFServiceInPort != null)
                 {
                     __svc__.DCFServiceInPort.Close(this, null);
@@ -3775,6 +3765,16 @@ namespace DCP.ESB.Orchestrations
                 {
                     __svc__.Exception_Port.Close(this, null);
                     __svc__.Exception_Port = null;
+                }
+                if (__svc__.DCFServiceArchivePort != null)
+                {
+                    __svc__.DCFServiceArchivePort.Close(this, null);
+                    __svc__.DCFServiceArchivePort = null;
+                }
+                if (__svc__.DCFUpdateStatusMessageOutPort != null)
+                {
+                    __svc__.DCFUpdateStatusMessageOutPort.Close(this, null);
+                    __svc__.DCFUpdateStatusMessageOutPort = null;
                 }
                 base.Finally();
             }
@@ -3876,6 +3876,11 @@ namespace DCP.ESB.Orchestrations
                 ____scope36_2 __ctx2__ = (____scope36_2)(__svc__._stateMgrs[2]);
                 __DCFService_1 __ctx1__ = (__DCFService_1)(__svc__._stateMgrs[1]);
 
+                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
+                    __ctx1__.__ExceptionMessage = null;
+                }
                 if (__ctx2__ != null)
                     __ctx2__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__DCFUpdateStatusMessage != null)
@@ -3887,11 +3892,6 @@ namespace DCP.ESB.Orchestrations
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__DCFMessage);
                     __ctx1__.__DCFMessage = null;
-                }
-                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
-                    __ctx1__.__ExceptionMessage = null;
                 }
                 base.Finally();
             }
@@ -4126,8 +4126,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[1];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[1];
-            __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
             ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
+            __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
             __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -4221,8 +4221,8 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[2];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
             ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
+            __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
             __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -4393,8 +4393,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[3];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
-            __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
             ____scope36_2 __ctx2__ = (____scope36_2)_stateMgrs[2];
+            __DCFService_root_0 __ctx0__ = (__DCFService_root_0)_stateMgrs[0];
             __DCFService_1 __ctx1__ = (__DCFService_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
@@ -5827,35 +5827,20 @@ namespace DCP.ESB.Orchestrations
                 CasetrackUpdateStatus __svc__ = (CasetrackUpdateStatus)_service;
                 __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)(__svc__._stateMgrs[0]);
 
-                if (__svc__.SqlExecuteParamPort != null)
+                if (__svc__.DCFUpdateStatusInPort != null)
                 {
-                    __svc__.SqlExecuteParamPort.Close(this, null);
-                    __svc__.SqlExecuteParamPort = null;
+                    __svc__.DCFUpdateStatusInPort.Close(this, null);
+                    __svc__.DCFUpdateStatusInPort = null;
                 }
-                if (__svc__.CMSInsertResponseMessagePort != null)
+                if (__svc__.SqlInsertResponseArchivePort != null)
                 {
-                    __svc__.CMSInsertResponseMessagePort.Close(this, null);
-                    __svc__.CMSInsertResponseMessagePort = null;
-                }
-                if (__svc__.SqlExecuteArchivePort != null)
-                {
-                    __svc__.SqlExecuteArchivePort.Close(this, null);
-                    __svc__.SqlExecuteArchivePort = null;
+                    __svc__.SqlInsertResponseArchivePort.Close(this, null);
+                    __svc__.SqlInsertResponseArchivePort = null;
                 }
                 if (__svc__.Exception_Port != null)
                 {
                     __svc__.Exception_Port.Close(this, null);
                     __svc__.Exception_Port = null;
-                }
-                if (__svc__.CMSSqlExecutePort != null)
-                {
-                    __svc__.CMSSqlExecutePort.Close(this, null);
-                    __svc__.CMSSqlExecutePort = null;
-                }
-                if (__svc__.DCFUpdateStatusInPort != null)
-                {
-                    __svc__.DCFUpdateStatusInPort.Close(this, null);
-                    __svc__.DCFUpdateStatusInPort = null;
                 }
                 if (__svc__.CMSInsertMessagePort != null)
                 {
@@ -5867,20 +5852,35 @@ namespace DCP.ESB.Orchestrations
                     __svc__.SqlInsertArchivePort.Close(this, null);
                     __svc__.SqlInsertArchivePort = null;
                 }
-                if (__svc__.CMSSqlExecuteResponsePort != null)
+                if (__svc__.CMSInsertResponseMessagePort != null)
                 {
-                    __svc__.CMSSqlExecuteResponsePort.Close(this, null);
-                    __svc__.CMSSqlExecuteResponsePort = null;
-                }
-                if (__svc__.SqlInsertResponseArchivePort != null)
-                {
-                    __svc__.SqlInsertResponseArchivePort.Close(this, null);
-                    __svc__.SqlInsertResponseArchivePort = null;
+                    __svc__.CMSInsertResponseMessagePort.Close(this, null);
+                    __svc__.CMSInsertResponseMessagePort = null;
                 }
                 if (__svc__.CMSSqlExecuteResponseArchivePort != null)
                 {
                     __svc__.CMSSqlExecuteResponseArchivePort.Close(this, null);
                     __svc__.CMSSqlExecuteResponseArchivePort = null;
+                }
+                if (__svc__.SqlExecuteArchivePort != null)
+                {
+                    __svc__.SqlExecuteArchivePort.Close(this, null);
+                    __svc__.SqlExecuteArchivePort = null;
+                }
+                if (__svc__.CMSSqlExecuteResponsePort != null)
+                {
+                    __svc__.CMSSqlExecuteResponsePort.Close(this, null);
+                    __svc__.CMSSqlExecuteResponsePort = null;
+                }
+                if (__svc__.SqlExecuteParamPort != null)
+                {
+                    __svc__.SqlExecuteParamPort.Close(this, null);
+                    __svc__.SqlExecuteParamPort = null;
+                }
+                if (__svc__.CMSSqlExecutePort != null)
+                {
+                    __svc__.CMSSqlExecutePort.Close(this, null);
+                    __svc__.CMSSqlExecutePort = null;
                 }
                 base.Finally();
             }
@@ -5993,20 +5993,20 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 CasetrackUpdateStatus __svc__ = (CasetrackUpdateStatus)_service;
-                ____scope37_2 __ctx2__ = (____scope37_2)(__svc__._stateMgrs[2]);
                 __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
+                ____scope37_2 __ctx2__ = (____scope37_2)(__svc__._stateMgrs[2]);
 
-                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
-                    __ctx1__.__ExceptionMessage = null;
-                }
-                if (__ctx2__ != null)
-                    __ctx2__.__ex_0 = null;
                 if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteParamsMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteParamsMessage);
                     __ctx1__.__CMSSqlExecuteParamsMessage = null;
+                }
+                if (__ctx2__ != null)
+                    __ctx2__.__ex_0 = null;
+                if (__ctx1__ != null && __ctx1__.__ExceptionMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__ExceptionMessage);
+                    __ctx1__.__ExceptionMessage = null;
                 }
                 base.Finally();
             }
@@ -6054,14 +6054,14 @@ namespace DCP.ESB.Orchestrations
             public override void Finally()
             {
                 CasetrackUpdateStatus __svc__ = (CasetrackUpdateStatus)_service;
+                __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
                 ____scope37_2 __ctx2__ = (____scope37_2)(__svc__._stateMgrs[2]);
                 ____scope38_3 __ctx3__ = (____scope38_3)(__svc__._stateMgrs[3]);
-                __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)(__svc__._stateMgrs[1]);
 
-                if (__ctx3__ != null && __ctx3__.__Correlation_SQL_BTSCorrelationToken != null)
-                    __ctx3__.__Correlation_SQL_BTSCorrelationToken = null;
                 if (__ctx2__ != null && __ctx2__.__Correlation_BTSCorrelationToken != null)
                     __ctx2__.__Correlation_BTSCorrelationToken = null;
+                if (__ctx3__ != null && __ctx3__.__Correlation_SQL_BTSCorrelationToken != null)
+                    __ctx3__.__Correlation_SQL_BTSCorrelationToken = null;
                 if (__ctx1__ != null && __ctx1__.__CMSInsertResponseMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__CMSInsertResponseMessage);
@@ -6072,11 +6072,6 @@ namespace DCP.ESB.Orchestrations
                     __ctx1__.UnrefMessage(__ctx1__.__CMSInsertMessage);
                     __ctx1__.__CMSInsertMessage = null;
                 }
-                if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteResponseMessage != null)
-                {
-                    __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteResponseMessage);
-                    __ctx1__.__CMSSqlExecuteResponseMessage = null;
-                }
                 if (__ctx1__ != null)
                     __ctx1__.__s_temp = null;
                 if (__ctx1__ != null && __ctx1__.__DCFUpdateStatusMessage != null)
@@ -6084,13 +6079,18 @@ namespace DCP.ESB.Orchestrations
                     __ctx1__.UnrefMessage(__ctx1__.__DCFUpdateStatusMessage);
                     __ctx1__.__DCFUpdateStatusMessage = null;
                 }
-                if (__ctx1__ != null)
-                    __ctx1__.__xmlDocument = null;
+                if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteResponseMessage != null)
+                {
+                    __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteResponseMessage);
+                    __ctx1__.__CMSSqlExecuteResponseMessage = null;
+                }
                 if (__ctx1__ != null && __ctx1__.__CMSSqlExecuteMessage != null)
                 {
                     __ctx1__.UnrefMessage(__ctx1__.__CMSSqlExecuteMessage);
                     __ctx1__.__CMSSqlExecuteMessage = null;
                 }
+                if (__ctx1__ != null)
+                    __ctx1__.__xmlDocument = null;
                 if (__ctx1__ != null)
                     __ctx1__.__noResponse_ex = null;
                 if (__ctx3__ != null && __ctx3__.__subWrapper2 != null)
@@ -6424,8 +6424,8 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[0];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[0];
-            __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
             __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
+            __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
 
             switch (__seg__.Progress)
             {
@@ -6478,9 +6478,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[1];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[1];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
             ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -6611,10 +6611,10 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[2];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
             ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
             ____scope38_3 __ctx3__ = (____scope38_3)_stateMgrs[3];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -6891,10 +6891,10 @@ namespace DCP.ESB.Orchestrations
             Microsoft.XLANGs.Core.Envelope __msgEnv__ = null;
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[3];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[3];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
             ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
             ____scope38_3 __ctx3__ = (____scope38_3)_stateMgrs[3];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -7385,9 +7385,9 @@ namespace DCP.ESB.Orchestrations
         {
             Microsoft.XLANGs.Core.Segment __seg__ = _segments[4];
             Microsoft.XLANGs.Core.Context __ctx__ = (Microsoft.XLANGs.Core.Context)_stateMgrs[2];
+            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
             __CasetrackUpdateStatus_root_0 __ctx0__ = (__CasetrackUpdateStatus_root_0)_stateMgrs[0];
             ____scope37_2 __ctx2__ = (____scope37_2)_stateMgrs[2];
-            __CasetrackUpdateStatus_1 __ctx1__ = (__CasetrackUpdateStatus_1)_stateMgrs[1];
 
             switch (__seg__.Progress)
             {
@@ -7491,8 +7491,8 @@ namespace DCP.ESB.Orchestrations
             return Microsoft.XLANGs.Core.StopConditions.Completed;
         }
         private static Microsoft.XLANGs.Core.CachedObject[] _locations = new Microsoft.XLANGs.Core.CachedObject[] {
-            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{F111366F-E8EA-4E92-8948-CF6644D0C241}")),
-            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{94AF2DC0-3BB9-4E4B-BD44-D1F4494B0533}"))
+            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{DE22DCCA-A00C-4704-B296-E3CD60C53E00}")),
+            new Microsoft.XLANGs.Core.CachedObject(new System.Guid("{F2E703CA-011D-4778-B1CF-04EF257510E3}"))
         };
 
     }

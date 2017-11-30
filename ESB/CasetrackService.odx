@@ -61,7 +61,7 @@
                 <om:Property Name="Type" Value="System.String" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="UpdateDocMessage" />
+                <om:Property Name="Name" Value="CasetrackMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
             <om:Element Type="MessageDeclaration" OID="ac03fffe-12b9-419b-9030-4ee0619112c9" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="54.1" HigherBound="55.1">
@@ -103,7 +103,7 @@
                     <om:Element Type="Receive" OID="18468299-f424-42c4-9e8e-b1a0dec0d751" ParentLink="ComplexStatement_Statement" LowerBound="67.1" HigherBound="71.1">
                         <om:Property Name="Activate" Value="True" />
                         <om:Property Name="PortName" Value="CasetrackServicePort" />
-                        <om:Property Name="MessageName" Value="UpdateDocMessage" />
+                        <om:Property Name="MessageName" Value="CasetrackMessage" />
                         <om:Property Name="OperationName" Value="UpdateDocument" />
                         <om:Property Name="OperationMessageName" Value="Request" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
@@ -121,10 +121,10 @@
                             <om:Property Name="Name" Value="Construct_ArchiveMessage" />
                             <om:Property Name="Signal" Value="True" />
                             <om:Element Type="MessageAssignment" OID="e49a92ee-f780-4124-93ad-3690ac58046e" ParentLink="ComplexStatement_Statement" LowerBound="79.1" HigherBound="82.1">
-                                <om:Property Name="Expression" Value="ArchiveMessage = new System.Xml.XmlDocument();&#xD;&#xA;DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(UpdateDocMessage, ArchiveMessage);" />
+                                <om:Property Name="Expression" Value="ArchiveMessage = new System.Xml.XmlDocument();&#xD;&#xA;DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(CasetrackMessage, ArchiveMessage);" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="MessageAssignment_2" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="MessageRef" OID="fcb14602-07f1-459c-b60d-9c62d90a36c2" ParentLink="Construct_MessageRef" LowerBound="77.39" HigherBound="77.53">
                                 <om:Property Name="Ref" Value="ArchiveMessage" />
@@ -146,10 +146,10 @@
                             <om:Property Name="Name" Value="Construct_DCFMessage" />
                             <om:Property Name="Signal" Value="True" />
                             <om:Element Type="MessageAssignment" OID="29362359-29f5-4784-8a63-5248d38b5986" ParentLink="ComplexStatement_Statement" LowerBound="88.1" HigherBound="97.1">
-                                <om:Property Name="Expression" Value="xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(&quot;&lt;ns0:root xmlns:ns0=\&quot;http://DCP.ESB.Schemas.DCFMessage\&quot;&gt;&lt;ns0:operation&gt;operation_0&lt;/ns0:operation&gt;&lt;ns0:xml&gt;xml_0&lt;/ns0:xml&gt;&lt;ns0:id&gt;id_0&lt;/ns0:id&gt;&lt;/ns0:root&gt;&quot;);&#xD;&#xA;DCFMessage = xmlDocument;&#xD;&#xA;xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(UpdateDocMessage);&#xD;&#xA;DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;id&quot;);&#xD;&#xA;DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;operation&quot;);&#xD;&#xA;DCFMessage.xml = UpdateDocMessage;&#xD;&#xA;" />
+                                <om:Property Name="Expression" Value="xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(&quot;&lt;ns0:root xmlns:ns0=\&quot;http://DCP.ESB.Schemas.DCFMessage\&quot;&gt;&lt;ns0:operation&gt;operation_0&lt;/ns0:operation&gt;&lt;ns0:xml&gt;xml_0&lt;/ns0:xml&gt;&lt;ns0:id&gt;id_0&lt;/ns0:id&gt;&lt;/ns0:root&gt;&quot;);&#xD;&#xA;DCFMessage = xmlDocument;&#xD;&#xA;xmlDocument = new  System.Xml.XmlDocument();&#xD;&#xA;xmlDocument.LoadXml(CasetrackMessage);&#xD;&#xA;DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;id&quot;);&#xD;&#xA;DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,&quot;operation&quot;);&#xD;&#xA;DCFMessage.xml = CasetrackMessage;&#xD;&#xA;" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="MessageAssignment_DCF" />
-                                <om:Property Name="Signal" Value="False" />
+                                <om:Property Name="Signal" Value="True" />
                             </om:Element>
                             <om:Element Type="MessageRef" OID="12cb457a-1eca-46cd-a0a5-c9fc6a481400" ParentLink="Construct_MessageRef" LowerBound="86.39" HigherBound="86.49">
                                 <om:Property Name="Ref" Value="DCFMessage" />
@@ -566,7 +566,7 @@ module DCP.ESB.Orchestrations
         port uses DCFType DCFServicePort;
         correlation CorrelationType_id Correlation_id;
         message DCP.ESB.Schemas.Exception ExceptionMessage;
-        message System.String UpdateDocMessage;
+        message System.String CasetrackMessage;
         message DCP.ESB.Schemas.DCFMessage DCFMessage;
         message DCP.ESB.Schemas.DCFUpdateStatusMessage DCFResponseMessage;
         message DCP.ESB.Schemas.ESBMessage StatusMessage;
@@ -581,7 +581,7 @@ module DCP.ESB.Orchestrations
                 body
                 {
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("18468299-f424-42c4-9e8e-b1a0dec0d751")]
-                    activate receive (CasetrackServicePort.UpdateDocument, UpdateDocMessage);
+                    activate receive (CasetrackServicePort.UpdateDocument, CasetrackMessage);
                     xmlDocument = new System.Xml.XmlDocument();
                     noResponse_ex = new System.Exception();
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("f7ae8efe-f28d-4b18-95c4-46f21c074d9e")]
@@ -594,7 +594,7 @@ module DCP.ESB.Orchestrations
                             {
                                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("e49a92ee-f780-4124-93ad-3690ac58046e")]
                                 ArchiveMessage = new System.Xml.XmlDocument();
-                                DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(UpdateDocMessage, ArchiveMessage);
+                                DCP.ESB.Utils.Helper.LoadXLANGMsgFromString(CasetrackMessage, ArchiveMessage);
                             }
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("7a84aa01-5f06-489d-a833-6562206f0217")]
                             send (CasetrackMessageArchivePort.CTMessage, ArchiveMessage);
@@ -606,10 +606,10 @@ module DCP.ESB.Orchestrations
                                 xmlDocument.LoadXml("<ns0:root xmlns:ns0=\"http://DCP.ESB.Schemas.DCFMessage\"><ns0:operation>operation_0</ns0:operation><ns0:xml>xml_0</ns0:xml><ns0:id>id_0</ns0:id></ns0:root>");
                                 DCFMessage = xmlDocument;
                                 xmlDocument = new  System.Xml.XmlDocument();
-                                xmlDocument.LoadXml(UpdateDocMessage);
+                                xmlDocument.LoadXml(CasetrackMessage);
                                 DCFMessage.id = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,"id");
                                 DCFMessage.operation = DCP.ESB.Utils.Helper.getInnerText(xmlDocument,"operation");
-                                DCFMessage.xml = UpdateDocMessage;
+                                DCFMessage.xml = CasetrackMessage;
                             }
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("ddc9df5b-e470-498d-ba76-748ff8e88b24")]
                             construct StatusMessage
