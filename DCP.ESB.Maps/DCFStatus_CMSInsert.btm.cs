@@ -15,7 +15,8 @@ namespace DCP.ESB.Maps {
   <xsl:template match=""/s2:Root"">
     <xsl:variable name=""var:v1"" select=""InputMessagePart_0/s0:SQLEXECUTEResponse/s0:SQLEXECUTEResult/s4:GenRecordRow/s4:GenRecordColumn/s4:GenRecordColumn[1]/s4:ColumnValue/text()"" />
     <xsl:variable name=""var:v2"" select=""userCSharp:StringConcat(&quot;UpdateStatus&quot;)"" />
-    <xsl:variable name=""var:v3"" select=""userCSharp:DateCurrentDateTime()"" />
+    <xsl:variable name=""var:v3"" select=""userCSharp:StringConcat(&quot;new&quot;)"" />
+    <xsl:variable name=""var:v4"" select=""userCSharp:DateCurrentDateTime()"" />
     <ns0:Insert>
       <ns0:RECORDSET>
         <ns0:DCF_IN_MESSAGE_LOGRECORDINSERT>
@@ -26,17 +27,20 @@ namespace DCP.ESB.Maps {
             <xsl:value-of select=""$var:v2"" />
           </ns0:MESG_TYPE>
           <ns0:STATUS>
-            <xsl:value-of select=""InputMessagePart_1/s1:root/s1:status/text()"" />
-          </ns0:STATUS>
-          <ns0:STATUS_TIME>
             <xsl:value-of select=""$var:v3"" />
-          </ns0:STATUS_TIME>
+          </ns0:STATUS>
           <ns0:ERROR_MESG>
             <xsl:value-of select=""InputMessagePart_1/s1:root/s1:error/text()"" />
           </ns0:ERROR_MESG>
           <ns0:DATA_ID>
             <xsl:value-of select=""InputMessagePart_1/s1:root/s1:id/text()"" />
           </ns0:DATA_ID>
+          <ns0:ESB_STATUS>
+            <xsl:value-of select=""InputMessagePart_1/s1:root/s1:status/text()"" />
+          </ns0:ESB_STATUS>
+          <ns0:ESB_STATUS_TIME>
+            <xsl:value-of select=""$var:v4"" />
+          </ns0:ESB_STATUS_TIME>
         </ns0:DCF_IN_MESSAGE_LOGRECORDINSERT>
       </ns0:RECORDSET>
     </ns0:Insert>

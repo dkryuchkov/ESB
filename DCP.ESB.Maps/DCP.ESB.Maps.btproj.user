@@ -18,20 +18,6 @@
 			<PropertySchemaFileName>PropertySchema.xsd</PropertySchemaFileName>
 			<AutoRefreshSchema>0</AutoRefreshSchema>
 		</File>
-		<File Path="DCF_to_CMS_STATUS.btm">
-			<ValidateTestMapInput>True</ValidateTestMapInput>
-			<ValidateTestMapOutput>True</ValidateTestMapOutput>
-			<TestMapInputInstanceFilename>C:\Users\dkryadmin\AppData\Local\Temp\_SchemaData\DCFUpdateStatusMessage_output.xml</TestMapInputInstanceFilename>
-			<TestMapOutputInstanceFilename></TestMapOutputInstanceFilename>
-			<TestMapSourceType>1</TestMapSourceType>
-			<TestMapTargetType>0</TestMapTargetType>
-			<EditorOutputInstanceFilename></EditorOutputInstanceFilename>
-			<EditorInputInstanceFilename></EditorInputInstanceFilename>
-			<GenerateInstanceOutputType>0</GenerateInstanceOutputType>
-			<ValidateInstanceInputType>0</ValidateInstanceInputType>
-			<PropertySchemaFileName>PropertySchema.xsd</PropertySchemaFileName>
-			<AutoRefreshSchema>0</AutoRefreshSchema>
-		</File>
 		<File Path="DCFMessage_to_DCFUpdateStatusMessage.btm">
 			<ValidateTestMapInput>False</ValidateTestMapInput>
 			<ValidateTestMapOutput>True</ValidateTestMapOutput>

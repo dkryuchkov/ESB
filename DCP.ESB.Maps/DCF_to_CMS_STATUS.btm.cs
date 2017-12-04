@@ -13,7 +13,8 @@ namespace DCP.ESB.Maps {
   </xsl:template>
   <xsl:template match=""/s0:root"">
     <xsl:variable name=""var:v1"" select=""userCSharp:StringConcat(&quot;UpdateStatus&quot;)"" />
-    <xsl:variable name=""var:v2"" select=""userCSharp:DateCurrentDateTime()"" />
+    <xsl:variable name=""var:v2"" select=""userCSharp:StringConcat(&quot;new&quot;)"" />
+    <xsl:variable name=""var:v3"" select=""userCSharp:DateCurrentDateTime()"" />
     <ns0:Insert>
       <ns0:RECORDSET>
         <ns0:DCF_IN_MESSAGE_LOGRECORDINSERT>
@@ -21,14 +22,17 @@ namespace DCP.ESB.Maps {
             <xsl:value-of select=""$var:v1"" />
           </ns0:MESG_TYPE>
           <ns0:STATUS>
-            <xsl:value-of select=""s0:status/text()"" />
-          </ns0:STATUS>
-          <ns0:STATUS_TIME>
             <xsl:value-of select=""$var:v2"" />
-          </ns0:STATUS_TIME>
+          </ns0:STATUS>
           <ns0:DATA_ID>
             <xsl:value-of select=""s0:id/text()"" />
           </ns0:DATA_ID>
+          <ns0:ESB_STATUS>
+            <xsl:value-of select=""s0:status/text()"" />
+          </ns0:ESB_STATUS>
+          <ns0:ESB_STATUS_TIME>
+            <xsl:value-of select=""$var:v3"" />
+          </ns0:ESB_STATUS_TIME>
         </ns0:DCF_IN_MESSAGE_LOGRECORDINSERT>
       </ns0:RECORDSET>
     </ns0:Insert>

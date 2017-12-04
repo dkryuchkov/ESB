@@ -29,6 +29,8 @@ namespace DCP.ESB.Schemas {
       <xs:element minOccurs=""0"" maxOccurs=""1"" name=""STATUS_TIME"" nillable=""true"" type=""tns:STATUS_TIME__COMPLEX_TYPE"" />
       <xs:element minOccurs=""0"" maxOccurs=""1"" name=""ERROR_MESG"" nillable=""true"" type=""tns:ERROR_MESG__COMPLEX_TYPE"" />
       <xs:element minOccurs=""0"" maxOccurs=""1"" name=""DATA_ID"" nillable=""true"" type=""tns:DATA_ID__COMPLEX_TYPE"" />
+      <xs:element minOccurs=""0"" maxOccurs=""1"" name=""ESB_STATUS"" nillable=""true"" type=""tns:ESB_STATUS__COMPLEX_TYPE"" />
+      <xs:element minOccurs=""0"" maxOccurs=""1"" name=""ESB_STATUS_TIME"" nillable=""true"" type=""tns:ESB_STATUS_TIME__COMPLEX_TYPE"" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name=""DCF_IN_MESSAGE_LOGRECORDINSERT"" nillable=""true"" type=""tns:DCF_IN_MESSAGE_LOGRECORDINSERT"" />
@@ -97,6 +99,25 @@ namespace DCP.ESB.Schemas {
   <xs:complexType name=""DATA_ID__COMPLEX_TYPE"">
     <xs:simpleContent>
       <xs:extension base=""tns:DATA_ID__SIMPLE_TYPE"">
+        <xs:attribute name=""InlineValue"" type=""xs:string"" use=""optional"" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name=""ESB_STATUS__SIMPLE_TYPE"">
+    <xs:restriction base=""xs:string"">
+      <xs:maxLength value=""100"" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name=""ESB_STATUS__COMPLEX_TYPE"">
+    <xs:simpleContent>
+      <xs:extension base=""tns:ESB_STATUS__SIMPLE_TYPE"">
+        <xs:attribute name=""InlineValue"" type=""xs:string"" use=""optional"" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name=""ESB_STATUS_TIME__COMPLEX_TYPE"">
+    <xs:simpleContent>
+      <xs:extension base=""xs:dateTime"">
         <xs:attribute name=""InlineValue"" type=""xs:string"" use=""optional"" />
       </xs:extension>
     </xs:simpleContent>

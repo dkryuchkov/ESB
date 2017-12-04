@@ -79,13 +79,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="DCF_to_CMS_STATUS.btm">
-      <TypeName>DCF_to_CMS_STATUS</TypeName>
-      <Namespace>DCP.ESB.Maps</Namespace>
-      <SubType>Task</SubType>
-    </Map>
-  </ItemGroup>
-  <ItemGroup>
     <Map Include="CMS_BUILD_SQLEXECUTE_.btm">
       <TypeName>CMS_BUILD_SQLEXECUTE_</TypeName>
       <Namespace>DCP.ESB.Maps</Namespace>

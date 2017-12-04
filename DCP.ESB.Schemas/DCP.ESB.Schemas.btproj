@@ -94,6 +94,11 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
+    <Schema Include="CMSDCF.Table.DCF_IN_MESSAGE_LOG.xsd">
+      <TypeName>CMSDCF_Table_DCF_IN_MESSAGE_LOG</TypeName>
+      <Namespace>DCP.ESB.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <Schema Include="CTMessage.xsd">
       <TypeName>CTMessage</TypeName>
       <Namespace>DCP.ESB.Schemas</Namespace>
@@ -101,11 +106,6 @@
     </Schema>
     <Schema Include="ESBMessage.xsd">
       <TypeName>ESBMessage</TypeName>
-      <Namespace>DCP.ESB.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="CMSDCF.Table.DCF_IN_MESSAGE_LOG.xsd">
-      <TypeName>CMSDCF_Table_DCF_IN_MESSAGE_LOG</TypeName>
       <Namespace>DCP.ESB.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
@@ -139,6 +139,7 @@
   <ItemGroup>
     <Content Include="WcfSendPort_OracleDBBinding_Custom.bindinginfo.xml" />
     <Content Include="WcfSendPort_OracleDBBinding_Custom.bindinginfo1.xml" />
+    <Content Include="WcfSendPort_OracleDBBinding_Custom.bindinginfo2.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
