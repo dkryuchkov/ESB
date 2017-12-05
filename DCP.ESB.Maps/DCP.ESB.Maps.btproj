@@ -39,6 +39,10 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DCP.ESB.Utils, Version=1.1.0.0, Culture=neutral, PublicKeyToken=71e252367cc9370d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DCP.ESB.Utils\bin\Debug\DCP.ESB.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -101,6 +105,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="DCFUpdateSatusMessage_to_DCFMessage.btm">
+      <TypeName>DCFUpdateSatusMessage_to_DCFMessage</TypeName>
+      <Namespace>DCP.ESB.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />

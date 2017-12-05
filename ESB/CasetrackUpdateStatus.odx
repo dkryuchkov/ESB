@@ -2,11 +2,11 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="3890413f-8219-49e8-a1d1-7ae82ff9e9ea" LowerBound="1.1" HigherBound="206.1">
+    <om:Element Type="Module" OID="3890413f-8219-49e8-a1d1-7ae82ff9e9ea" LowerBound="1.1" HigherBound="214.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="DCP.ESB.Orchestrations" />
         <om:Property Name="Signal" Value="False" />
-        <om:Element Type="PortType" OID="32fd52bd-f26b-4e78-b258-31b988f673e3" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+        <om:Element Type="PortType" OID="32fd52bd-f26b-4e78-b258-31b988f673e3" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="15.1">
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
@@ -15,7 +15,7 @@
             <om:Element Type="OperationDeclaration" OID="fc3403ff-720b-4032-b2b9-bcfb93f59e3f" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="SQLEXECUTE" />
+                <om:Property Name="Name" Value="Archive" />
                 <om:Property Name="Signal" Value="True" />
                 <om:Element Type="MessageRef" OID="b974ecd9-7db8-4747-a380-bd6e5a50b2a1" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.53">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE" />
@@ -24,25 +24,37 @@
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
             </om:Element>
-        </om:Element>
-        <om:Element Type="PortType" OID="cb33b3c6-3911-45bd-8c49-7a075c4bc250" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
-            <om:Property Name="Synchronous" Value="True" />
-            <om:Property Name="TypeModifier" Value="Internal" />
-            <om:Property Name="ReportToAnalyst" Value="True" />
-            <om:Property Name="Name" Value="CMSSqlExecuteType" />
-            <om:Property Name="Signal" Value="False" />
-            <om:Element Type="OperationDeclaration" OID="d0f50ea6-d2fc-40c9-b36a-9f4165874ede" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
-                <om:Property Name="OperationType" Value="RequestResponse" />
+            <om:Element Type="OperationDeclaration" OID="d58c0a29-ea11-4e9f-aa81-6588184335a7" ParentLink="PortType_OperationDeclaration" LowerBound="10.1" HigherBound="14.1">
+                <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="Execute" />
+                <om:Property Name="Name" Value="SQLEXECUTE" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="f0fbe9bd-b55c-4f89-9187-3847739d08fc" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.53">
+                <om:Element Type="MessageRef" OID="b8439186-98f4-4aa6-a2a4-268ebac2a98a" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="12.13" HigherBound="12.53">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Request" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
-                <om:Element Type="MessageRef" OID="6c6006bc-3fcf-40f1-b59d-f26c9433e73f" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="15.55" HigherBound="15.103">
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="cb33b3c6-3911-45bd-8c49-7a075c4bc250" ParentLink="Module_PortType" LowerBound="15.1" HigherBound="22.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="CMSSqlExecuteType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="d0f50ea6-d2fc-40c9-b36a-9f4165874ede" ParentLink="PortType_OperationDeclaration" LowerBound="17.1" HigherBound="21.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Execute" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="f0fbe9bd-b55c-4f89-9187-3847739d08fc" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="19.13" HigherBound="19.53">
+                    <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="6c6006bc-3fcf-40f1-b59d-f26c9433e73f" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="19.55" HigherBound="19.103">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTEResponse" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Response" />
@@ -50,18 +62,18 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="PortType" OID="9b23c8fd-6340-437c-a434-3e28a634445a" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+        <om:Element Type="PortType" OID="9b23c8fd-6340-437c-a434-3e28a634445a" ParentLink="Module_PortType" LowerBound="22.1" HigherBound="29.1">
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="CMSSqlExecuteResponseType" />
             <om:Property Name="Signal" Value="False" />
-            <om:Element Type="OperationDeclaration" OID="5664762c-4028-4ca1-b439-7c75ab4be261" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+            <om:Element Type="OperationDeclaration" OID="5664762c-4028-4ca1-b439-7c75ab4be261" ParentLink="PortType_OperationDeclaration" LowerBound="24.1" HigherBound="28.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Operation" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="98770e9b-3510-4ace-ba06-0d0a033c3bac" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.61">
+                <om:Element Type="MessageRef" OID="98770e9b-3510-4ace-ba06-0d0a033c3bac" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="26.13" HigherBound="26.61">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTEResponse" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Request" />
@@ -69,24 +81,24 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="PortType" OID="56230aef-ee6d-4ddd-999d-85013a77aaf3" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+        <om:Element Type="PortType" OID="56230aef-ee6d-4ddd-999d-85013a77aaf3" ParentLink="Module_PortType" LowerBound="29.1" HigherBound="36.1">
             <om:Property Name="Synchronous" Value="True" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="CMSInsertMessageType" />
             <om:Property Name="Signal" Value="False" />
-            <om:Element Type="OperationDeclaration" OID="517cece5-52bb-4f30-bb86-b0a886b24652" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+            <om:Element Type="OperationDeclaration" OID="517cece5-52bb-4f30-bb86-b0a886b24652" ParentLink="PortType_OperationDeclaration" LowerBound="31.1" HigherBound="35.1">
                 <om:Property Name="OperationType" Value="RequestResponse" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Insert" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="54b13682-d9d2-4f9c-b6b4-f8e8debe818d" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.67">
+                <om:Element Type="MessageRef" OID="54b13682-d9d2-4f9c-b6b4-f8e8debe818d" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="33.13" HigherBound="33.67">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Request" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
-                <om:Element Type="MessageRef" OID="c1b95d42-322c-4488-ab16-4fd898c816ed" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="29.69" HigherBound="29.131">
+                <om:Element Type="MessageRef" OID="c1b95d42-322c-4488-ab16-4fd898c816ed" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="33.69" HigherBound="33.131">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.InsertResponse" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Response" />
@@ -94,37 +106,49 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="PortType" OID="57caee8c-9bc9-48fa-85fe-657197f26604" ParentLink="Module_PortType" LowerBound="32.1" HigherBound="39.1">
+        <om:Element Type="PortType" OID="57caee8c-9bc9-48fa-85fe-657197f26604" ParentLink="Module_PortType" LowerBound="36.1" HigherBound="47.1">
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="SqlInsertArchiveType" />
             <om:Property Name="Signal" Value="False" />
-            <om:Element Type="OperationDeclaration" OID="03ed0ff2-88eb-4d96-bb5b-e76690a8d398" ParentLink="PortType_OperationDeclaration" LowerBound="34.1" HigherBound="38.1">
+            <om:Element Type="OperationDeclaration" OID="03ed0ff2-88eb-4d96-bb5b-e76690a8d398" ParentLink="PortType_OperationDeclaration" LowerBound="38.1" HigherBound="42.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="Insert" />
+                <om:Property Name="Name" Value="Archive" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="7e109f71-6720-46ac-abbe-44a798292f9c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="36.13" HigherBound="36.67">
+                <om:Element Type="MessageRef" OID="7e109f71-6720-46ac-abbe-44a798292f9c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="40.13" HigherBound="40.67">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Send" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
             </om:Element>
+            <om:Element Type="OperationDeclaration" OID="b56dc7bd-eb13-4915-a2c7-80cb96984643" ParentLink="PortType_OperationDeclaration" LowerBound="42.1" HigherBound="46.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="INSERT" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="14bd0ea1-d3fe-40d1-893b-b70aa5acd8dd" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="44.13" HigherBound="44.67">
+                    <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
         </om:Element>
-        <om:Element Type="PortType" OID="7132aa9f-5091-4b7b-90a6-4d0647b8ad9e" ParentLink="Module_PortType" LowerBound="39.1" HigherBound="46.1">
+        <om:Element Type="PortType" OID="7132aa9f-5091-4b7b-90a6-4d0647b8ad9e" ParentLink="Module_PortType" LowerBound="47.1" HigherBound="54.1">
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="SqlInsertResponseType" />
             <om:Property Name="Signal" Value="False" />
-            <om:Element Type="OperationDeclaration" OID="8558548e-d14b-4b5a-ac0b-bb7bf3a00a9d" ParentLink="PortType_OperationDeclaration" LowerBound="41.1" HigherBound="45.1">
+            <om:Element Type="OperationDeclaration" OID="8558548e-d14b-4b5a-ac0b-bb7bf3a00a9d" ParentLink="PortType_OperationDeclaration" LowerBound="49.1" HigherBound="53.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Operation" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="fa972120-9e13-4f8e-9923-a71454cc2a0e" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="43.13" HigherBound="43.75">
+                <om:Element Type="MessageRef" OID="fa972120-9e13-4f8e-9923-a71454cc2a0e" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="51.13" HigherBound="51.75">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.InsertResponse" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Operation" />
@@ -132,18 +156,18 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="PortType" OID="823ee51b-b7de-4dac-8784-4db5807f5f82" ParentLink="Module_PortType" LowerBound="46.1" HigherBound="53.1">
+        <om:Element Type="PortType" OID="823ee51b-b7de-4dac-8784-4db5807f5f82" ParentLink="Module_PortType" LowerBound="54.1" HigherBound="61.1">
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="SqlExecuteParamType" />
             <om:Property Name="Signal" Value="False" />
-            <om:Element Type="OperationDeclaration" OID="0a89cf99-6108-4a72-a24a-e8082d667899" ParentLink="PortType_OperationDeclaration" LowerBound="48.1" HigherBound="52.1">
+            <om:Element Type="OperationDeclaration" OID="0a89cf99-6108-4a72-a24a-e8082d667899" ParentLink="PortType_OperationDeclaration" LowerBound="56.1" HigherBound="60.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Archive" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="MessageRef" OID="2324664b-f0b4-44f1-9b05-a84d8404ab5c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="50.13" HigherBound="50.50">
+                <om:Element Type="MessageRef" OID="2324664b-f0b4-44f1-9b05-a84d8404ab5c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="58.13" HigherBound="58.50">
                     <om:Property Name="Ref" Value="DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Request" />
@@ -151,26 +175,26 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="CorrelationType" OID="2de8f2d8-9c80-4278-9223-5b5e5fe60e02" ParentLink="Module_CorrelationType" LowerBound="53.1" HigherBound="57.1">
+        <om:Element Type="CorrelationType" OID="2de8f2d8-9c80-4278-9223-5b5e5fe60e02" ParentLink="Module_CorrelationType" LowerBound="61.1" HigherBound="65.1">
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="CorrelationType_BTSCorrelationToken" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="PropertyRef" OID="70e507f9-e06e-4c7e-ac7b-5391aaf444c0" ParentLink="CorrelationType_PropertyRef" LowerBound="55.9" HigherBound="55.29">
+            <om:Element Type="PropertyRef" OID="70e507f9-e06e-4c7e-ac7b-5391aaf444c0" ParentLink="CorrelationType_PropertyRef" LowerBound="63.9" HigherBound="63.29">
                 <om:Property Name="Ref" Value="BTS.CorrelationToken" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="PropertyRef_1" />
                 <om:Property Name="Signal" Value="False" />
             </om:Element>
         </om:Element>
-        <om:Element Type="ServiceDeclaration" OID="2774ff96-d411-4bf0-9738-8f2e3efffba5" ParentLink="Module_ServiceDeclaration" LowerBound="57.1" HigherBound="205.1">
+        <om:Element Type="ServiceDeclaration" OID="2774ff96-d411-4bf0-9738-8f2e3efffba5" ParentLink="Module_ServiceDeclaration" LowerBound="65.1" HigherBound="213.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="CasetrackUpdateStatus" />
             <om:Property Name="Signal" Value="False" />
-            <om:Element Type="VariableDeclaration" OID="aaf6374e-73e1-481a-bac1-91d48f2d9bf4" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="89.1" HigherBound="90.1">
+            <om:Element Type="VariableDeclaration" OID="aaf6374e-73e1-481a-bac1-91d48f2d9bf4" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="97.1" HigherBound="98.1">
                 <om:Property Name="UseDefaultConstructor" Value="True" />
                 <om:Property Name="Type" Value="System.Xml.XmlDocument" />
                 <om:Property Name="ParamDirection" Value="In" />
@@ -178,7 +202,7 @@
                 <om:Property Name="Name" Value="xmlDocument" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="VariableDeclaration" OID="1d2e3b05-e018-4435-af54-b15e47ba5d0f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="90.1" HigherBound="91.1">
+            <om:Element Type="VariableDeclaration" OID="1d2e3b05-e018-4435-af54-b15e47ba5d0f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="98.1" HigherBound="99.1">
                 <om:Property Name="UseDefaultConstructor" Value="True" />
                 <om:Property Name="Type" Value="System.Exception" />
                 <om:Property Name="ParamDirection" Value="In" />
@@ -186,7 +210,7 @@
                 <om:Property Name="Name" Value="noResponse_ex" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="VariableDeclaration" OID="745065e8-f762-4c20-8185-bed5bdb0a831" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="91.1" HigherBound="92.1">
+            <om:Element Type="VariableDeclaration" OID="745065e8-f762-4c20-8185-bed5bdb0a831" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="99.1" HigherBound="100.1">
                 <om:Property Name="UseDefaultConstructor" Value="False" />
                 <om:Property Name="Type" Value="System.String" />
                 <om:Property Name="ParamDirection" Value="In" />
@@ -194,49 +218,49 @@
                 <om:Property Name="Name" Value="s_temp" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="dcbbb068-05a4-4cc8-b152-27c33de2b343" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="82.1" HigherBound="83.1">
+            <om:Element Type="MessageDeclaration" OID="dcbbb068-05a4-4cc8-b152-27c33de2b343" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="90.1" HigherBound="91.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.DCFUpdateStatusMessage" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="DCFUpdateStatusMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="f2686180-6fae-4b59-9423-b680c5262ccb" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="83.1" HigherBound="84.1">
+            <om:Element Type="MessageDeclaration" OID="f2686180-6fae-4b59-9423-b680c5262ccb" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="91.1" HigherBound="92.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.Exception" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="ExceptionMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="dd764129-71fa-45f3-87a5-5a96b5c79197" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="84.1" HigherBound="85.1">
+            <om:Element Type="MessageDeclaration" OID="dd764129-71fa-45f3-87a5-5a96b5c79197" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="92.1" HigherBound="93.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSSqlExecuteParamsMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="9702c9a3-8ecc-4cfa-828c-f405492b7e40" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="85.1" HigherBound="86.1">
+            <om:Element Type="MessageDeclaration" OID="9702c9a3-8ecc-4cfa-828c-f405492b7e40" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="93.1" HigherBound="94.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSSqlExecuteMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="31d19fc4-d32a-454b-95c4-6432eff0ca17" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="86.1" HigherBound="87.1">
+            <om:Element Type="MessageDeclaration" OID="31d19fc4-d32a-454b-95c4-6432eff0ca17" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="94.1" HigherBound="95.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTEResponse" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSSqlExecuteResponseMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="21258cf7-bce2-4924-98f6-750cd276058d" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="87.1" HigherBound="88.1">
+            <om:Element Type="MessageDeclaration" OID="21258cf7-bce2-4924-98f6-750cd276058d" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="95.1" HigherBound="96.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSInsertMessage" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="e61eabf8-25c6-41cd-8a3c-fcabe2f10a96" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="88.1" HigherBound="89.1">
+            <om:Element Type="MessageDeclaration" OID="e61eabf8-25c6-41cd-8a3c-fcabe2f10a96" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="96.1" HigherBound="97.1">
                 <om:Property Name="Type" Value="DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.InsertResponse" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -245,26 +269,26 @@
             </om:Element>
             <om:Element Type="ServiceBody" OID="20d807d0-9002-4c92-ae3c-00ac9b334bf6" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="Scope" OID="b93b041a-569a-41f9-a731-2e6de7af94b4" ParentLink="ServiceBody_Statement" LowerBound="94.1" HigherBound="203.1">
+                <om:Element Type="Scope" OID="b93b041a-569a-41f9-a731-2e6de7af94b4" ParentLink="ServiceBody_Statement" LowerBound="102.1" HigherBound="211.1">
                     <om:Property Name="InitializedTransactionType" Value="True" />
                     <om:Property Name="IsSynchronized" Value="False" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Scope_All" />
                     <om:Property Name="Signal" Value="False" />
-                    <om:Element Type="CorrelationDeclaration" OID="632a2c63-95b7-436b-8904-438149eaa2fd" ParentLink="Scope_CorrelationDeclaration" LowerBound="97.1" HigherBound="98.1">
+                    <om:Element Type="CorrelationDeclaration" OID="632a2c63-95b7-436b-8904-438149eaa2fd" ParentLink="Scope_CorrelationDeclaration" LowerBound="105.1" HigherBound="106.1">
                         <om:Property Name="Type" Value="DCP.ESB.Orchestrations.CorrelationType_BTSCorrelationToken" />
                         <om:Property Name="ParamDirection" Value="In" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="Correlation_BTSCorrelationToken" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="StatementRef" OID="53b5b986-6905-4702-87d6-77c41f51bd18" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="125.79" HigherBound="125.121">
+                        <om:Element Type="StatementRef" OID="53b5b986-6905-4702-87d6-77c41f51bd18" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="133.79" HigherBound="133.121">
                             <om:Property Name="Initializes" Value="True" />
                             <om:Property Name="Ref" Value="7e3f9685-f33d-43ad-9049-d29ec3079e45" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="StatementRef_3" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="StatementRef" OID="28b38f06-3e8e-4593-af8c-c8fe590869df" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="145.115" HigherBound="145.146">
+                        <om:Element Type="StatementRef" OID="28b38f06-3e8e-4593-af8c-c8fe590869df" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="153.115" HigherBound="153.146">
                             <om:Property Name="Initializes" Value="False" />
                             <om:Property Name="Ref" Value="703bbf55-2f95-4c9a-92b4-95e587588b78" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
@@ -272,7 +296,7 @@
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Receive" OID="4877514f-ae5d-422a-ba4a-af306590c14a" ParentLink="ComplexStatement_Statement" LowerBound="100.1" HigherBound="105.1">
+                    <om:Element Type="Receive" OID="4877514f-ae5d-422a-ba4a-af306590c14a" ParentLink="ComplexStatement_Statement" LowerBound="108.1" HigherBound="113.1">
                         <om:Property Name="Activate" Value="True" />
                         <om:Property Name="PortName" Value="DCFUpdateStatusInPort" />
                         <om:Property Name="MessageName" Value="DCFUpdateStatusMessage" />
@@ -282,23 +306,23 @@
                         <om:Property Name="Name" Value="R_DCFUpdateStatusMessage" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Construct" OID="eb382392-f811-445e-beb7-6c7215155f79" ParentLink="ComplexStatement_Statement" LowerBound="105.1" HigherBound="111.1">
+                    <om:Element Type="Construct" OID="eb382392-f811-445e-beb7-6c7215155f79" ParentLink="ComplexStatement_Statement" LowerBound="113.1" HigherBound="119.1">
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="ConstructSqlExecuteParameterMessage" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="MessageAssignment" OID="6f6877b7-dae2-4b06-9145-a4b2bb55fe30" ParentLink="ComplexStatement_Statement" LowerBound="108.1" HigherBound="110.1">
+                        <om:Element Type="MessageAssignment" OID="6f6877b7-dae2-4b06-9145-a4b2bb55fe30" ParentLink="ComplexStatement_Statement" LowerBound="116.1" HigherBound="118.1">
                             <om:Property Name="Expression" Value="CMSSqlExecuteParamsMessage = DCP.ESB.Utils.Helper.getCmsSqlExecuteParamsXml(&quot;select dcf.dim_SEQ.nextval from dual&quot;,System.String.Empty,System.String.Empty);&#xD;&#xA;" />
                             <om:Property Name="ReportToAnalyst" Value="False" />
                             <om:Property Name="Name" Value="MessageAssignment_CMSSqlExecParams" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessageRef" OID="e6bd3ab3-ce5a-43b2-8673-9da328f0ad16" ParentLink="Construct_MessageRef" LowerBound="106.31" HigherBound="106.57">
+                        <om:Element Type="MessageRef" OID="e6bd3ab3-ce5a-43b2-8673-9da328f0ad16" ParentLink="Construct_MessageRef" LowerBound="114.31" HigherBound="114.57">
                             <om:Property Name="Ref" Value="CMSSqlExecuteParamsMessage" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Send" OID="725a4354-92a0-4c13-84f3-ad4062e6857f" ParentLink="ComplexStatement_Statement" LowerBound="111.1" HigherBound="113.1">
+                    <om:Element Type="Send" OID="725a4354-92a0-4c13-84f3-ad4062e6857f" ParentLink="ComplexStatement_Statement" LowerBound="119.1" HigherBound="121.1">
                         <om:Property Name="PortName" Value="SqlExecuteParamPort" />
                         <om:Property Name="MessageName" Value="CMSSqlExecuteParamsMessage" />
                         <om:Property Name="OperationName" Value="Archive" />
@@ -307,78 +331,78 @@
                         <om:Property Name="Name" Value="S_SqlExecuteParamMessageArchive" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Construct" OID="44a6921d-92bc-4854-93d1-b31f991f259c" ParentLink="ComplexStatement_Statement" LowerBound="113.1" HigherBound="122.1">
+                    <om:Element Type="Construct" OID="44a6921d-92bc-4854-93d1-b31f991f259c" ParentLink="ComplexStatement_Statement" LowerBound="121.1" HigherBound="130.1">
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="ConstructCMSSqlExecute" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="Transform" OID="8130bc83-9f52-487d-a6b3-29e569f9ef3c" ParentLink="ComplexStatement_Statement" LowerBound="116.1" HigherBound="118.1">
+                        <om:Element Type="Transform" OID="8130bc83-9f52-487d-a6b3-29e569f9ef3c" ParentLink="ComplexStatement_Statement" LowerBound="124.1" HigherBound="126.1">
                             <om:Property Name="ClassName" Value="DCP.ESB.Maps.CMS_BUILD_SQLEXECUTE_" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="T_SQLExecuteMessage" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessagePartRef" OID="3cb95fc8-68b4-4bfd-a176-f4f30984f213" ParentLink="Transform_InputMessagePartRef" LowerBound="117.96" HigherBound="117.122">
+                            <om:Element Type="MessagePartRef" OID="3cb95fc8-68b4-4bfd-a176-f4f30984f213" ParentLink="Transform_InputMessagePartRef" LowerBound="125.96" HigherBound="125.122">
                                 <om:Property Name="MessageRef" Value="CMSSqlExecuteParamsMessage" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="MessagePartReference_1" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="MessagePartRef" OID="b51873b7-ad7e-460f-b3de-309591a66105" ParentLink="Transform_OutputMessagePartRef" LowerBound="117.36" HigherBound="117.56">
+                            <om:Element Type="MessagePartRef" OID="b51873b7-ad7e-460f-b3de-309591a66105" ParentLink="Transform_OutputMessagePartRef" LowerBound="125.36" HigherBound="125.56">
                                 <om:Property Name="MessageRef" Value="CMSSqlExecuteMessage" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="MessagePartReference_2" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="MessageAssignment" OID="260b37bd-3543-445a-9e17-683c83b52799" ParentLink="ComplexStatement_Statement" LowerBound="118.1" HigherBound="121.1">
+                        <om:Element Type="MessageAssignment" OID="260b37bd-3543-445a-9e17-683c83b52799" ParentLink="ComplexStatement_Statement" LowerBound="126.1" HigherBound="129.1">
                             <om:Property Name="Expression" Value="CMSSqlExecuteMessage(BTS.CorrelationToken) = DCP.ESB.Utils.Helper.getGuid();&#xD;&#xA;CMSSqlExecuteMessage(WCF.Action) = &quot;http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE&quot;;" />
                             <om:Property Name="ReportToAnalyst" Value="False" />
                             <om:Property Name="Name" Value="MessageAssignment_1" />
                             <om:Property Name="Signal" Value="True" />
                         </om:Element>
-                        <om:Element Type="MessageRef" OID="f446a737-a02e-4983-91d1-bc860d0ed1d7" ParentLink="Construct_MessageRef" LowerBound="114.31" HigherBound="114.51">
+                        <om:Element Type="MessageRef" OID="f446a737-a02e-4983-91d1-bc860d0ed1d7" ParentLink="Construct_MessageRef" LowerBound="122.31" HigherBound="122.51">
                             <om:Property Name="Ref" Value="CMSSqlExecuteMessage" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Send" OID="de335eb9-b6e7-49b2-8dd9-721941713698" ParentLink="ComplexStatement_Statement" LowerBound="122.1" HigherBound="124.1">
+                    <om:Element Type="Send" OID="de335eb9-b6e7-49b2-8dd9-721941713698" ParentLink="ComplexStatement_Statement" LowerBound="130.1" HigherBound="132.1">
                         <om:Property Name="PortName" Value="SqlExecuteArchivePort" />
                         <om:Property Name="MessageName" Value="CMSSqlExecuteMessage" />
-                        <om:Property Name="OperationName" Value="SQLEXECUTE" />
+                        <om:Property Name="OperationName" Value="Archive" />
                         <om:Property Name="OperationMessageName" Value="Send" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="S_CMSSqlExecuteMessageArchive" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Send" OID="7e3f9685-f33d-43ad-9049-d29ec3079e45" ParentLink="ComplexStatement_Statement" LowerBound="124.1" HigherBound="126.1">
+                    <om:Element Type="Send" OID="7e3f9685-f33d-43ad-9049-d29ec3079e45" ParentLink="ComplexStatement_Statement" LowerBound="132.1" HigherBound="134.1">
                         <om:Property Name="PortName" Value="CMSSqlExecutePort" />
                         <om:Property Name="MessageName" Value="CMSSqlExecuteMessage" />
                         <om:Property Name="OperationName" Value="SQLEXECUTE" />
-                        <om:Property Name="OperationMessageName" Value="Send" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="S_CMSSqlExecuteMessage" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Scope" OID="32662c6e-e4bb-4eaa-8188-9bb69727e361" ParentLink="ComplexStatement_Statement" LowerBound="126.1" HigherBound="185.1">
+                    <om:Element Type="Scope" OID="32662c6e-e4bb-4eaa-8188-9bb69727e361" ParentLink="ComplexStatement_Statement" LowerBound="134.1" HigherBound="193.1">
                         <om:Property Name="InitializedTransactionType" Value="True" />
                         <om:Property Name="IsSynchronized" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="Scope_SQL" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="CorrelationDeclaration" OID="a40f5f52-e406-463e-8bb0-eba75ce41463" ParentLink="Scope_CorrelationDeclaration" LowerBound="129.1" HigherBound="130.1">
+                        <om:Element Type="CorrelationDeclaration" OID="a40f5f52-e406-463e-8bb0-eba75ce41463" ParentLink="Scope_CorrelationDeclaration" LowerBound="137.1" HigherBound="138.1">
                             <om:Property Name="Type" Value="DCP.ESB.Orchestrations.CorrelationType_BTSCorrelationToken" />
                             <om:Property Name="ParamDirection" Value="In" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Correlation_SQL_BTSCorrelationToken" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="StatementRef" OID="ea04bf64-6d73-4760-a40e-848a25d63fa3" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="161.90" HigherBound="161.136">
+                            <om:Element Type="StatementRef" OID="ea04bf64-6d73-4760-a40e-848a25d63fa3" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="169.90" HigherBound="169.136">
                                 <om:Property Name="Initializes" Value="True" />
                                 <om:Property Name="Ref" Value="594615aa-2823-4c46-a993-7dcdceb9bdce" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="StatementRef_5" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="StatementRef" OID="786f46fa-7efd-4134-ab8c-ed7c01a8b866" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="175.122" HigherBound="175.157">
+                            <om:Element Type="StatementRef" OID="786f46fa-7efd-4134-ab8c-ed7c01a8b866" ParentLink="CorrelationDeclaration_StatementRef" LowerBound="183.122" HigherBound="183.157">
                                 <om:Property Name="Initializes" Value="False" />
                                 <om:Property Name="Ref" Value="5715a494-7a04-42f8-9cfc-f99609234569" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -386,40 +410,40 @@
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Listen" OID="acc50781-18f0-41d7-a772-998db9d5dd90" ParentLink="ComplexStatement_Statement" LowerBound="132.1" HigherBound="183.1">
+                        <om:Element Type="Listen" OID="acc50781-18f0-41d7-a772-998db9d5dd90" ParentLink="ComplexStatement_Statement" LowerBound="140.1" HigherBound="191.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Listen_Response" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="ListenBranch" OID="6d2b07e2-3db2-4ac3-a368-f8f9173eeb90" ParentLink="ReallyComplexStatement_Branch" LowerBound="132.1" HigherBound="132.1">
+                            <om:Element Type="ListenBranch" OID="6d2b07e2-3db2-4ac3-a368-f8f9173eeb90" ParentLink="ReallyComplexStatement_Branch" LowerBound="140.1" HigherBound="140.1">
                                 <om:Property Name="IsGhostBranch" Value="True" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="ListenBranch_1" />
                                 <om:Property Name="Signal" Value="False" />
-                                <om:Element Type="VariableAssignment" OID="a3626248-9f83-425c-be98-0512feeb81f9" ParentLink="ComplexStatement_Statement" LowerBound="138.1" HigherBound="141.1">
-                                    <om:Property Name="Expression" Value="s_temp = xpath(CMSSqlExecuteMessage,&quot;//local-name()='SQLSTATEMENT'/text()&quot;);&#xD;&#xA;noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.NO.CMS.SQL.EXECUTE.RESPONSE&quot;) + s_temp);" />
+                                <om:Element Type="VariableAssignment" OID="a3626248-9f83-425c-be98-0512feeb81f9" ParentLink="ComplexStatement_Statement" LowerBound="146.1" HigherBound="149.1">
+                                    <om:Property Name="Expression" Value="s_temp = xpath(CMSSqlExecuteMessage,&quot;//*[local-name()='SQLSTATEMENT']/text()&quot;);&#xD;&#xA;noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.NO.CMS.SQL.EXECUTE.RESPONSE&quot;) + s_temp);" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="Expression_build_noAck_exc" />
-                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Property Name="Signal" Value="False" />
                                 </om:Element>
-                                <om:Element Type="Throw" OID="4c5fa7e1-f84f-446e-a0c2-c2105641df45" ParentLink="ComplexStatement_Statement" LowerBound="141.1" HigherBound="143.1">
+                                <om:Element Type="Throw" OID="4c5fa7e1-f84f-446e-a0c2-c2105641df45" ParentLink="ComplexStatement_Statement" LowerBound="149.1" HigherBound="151.1">
                                     <om:Property Name="ThrownReference" Value="noResponse_ex" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="ThrowNoReponseException" />
                                     <om:Property Name="Signal" Value="True" />
                                 </om:Element>
-                                <om:Element Type="Delay" OID="219c534f-97ba-409b-9cd1-19e5df1ad009" ParentLink="ListenBranch_Statement" LowerBound="135.1" HigherBound="136.151">
+                                <om:Element Type="Delay" OID="219c534f-97ba-409b-9cd1-19e5df1ad009" ParentLink="ListenBranch_Statement" LowerBound="143.1" HigherBound="144.151">
                                     <om:Property Name="Timeout" Value="new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.RESPONSE.WAIT.TIME.MIN&quot;)),0)" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="Delay_60s" />
                                     <om:Property Name="Signal" Value="False" />
                                 </om:Element>
                             </om:Element>
-                            <om:Element Type="ListenBranch" OID="6b7be308-6787-4974-a122-268d66fcd9fa" ParentLink="ReallyComplexStatement_Branch" LowerBound="132.1" HigherBound="132.1">
+                            <om:Element Type="ListenBranch" OID="6b7be308-6787-4974-a122-268d66fcd9fa" ParentLink="ReallyComplexStatement_Branch" LowerBound="140.1" HigherBound="140.1">
                                 <om:Property Name="IsGhostBranch" Value="True" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="ListenBranch_2" />
                                 <om:Property Name="Signal" Value="True" />
-                                <om:Element Type="Send" OID="deb056cc-557c-4055-812e-e3cfdc3c7e54" ParentLink="ComplexStatement_Statement" LowerBound="147.1" HigherBound="149.1">
+                                <om:Element Type="Send" OID="deb056cc-557c-4055-812e-e3cfdc3c7e54" ParentLink="ComplexStatement_Statement" LowerBound="155.1" HigherBound="157.1">
                                     <om:Property Name="PortName" Value="CMSSqlExecuteResponseArchivePort" />
                                     <om:Property Name="MessageName" Value="CMSSqlExecuteResponseMessage" />
                                     <om:Property Name="OperationName" Value="Operation" />
@@ -428,98 +452,98 @@
                                     <om:Property Name="Name" Value="S_CMSSqlExecuteResponse" />
                                     <om:Property Name="Signal" Value="True" />
                                 </om:Element>
-                                <om:Element Type="Construct" OID="82b60448-a7a8-4693-bfab-326c8533b4b5" ParentLink="ComplexStatement_Statement" LowerBound="149.1" HigherBound="158.1">
+                                <om:Element Type="Construct" OID="82b60448-a7a8-4693-bfab-326c8533b4b5" ParentLink="ComplexStatement_Statement" LowerBound="157.1" HigherBound="166.1">
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="ConstructCMSInsertMessage" />
                                     <om:Property Name="Signal" Value="True" />
-                                    <om:Element Type="Transform" OID="ed4a3605-6d68-4447-8bc5-d74d89ee5180" ParentLink="ComplexStatement_Statement" LowerBound="152.1" HigherBound="154.1">
+                                    <om:Element Type="Transform" OID="ed4a3605-6d68-4447-8bc5-d74d89ee5180" ParentLink="ComplexStatement_Statement" LowerBound="160.1" HigherBound="162.1">
                                         <om:Property Name="ClassName" Value="DCP.ESB.Maps.DCFStatus_CMSInsert" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="T_DCFStatus_CMSInsert" />
                                         <om:Property Name="Signal" Value="True" />
-                                        <om:Element Type="MessagePartRef" OID="e482cd12-dbdf-4f1e-a3d2-a9f4815a97fc" ParentLink="Transform_InputMessagePartRef" LowerBound="153.106" HigherBound="153.134">
+                                        <om:Element Type="MessagePartRef" OID="e482cd12-dbdf-4f1e-a3d2-a9f4815a97fc" ParentLink="Transform_InputMessagePartRef" LowerBound="161.106" HigherBound="161.134">
                                             <om:Property Name="MessageRef" Value="CMSSqlExecuteResponseMessage" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Name" Value="MessagePartReference_3" />
                                             <om:Property Name="Signal" Value="False" />
                                         </om:Element>
-                                        <om:Element Type="MessagePartRef" OID="a3aa6a02-2055-47d1-884f-f928b88f06e1" ParentLink="Transform_InputMessagePartRef" LowerBound="153.136" HigherBound="153.158">
+                                        <om:Element Type="MessagePartRef" OID="a3aa6a02-2055-47d1-884f-f928b88f06e1" ParentLink="Transform_InputMessagePartRef" LowerBound="161.136" HigherBound="161.158">
                                             <om:Property Name="MessageRef" Value="DCFUpdateStatusMessage" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Name" Value="MessagePartReference_4" />
                                             <om:Property Name="Signal" Value="False" />
                                         </om:Element>
-                                        <om:Element Type="MessagePartRef" OID="9ac48ea5-6612-4d10-b7ba-208e6d15c20e" ParentLink="Transform_OutputMessagePartRef" LowerBound="153.52" HigherBound="153.68">
+                                        <om:Element Type="MessagePartRef" OID="9ac48ea5-6612-4d10-b7ba-208e6d15c20e" ParentLink="Transform_OutputMessagePartRef" LowerBound="161.52" HigherBound="161.68">
                                             <om:Property Name="MessageRef" Value="CMSInsertMessage" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Name" Value="MessagePartReference_5" />
                                             <om:Property Name="Signal" Value="False" />
                                         </om:Element>
                                     </om:Element>
-                                    <om:Element Type="MessageAssignment" OID="c155a4cc-1b39-4386-b4e2-d969792b2d55" ParentLink="ComplexStatement_Statement" LowerBound="154.1" HigherBound="157.1">
+                                    <om:Element Type="MessageAssignment" OID="c155a4cc-1b39-4386-b4e2-d969792b2d55" ParentLink="ComplexStatement_Statement" LowerBound="162.1" HigherBound="165.1">
                                         <om:Property Name="Expression" Value="CMSInsertMessage(BTS.CorrelationToken) = DCP.ESB.Utils.Helper.getGuid();&#xD;&#xA;CMSInsertMessage(WCF.Action) = &quot;http://Microsoft.LobServices.OracleDB/2007/03/DCF/Table/DCF_IN_MESSAGE_LOG/Insert&quot;;&#xD;&#xA;" />
                                         <om:Property Name="ReportToAnalyst" Value="False" />
                                         <om:Property Name="Name" Value="CMSInsertArchiveMessageAssignment" />
                                         <om:Property Name="Signal" Value="True" />
                                     </om:Element>
-                                    <om:Element Type="MessageRef" OID="7725302b-57a3-4c5a-87e1-e93a22889cc9" ParentLink="Construct_MessageRef" LowerBound="150.47" HigherBound="150.63">
+                                    <om:Element Type="MessageRef" OID="7725302b-57a3-4c5a-87e1-e93a22889cc9" ParentLink="Construct_MessageRef" LowerBound="158.47" HigherBound="158.63">
                                         <om:Property Name="Ref" Value="CMSInsertMessage" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Signal" Value="False" />
                                     </om:Element>
                                 </om:Element>
-                                <om:Element Type="Send" OID="6917ba92-7349-48f0-82ed-264b56f5183c" ParentLink="ComplexStatement_Statement" LowerBound="158.1" HigherBound="160.1">
+                                <om:Element Type="Send" OID="6917ba92-7349-48f0-82ed-264b56f5183c" ParentLink="ComplexStatement_Statement" LowerBound="166.1" HigherBound="168.1">
                                     <om:Property Name="PortName" Value="SqlInsertArchivePort" />
                                     <om:Property Name="MessageName" Value="CMSInsertMessage" />
-                                    <om:Property Name="OperationName" Value="Insert" />
+                                    <om:Property Name="OperationName" Value="Archive" />
                                     <om:Property Name="OperationMessageName" Value="Send" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="S_CMSInsertArchiveMessage" />
                                     <om:Property Name="Signal" Value="True" />
                                 </om:Element>
-                                <om:Element Type="Send" OID="594615aa-2823-4c46-a993-7dcdceb9bdce" ParentLink="ComplexStatement_Statement" LowerBound="160.1" HigherBound="162.1">
+                                <om:Element Type="Send" OID="594615aa-2823-4c46-a993-7dcdceb9bdce" ParentLink="ComplexStatement_Statement" LowerBound="168.1" HigherBound="170.1">
                                     <om:Property Name="PortName" Value="CMSInsertMessagePort" />
                                     <om:Property Name="MessageName" Value="CMSInsertMessage" />
-                                    <om:Property Name="OperationName" Value="Insert" />
-                                    <om:Property Name="OperationMessageName" Value="Send" />
+                                    <om:Property Name="OperationName" Value="INSERT" />
+                                    <om:Property Name="OperationMessageName" Value="Request" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="S_CMSInsertMessage" />
                                     <om:Property Name="Signal" Value="True" />
                                 </om:Element>
-                                <om:Element Type="Listen" OID="b989b78c-2d1f-4263-92a8-42e1af80bdbf" ParentLink="ComplexStatement_Statement" LowerBound="162.1" HigherBound="181.1">
+                                <om:Element Type="Listen" OID="b989b78c-2d1f-4263-92a8-42e1af80bdbf" ParentLink="ComplexStatement_Statement" LowerBound="170.1" HigherBound="189.1">
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="Listen_CMSInsertResponse" />
                                     <om:Property Name="Signal" Value="True" />
-                                    <om:Element Type="ListenBranch" OID="4925c8bb-e646-4d51-9ccd-b1d3054d578a" ParentLink="ReallyComplexStatement_Branch" LowerBound="162.1" HigherBound="162.1">
+                                    <om:Element Type="ListenBranch" OID="4925c8bb-e646-4d51-9ccd-b1d3054d578a" ParentLink="ReallyComplexStatement_Branch" LowerBound="170.1" HigherBound="170.1">
                                         <om:Property Name="IsGhostBranch" Value="True" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="ListenBranch_3" />
                                         <om:Property Name="Signal" Value="False" />
-                                        <om:Element Type="VariableAssignment" OID="858e2af9-916e-46f1-aa08-5d3f7f7732fa" ParentLink="ComplexStatement_Statement" LowerBound="168.1" HigherBound="171.1">
+                                        <om:Element Type="VariableAssignment" OID="858e2af9-916e-46f1-aa08-5d3f7f7732fa" ParentLink="ComplexStatement_Statement" LowerBound="176.1" HigherBound="179.1">
                                             <om:Property Name="Expression" Value="xmlDocument = CMSInsertMessage;&#xD;&#xA;noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.NO.CMS.SQL.INSERT.RESPONSE&quot;) + xmlDocument.OuterXml);" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Name" Value="Expression_build_noAck_exc" />
                                             <om:Property Name="Signal" Value="False" />
                                         </om:Element>
-                                        <om:Element Type="Throw" OID="5a0646fc-35a4-456b-93d9-5c22f3a8afb5" ParentLink="ComplexStatement_Statement" LowerBound="171.1" HigherBound="173.1">
+                                        <om:Element Type="Throw" OID="5a0646fc-35a4-456b-93d9-5c22f3a8afb5" ParentLink="ComplexStatement_Statement" LowerBound="179.1" HigherBound="181.1">
                                             <om:Property Name="ThrownReference" Value="noResponse_ex" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Name" Value="ThrowException_1" />
                                             <om:Property Name="Signal" Value="True" />
                                         </om:Element>
-                                        <om:Element Type="Delay" OID="472950c5-523e-4385-834c-7372117f8951" ParentLink="ListenBranch_Statement" LowerBound="165.1" HigherBound="166.159">
+                                        <om:Element Type="Delay" OID="472950c5-523e-4385-834c-7372117f8951" ParentLink="ListenBranch_Statement" LowerBound="173.1" HigherBound="174.159">
                                             <om:Property Name="Timeout" Value="new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings(&quot;ESB.RESPONSE.WAIT.TIME.MIN&quot;)),0)" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Name" Value="Delay_60s" />
                                             <om:Property Name="Signal" Value="False" />
                                         </om:Element>
                                     </om:Element>
-                                    <om:Element Type="ListenBranch" OID="c136782b-062b-46d6-936a-30c6d311ecc7" ParentLink="ReallyComplexStatement_Branch" LowerBound="162.1" HigherBound="162.1">
+                                    <om:Element Type="ListenBranch" OID="c136782b-062b-46d6-936a-30c6d311ecc7" ParentLink="ReallyComplexStatement_Branch" LowerBound="170.1" HigherBound="170.1">
                                         <om:Property Name="IsGhostBranch" Value="True" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="ListenBranch_4" />
                                         <om:Property Name="Signal" Value="True" />
-                                        <om:Element Type="Send" OID="90b23382-e3ff-41a5-8dc6-604de6173ce2" ParentLink="ComplexStatement_Statement" LowerBound="177.1" HigherBound="179.1">
+                                        <om:Element Type="Send" OID="90b23382-e3ff-41a5-8dc6-604de6173ce2" ParentLink="ComplexStatement_Statement" LowerBound="185.1" HigherBound="187.1">
                                             <om:Property Name="PortName" Value="SqlInsertResponseArchivePort" />
                                             <om:Property Name="MessageName" Value="CMSInsertResponseMessage" />
                                             <om:Property Name="OperationName" Value="Operation" />
@@ -528,7 +552,7 @@
                                             <om:Property Name="Name" Value="S_CMSInsertResponseMessage" />
                                             <om:Property Name="Signal" Value="True" />
                                         </om:Element>
-                                        <om:Element Type="Receive" OID="5715a494-7a04-42f8-9cfc-f99609234569" ParentLink="ListenBranch_Statement" LowerBound="174.1" HigherBound="175.158">
+                                        <om:Element Type="Receive" OID="5715a494-7a04-42f8-9cfc-f99609234569" ParentLink="ListenBranch_Statement" LowerBound="182.1" HigherBound="183.158">
                                             <om:Property Name="Activate" Value="False" />
                                             <om:Property Name="PortName" Value="CMSInsertResponseMessagePort" />
                                             <om:Property Name="MessageName" Value="CMSInsertResponseMessage" />
@@ -540,7 +564,7 @@
                                         </om:Element>
                                     </om:Element>
                                 </om:Element>
-                                <om:Element Type="Receive" OID="703bbf55-2f95-4c9a-92b4-95e587588b78" ParentLink="ListenBranch_Statement" LowerBound="144.1" HigherBound="145.147">
+                                <om:Element Type="Receive" OID="703bbf55-2f95-4c9a-92b4-95e587588b78" ParentLink="ListenBranch_Statement" LowerBound="152.1" HigherBound="153.147">
                                     <om:Property Name="Activate" Value="False" />
                                     <om:Property Name="PortName" Value="CMSSqlExecuteResponsePort" />
                                     <om:Property Name="MessageName" Value="CMSSqlExecuteResponseMessage" />
@@ -553,30 +577,30 @@
                             </om:Element>
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Catch" OID="619cb49c-f4b7-4c54-b433-63d72494b203" ParentLink="Scope_Catch" LowerBound="188.1" HigherBound="201.1">
+                    <om:Element Type="Catch" OID="619cb49c-f4b7-4c54-b433-63d72494b203" ParentLink="Scope_Catch" LowerBound="196.1" HigherBound="209.1">
                         <om:Property Name="ExceptionName" Value="ex" />
                         <om:Property Name="ExceptionType" Value="System.Exception" />
                         <om:Property Name="IsFaultMessage" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="CatchAllException" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="Construct" OID="58882ad1-a77d-4e0e-a890-d1651f89869e" ParentLink="Catch_Statement" LowerBound="191.1" HigherBound="198.1">
+                        <om:Element Type="Construct" OID="58882ad1-a77d-4e0e-a890-d1651f89869e" ParentLink="Catch_Statement" LowerBound="199.1" HigherBound="206.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="ExceptionMessage_Construct" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="b643036b-ff49-438e-9887-1a2235b33aba" ParentLink="ComplexStatement_Statement" LowerBound="194.1" HigherBound="197.1">
+                            <om:Element Type="MessageAssignment" OID="b643036b-ff49-438e-9887-1a2235b33aba" ParentLink="ComplexStatement_Statement" LowerBound="202.1" HigherBound="205.1">
                                 <om:Property Name="Expression" Value="&#xD;&#xA;ExceptionMessage = DCP.ESB.Utils.Helper.getEsbExceptionXml(&quot;ESB.CATCH.ALL.EXCEPTION.CODE&quot;,ex);&#xD;&#xA;" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="Exception_Message_Assigment" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="0fa295d6-9557-450d-b477-c00404422177" ParentLink="Construct_MessageRef" LowerBound="192.35" HigherBound="192.51">
+                            <om:Element Type="MessageRef" OID="0fa295d6-9557-450d-b477-c00404422177" ParentLink="Construct_MessageRef" LowerBound="200.35" HigherBound="200.51">
                                 <om:Property Name="Ref" Value="ExceptionMessage" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Send" OID="b1817d55-b8dc-449d-a22d-289f442bd849" ParentLink="Catch_Statement" LowerBound="198.1" HigherBound="200.1">
+                        <om:Element Type="Send" OID="b1817d55-b8dc-449d-a22d-289f442bd849" ParentLink="Catch_Statement" LowerBound="206.1" HigherBound="208.1">
                             <om:Property Name="PortName" Value="Exception_Port" />
                             <om:Property Name="MessageName" Value="ExceptionMessage" />
                             <om:Property Name="OperationName" Value="WriteException" />
@@ -588,7 +612,7 @@
                     </om:Element>
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="e3f6d626-84b2-4eeb-899f-f7e1a8947935" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="60.1" HigherBound="62.1">
+            <om:Element Type="PortDeclaration" OID="e3f6d626-84b2-4eeb-899f-f7e1a8947935" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="68.1" HigherBound="70.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Left" />
                 <om:Property Name="PortIndex" Value="12" />
@@ -600,11 +624,11 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Exception_Port" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="LogicalBindingAttribute" OID="d0453bb8-53d2-4ec4-b145-bf711f16a753" ParentLink="PortDeclaration_CLRAttribute" LowerBound="60.1" HigherBound="61.1">
+                <om:Element Type="LogicalBindingAttribute" OID="d0453bb8-53d2-4ec4-b145-bf711f16a753" ParentLink="PortDeclaration_CLRAttribute" LowerBound="68.1" HigherBound="69.1">
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="d83461b9-043e-4d91-bc43-4a0af74ac4d4" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="62.1" HigherBound="64.1">
+            <om:Element Type="PortDeclaration" OID="d83461b9-043e-4d91-bc43-4a0af74ac4d4" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="70.1" HigherBound="72.1">
                 <om:Property Name="PortModifier" Value="Implements" />
                 <om:Property Name="Orientation" Value="Left" />
                 <om:Property Name="PortIndex" Value="5" />
@@ -616,27 +640,11 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="DCFUpdateStatusInPort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="LogicalBindingAttribute" OID="0d8d83ca-3986-4249-afd2-a6218a6ed474" ParentLink="PortDeclaration_CLRAttribute" LowerBound="62.1" HigherBound="63.1">
+                <om:Element Type="LogicalBindingAttribute" OID="0d8d83ca-3986-4249-afd2-a6218a6ed474" ParentLink="PortDeclaration_CLRAttribute" LowerBound="70.1" HigherBound="71.1">
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="93671791-a610-423b-97f1-307916c85e01" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="64.1" HigherBound="66.1">
-                <om:Property Name="PortModifier" Value="Uses" />
-                <om:Property Name="Orientation" Value="Right" />
-                <om:Property Name="PortIndex" Value="-1" />
-                <om:Property Name="IsWebPort" Value="False" />
-                <om:Property Name="OrderedDelivery" Value="False" />
-                <om:Property Name="DeliveryNotification" Value="None" />
-                <om:Property Name="Type" Value="DCP.ESB.Orchestrations.CMSSqlExecuteArchiveType" />
-                <om:Property Name="ParamDirection" Value="In" />
-                <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="SqlExecuteArchivePort" />
-                <om:Property Name="Signal" Value="True" />
-                <om:Element Type="LogicalBindingAttribute" OID="c7d80b24-5ee7-48f3-b6ca-903c05f4a556" ParentLink="PortDeclaration_CLRAttribute" LowerBound="64.1" HigherBound="65.1">
-                    <om:Property Name="Signal" Value="False" />
-                </om:Element>
-            </om:Element>
-            <om:Element Type="PortDeclaration" OID="33c586a6-42c4-4e73-bb51-c125f5747796" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="66.1" HigherBound="68.1">
+            <om:Element Type="PortDeclaration" OID="33c586a6-42c4-4e73-bb51-c125f5747796" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="72.1" HigherBound="74.1">
                 <om:Property Name="PortModifier" Value="Implements" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="42" />
@@ -648,12 +656,12 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSInsertResponseMessagePort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="DirectBindingAttribute" OID="a80c94e4-d4cc-4806-a41f-4f84d6d25fd3" ParentLink="PortDeclaration_CLRAttribute" LowerBound="66.1" HigherBound="67.1">
+                <om:Element Type="DirectBindingAttribute" OID="a80c94e4-d4cc-4806-a41f-4f84d6d25fd3" ParentLink="PortDeclaration_CLRAttribute" LowerBound="72.1" HigherBound="73.1">
                     <om:Property Name="DirectBindingType" Value="MessageBox" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="5491bf6c-ff66-4353-a6bf-25935ab19a49" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="68.1" HigherBound="70.1">
+            <om:Element Type="PortDeclaration" OID="5491bf6c-ff66-4353-a6bf-25935ab19a49" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="74.1" HigherBound="76.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="44" />
@@ -665,11 +673,11 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="SqlInsertResponseArchivePort" />
                 <om:Property Name="Signal" Value="True" />
-                <om:Element Type="LogicalBindingAttribute" OID="cff2eeaf-d4d8-44f2-9729-c7446cf6657c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="68.1" HigherBound="69.1">
+                <om:Element Type="LogicalBindingAttribute" OID="cff2eeaf-d4d8-44f2-9729-c7446cf6657c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="74.1" HigherBound="75.1">
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="67b67abd-be05-451d-ab05-e8c9878bdab1" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="70.1" HigherBound="72.1">
+            <om:Element Type="PortDeclaration" OID="67b67abd-be05-451d-ab05-e8c9878bdab1" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="76.1" HigherBound="78.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="36" />
@@ -681,12 +689,12 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSInsertMessagePort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="DirectBindingAttribute" OID="f76dd8d3-2144-4b6b-b3b4-2c41138a643c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="70.1" HigherBound="71.1">
+                <om:Element Type="DirectBindingAttribute" OID="f76dd8d3-2144-4b6b-b3b4-2c41138a643c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="76.1" HigherBound="77.1">
                     <om:Property Name="DirectBindingType" Value="MessageBox" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="d9795458-15e4-4e35-8727-e61eb915f9ed" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="72.1" HigherBound="74.1">
+            <om:Element Type="PortDeclaration" OID="d9795458-15e4-4e35-8727-e61eb915f9ed" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="78.1" HigherBound="80.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="32" />
@@ -698,11 +706,11 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="SqlInsertArchivePort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="LogicalBindingAttribute" OID="ee5e8d98-b42a-47e3-a26f-e50b9fe1d7d1" ParentLink="PortDeclaration_CLRAttribute" LowerBound="72.1" HigherBound="73.1">
+                <om:Element Type="LogicalBindingAttribute" OID="ee5e8d98-b42a-47e3-a26f-e50b9fe1d7d1" ParentLink="PortDeclaration_CLRAttribute" LowerBound="78.1" HigherBound="79.1">
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="649565f5-1068-431b-b93d-700c5d226ee4" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="74.1" HigherBound="76.1">
+            <om:Element Type="PortDeclaration" OID="649565f5-1068-431b-b93d-700c5d226ee4" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="80.1" HigherBound="82.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="30" />
@@ -714,11 +722,11 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSSqlExecuteResponseArchivePort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="LogicalBindingAttribute" OID="031d1697-78ab-482d-b17d-8fa92a7b501a" ParentLink="PortDeclaration_CLRAttribute" LowerBound="74.1" HigherBound="75.1">
+                <om:Element Type="LogicalBindingAttribute" OID="031d1697-78ab-482d-b17d-8fa92a7b501a" ParentLink="PortDeclaration_CLRAttribute" LowerBound="80.1" HigherBound="81.1">
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="43d96975-a3df-48e1-8336-5eb985777c76" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="76.1" HigherBound="78.1">
+            <om:Element Type="PortDeclaration" OID="43d96975-a3df-48e1-8336-5eb985777c76" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="82.1" HigherBound="84.1">
                 <om:Property Name="PortModifier" Value="Implements" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="26" />
@@ -730,12 +738,12 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSSqlExecuteResponsePort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="DirectBindingAttribute" OID="5d6c9f00-9c56-4637-a64a-023748361ec6" ParentLink="PortDeclaration_CLRAttribute" LowerBound="76.1" HigherBound="77.1">
+                <om:Element Type="DirectBindingAttribute" OID="5d6c9f00-9c56-4637-a64a-023748361ec6" ParentLink="PortDeclaration_CLRAttribute" LowerBound="82.1" HigherBound="83.1">
                     <om:Property Name="DirectBindingType" Value="MessageBox" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="e0829a81-f6e1-46f5-b670-8d96202ef8c6" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="78.1" HigherBound="80.1">
+            <om:Element Type="PortDeclaration" OID="e0829a81-f6e1-46f5-b670-8d96202ef8c6" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="84.1" HigherBound="86.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="17" />
@@ -747,12 +755,12 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="CMSSqlExecutePort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="DirectBindingAttribute" OID="811f95d8-50b4-4cfe-b9e6-a5e013b6ad98" ParentLink="PortDeclaration_CLRAttribute" LowerBound="78.1" HigherBound="79.1">
+                <om:Element Type="DirectBindingAttribute" OID="811f95d8-50b4-4cfe-b9e6-a5e013b6ad98" ParentLink="PortDeclaration_CLRAttribute" LowerBound="84.1" HigherBound="85.1">
                     <om:Property Name="DirectBindingType" Value="MessageBox" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="PortDeclaration" OID="b5aaca7e-1f00-4106-ae54-a1930a9f6dca" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="80.1" HigherBound="82.1">
+            <om:Element Type="PortDeclaration" OID="b5aaca7e-1f00-4106-ae54-a1930a9f6dca" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="86.1" HigherBound="88.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
                 <om:Property Name="PortIndex" Value="11" />
@@ -764,7 +772,23 @@
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="SqlExecuteParamPort" />
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="LogicalBindingAttribute" OID="5ecc2c11-df05-4f0d-b68f-16e000b99835" ParentLink="PortDeclaration_CLRAttribute" LowerBound="80.1" HigherBound="81.1">
+                <om:Element Type="LogicalBindingAttribute" OID="5ecc2c11-df05-4f0d-b68f-16e000b99835" ParentLink="PortDeclaration_CLRAttribute" LowerBound="86.1" HigherBound="87.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="93671791-a610-423b-97f1-307916c85e01" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="88.1" HigherBound="90.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="13" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="DCP.ESB.Orchestrations.CMSSqlExecuteArchiveType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SqlExecuteArchivePort" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="c7d80b24-5ee7-48f3-b6ca-903c05f4a556" ParentLink="PortDeclaration_CLRAttribute" LowerBound="88.1" HigherBound="89.1">
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
@@ -777,6 +801,10 @@ module DCP.ESB.Orchestrations
 {
     internal porttype CMSSqlExecuteArchiveType
     {
+        oneway Archive
+        {
+            DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE
+        };
         oneway SQLEXECUTE
         {
             DCP.ESB.Schemas.CMSSQLEXECUTE.SQLEXECUTE
@@ -805,7 +833,11 @@ module DCP.ESB.Orchestrations
     };
     internal porttype SqlInsertArchiveType
     {
-        oneway Insert
+        oneway Archive
+        {
+            DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert
+        };
+        oneway INSERT
         {
             DCP.ESB.Schemas.CMSDCF_Table_DCF_IN_MESSAGE_LOG.Insert
         };
@@ -835,8 +867,6 @@ module DCP.ESB.Orchestrations
         port uses Exception Exception_Port;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port implements DCFUpdateStatusType DCFUpdateStatusInPort;
-        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
-        port uses CMSSqlExecuteArchiveType SqlExecuteArchivePort;
         [Microsoft.XLANGs.BaseTypes.DirectBinding()]
         port implements SqlInsertResponseType CMSInsertResponseMessagePort;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
@@ -853,6 +883,8 @@ module DCP.ESB.Orchestrations
         port uses CMSSqlExecuteArchiveType CMSSqlExecutePort;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port uses SqlExecuteParamType SqlExecuteParamPort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses CMSSqlExecuteArchiveType SqlExecuteArchivePort;
         message DCP.ESB.Schemas.DCFUpdateStatusMessage DCFUpdateStatusMessage;
         message DCP.ESB.Schemas.Exception ExceptionMessage;
         message DCP.ESB.Schemas.CMS_SQLEXECUTE_PARAMS CMSSqlExecuteParamsMessage;
@@ -894,7 +926,7 @@ module DCP.ESB.Orchestrations
                         CMSSqlExecuteMessage(WCF.Action) = "http://Microsoft.LobServices.OracleDB/2007/03/SQLEXECUTE";
                     }
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("de335eb9-b6e7-49b2-8dd9-721941713698")]
-                    send (SqlExecuteArchivePort.SQLEXECUTE, CMSSqlExecuteMessage);
+                    send (SqlExecuteArchivePort.Archive, CMSSqlExecuteMessage);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("7e3f9685-f33d-43ad-9049-d29ec3079e45")]
                     send (CMSSqlExecutePort.SQLEXECUTE, CMSSqlExecuteMessage, initialize Correlation_BTSCorrelationToken);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("32662c6e-e4bb-4eaa-8188-9bb69727e361")]
@@ -910,7 +942,7 @@ module DCP.ESB.Orchestrations
                                 timeout new System.TimeSpan(0,System.Int16.Parse(DCP.ESB.Utils.Helper.getAppSettings("ESB.RESPONSE.WAIT.TIME.MIN")),0)
                                 {
                                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("a3626248-9f83-425c-be98-0512feeb81f9")]
-                                    s_temp = xpath(CMSSqlExecuteMessage,"//local-name()='SQLSTATEMENT'/text()");
+                                    s_temp = xpath(CMSSqlExecuteMessage,"//*[local-name()='SQLSTATEMENT']/text()");
                                     noResponse_ex = new System.Exception(DCP.ESB.Utils.Helper.getAppSettings("ESB.NO.CMS.SQL.EXECUTE.RESPONSE") + s_temp);
                                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("4c5fa7e1-f84f-446e-a0c2-c2105641df45")]
                                     throw noResponse_ex;
@@ -930,9 +962,9 @@ module DCP.ESB.Orchestrations
                                         CMSInsertMessage(WCF.Action) = "http://Microsoft.LobServices.OracleDB/2007/03/DCF/Table/DCF_IN_MESSAGE_LOG/Insert";
                                     }
                                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("6917ba92-7349-48f0-82ed-264b56f5183c")]
-                                    send (SqlInsertArchivePort.Insert, CMSInsertMessage);
+                                    send (SqlInsertArchivePort.Archive, CMSInsertMessage);
                                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("594615aa-2823-4c46-a993-7dcdceb9bdce")]
-                                    send (CMSInsertMessagePort.Insert, CMSInsertMessage, initialize Correlation_SQL_BTSCorrelationToken);
+                                    send (CMSInsertMessagePort.INSERT, CMSInsertMessage, initialize Correlation_SQL_BTSCorrelationToken);
                                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("b989b78c-2d1f-4263-92a8-42e1af80bdbf")]
                                     listen
                                     {

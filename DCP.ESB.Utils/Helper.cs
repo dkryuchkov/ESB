@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace DCP.ESB.Utils
 {
-    public static class Helper
+    public class Helper
     {
         public static string getInnerText(XmlDocument doc, string tag)
         {
@@ -50,6 +50,13 @@ namespace DCP.ESB.Utils
             return XmlDocument;
         }
 
+
+
+        public static string getStatusErrorXml(string status, string error)
+        {
+            return DCP.ESB.Utils.Helper.xmlEncode("<status>" + status + "</status>" + "<error>" + error + "</error>");
+        }
+
         public static string xmlEncode(string text)
         {
             XmlNode _xmlNode = new XmlDocument().CreateNode("text", "mynode", "");
@@ -57,8 +64,7 @@ namespace DCP.ESB.Utils
             return _xmlNode.OuterXml;
         }
 
-
-    public static XmlDocument getEsbExceptionXml(String code, Exception ex)
+        public static XmlDocument getEsbExceptionXml(String code, Exception ex)
         {
             XmlDocument XmlDocument = new XmlDocument();
             XmlDocument.LoadXml("<ns0:Root xmlns:ns0=\"http://DCP.ESB.Schemas\"><Code>" +

@@ -113,6 +113,13 @@
       <SubType>Task</SubType>
     </XLang>
   </ItemGroup>
+  <ItemGroup>
+    <XLang Include="DCFUpdateStatus.odx">
+      <SubType>Task</SubType>
+      <TypeName>CasetrackUpdateStatus_Copy</TypeName>
+      <Namespace>DCP.ESB.Orchestrations</Namespace>
+    </XLang>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
   <PropertyGroup>

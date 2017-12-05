@@ -1,0 +1,305 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="3890413f-8219-49e8-a1d1-7ae82ff9e9ea" LowerBound="1.1" HigherBound="70.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="DCP.ESB.Orchestrations" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="ServiceDeclaration" OID="2774ff96-d411-4bf0-9738-8f2e3efffba5" ParentLink="Module_ServiceDeclaration" LowerBound="11.1" HigherBound="69.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="DCFUpdateStatus" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="MessageDeclaration" OID="41498cb5-ae4f-47c3-9bc6-3cf8823a0b5c" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="20.1" HigherBound="21.1">
+                <om:Property Name="Type" Value="DCP.ESB.Schemas.ESBMessage" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="StatusMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="cc8334b0-bf86-4fec-9fad-0ec3f9758152" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="21.1" HigherBound="22.1">
+                <om:Property Name="Type" Value="DCP.ESB.Schemas.DCFMessage" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="DCFMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="dcbbb068-05a4-4cc8-b152-27c33de2b343" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="22.1" HigherBound="23.1">
+                <om:Property Name="Type" Value="DCP.ESB.Schemas.DCFUpdateStatusMessage" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="DCFUpdateStatusMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="f2686180-6fae-4b59-9423-b680c5262ccb" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="23.1" HigherBound="24.1">
+                <om:Property Name="Type" Value="DCP.ESB.Schemas.Exception" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ExceptionMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="20d807d0-9002-4c92-ae3c-00ac9b334bf6" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Scope" OID="b93b041a-569a-41f9-a731-2e6de7af94b4" ParentLink="ServiceBody_Statement" LowerBound="26.1" HigherBound="67.1">
+                    <om:Property Name="InitializedTransactionType" Value="True" />
+                    <om:Property Name="IsSynchronized" Value="False" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Scope_All" />
+                    <om:Property Name="Signal" Value="False" />
+                    <om:Element Type="Receive" OID="4877514f-ae5d-422a-ba4a-af306590c14a" ParentLink="ComplexStatement_Statement" LowerBound="31.1" HigherBound="33.1">
+                        <om:Property Name="Activate" Value="True" />
+                        <om:Property Name="PortName" Value="CMSUpdateStatusInPort" />
+                        <om:Property Name="MessageName" Value="DCFUpdateStatusMessage" />
+                        <om:Property Name="OperationName" Value="UpdateStatus" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="R_DCFUpdateStatusMessage" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Construct" OID="1beec89c-e954-4bb6-b387-8c6b2b5571a4" ParentLink="ComplexStatement_Statement" LowerBound="33.1" HigherBound="39.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Construct_DCFMessage" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageRef" OID="2ddb3c96-10a4-47ef-a42a-afbe5800a96e" ParentLink="Construct_MessageRef" LowerBound="34.31" HigherBound="34.41">
+                            <om:Property Name="Ref" Value="DCFMessage" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Transform" OID="ff05e352-8df4-4005-a8b4-14298400a7d4" ParentLink="ComplexStatement_Statement" LowerBound="36.1" HigherBound="38.1">
+                            <om:Property Name="ClassName" Value="DCP.ESB.Maps.DCFUpdateSatusMessage_to_DCFMessage" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="T_DCFStatus_to_DCFMessage" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="MessagePartRef" OID="2dc14f28-cd96-440e-943d-4077ff2602ef" ParentLink="Transform_InputMessagePartRef" LowerBound="37.100" HigherBound="37.122">
+                                <om:Property Name="MessageRef" Value="DCFUpdateStatusMessage" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="MessagePartReference_1" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessagePartRef" OID="ac0606f0-b9fe-4125-82c4-155f56b0be74" ParentLink="Transform_OutputMessagePartRef" LowerBound="37.36" HigherBound="37.46">
+                                <om:Property Name="MessageRef" Value="DCFMessage" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="MessagePartReference_2" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Send" OID="6ff5c5fa-3d0c-47c2-8a99-0353da7e1bfd" ParentLink="ComplexStatement_Statement" LowerBound="39.1" HigherBound="41.1">
+                        <om:Property Name="PortName" Value="DCFServicePort" />
+                        <om:Property Name="MessageName" Value="DCFMessage" />
+                        <om:Property Name="OperationName" Value="DCFMessage" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="S_DCFMessage" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Construct" OID="281ad6aa-e431-4e71-b7a8-537297790ab8" ParentLink="ComplexStatement_Statement" LowerBound="41.1" HigherBound="47.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Construct_StatusMessage" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageRef" OID="c523e3b0-3e47-4362-a5cb-a2821485c717" ParentLink="Construct_MessageRef" LowerBound="42.31" HigherBound="42.44">
+                            <om:Property Name="Ref" Value="StatusMessage" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessageAssignment" OID="257120b3-94e0-443e-967c-66ebfe3c60a0" ParentLink="ComplexStatement_Statement" LowerBound="44.1" HigherBound="46.1">
+                            <om:Property Name="Expression" Value="StatusMessage=DCP.ESB.Utils.Helper.getEsbStatusXml(&quot;ESB.RECEIVED.STATUS&quot;);&#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="False" />
+                            <om:Property Name="Name" Value="MessageAssignment_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Send" OID="8619ce96-91ae-4a11-bf81-503f1a547315" ParentLink="ComplexStatement_Statement" LowerBound="47.1" HigherBound="49.1">
+                        <om:Property Name="PortName" Value="CMSUpdateStatusInPort" />
+                        <om:Property Name="MessageName" Value="StatusMessage" />
+                        <om:Property Name="OperationName" Value="UpdateStatus" />
+                        <om:Property Name="OperationMessageName" Value="Response" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="S_StatusMessage" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Catch" OID="619cb49c-f4b7-4c54-b433-63d72494b203" ParentLink="Scope_Catch" LowerBound="52.1" HigherBound="65.1">
+                        <om:Property Name="ExceptionName" Value="ex" />
+                        <om:Property Name="ExceptionType" Value="System.Exception" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CatchAllException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="Construct" OID="58882ad1-a77d-4e0e-a890-d1651f89869e" ParentLink="Catch_Statement" LowerBound="55.1" HigherBound="62.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="ExceptionMessage_Construct" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="MessageAssignment" OID="b643036b-ff49-438e-9887-1a2235b33aba" ParentLink="ComplexStatement_Statement" LowerBound="58.1" HigherBound="61.1">
+                                <om:Property Name="Expression" Value="&#xD;&#xA;ExceptionMessage = DCP.ESB.Utils.Helper.getEsbExceptionXml(&quot;ESB.CATCH.ALL.EXCEPTION.CODE&quot;,ex);&#xD;&#xA;" />
+                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                <om:Property Name="Name" Value="Exception_Message_Assigment" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessageRef" OID="0fa295d6-9557-450d-b477-c00404422177" ParentLink="Construct_MessageRef" LowerBound="56.35" HigherBound="56.51">
+                                <om:Property Name="Ref" Value="ExceptionMessage" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="Send" OID="b1817d55-b8dc-449d-a22d-289f442bd849" ParentLink="Catch_Statement" LowerBound="62.1" HigherBound="64.1">
+                            <om:Property Name="PortName" Value="Exception_Port" />
+                            <om:Property Name="MessageName" Value="ExceptionMessage" />
+                            <om:Property Name="OperationName" Value="WriteException" />
+                            <om:Property Name="OperationMessageName" Value="Save" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Send_Exception" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="e3f6d626-84b2-4eeb-899f-f7e1a8947935" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="14.1" HigherBound="16.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="12" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="DCP.ESB.Orchestrations.Exception" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Exception_Port" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="d0453bb8-53d2-4ec4-b145-bf711f16a753" ParentLink="PortDeclaration_CLRAttribute" LowerBound="14.1" HigherBound="15.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="d83461b9-043e-4d91-bc43-4a0af74ac4d4" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="16.1" HigherBound="18.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="5" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="DCP.ESB.Orchestrations.CMSUpdateStatusInType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="CMSUpdateStatusInPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="0d8d83ca-3986-4249-afd2-a6218a6ed474" ParentLink="PortDeclaration_CLRAttribute" LowerBound="16.1" HigherBound="17.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="8ca3db7a-37a6-487d-81f1-45b79123130f" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="18.1" HigherBound="20.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="22" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="DCP.ESB.Orchestrations.DCFType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="DCFServicePort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="53f5d0c4-138e-4c58-9119-ee16e36e26dc" ParentLink="PortDeclaration_CLRAttribute" LowerBound="18.1" HigherBound="19.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="9c2b37a2-ee2b-4dd2-a6de-87919414224b" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="CMSUpdateStatusInType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="d5dc8a62-39b6-4f3e-a221-44bb33bea36e" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="UpdateStatus" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="32c56b96-5a2e-4a76-8c02-b1707276d6ca" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.51">
+                    <om:Property Name="Ref" Value="DCP.ESB.Schemas.DCFUpdateStatusMessage" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="6a37c3aa-107c-4f8c-a45d-0339a44360b3" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="8.53" HigherBound="8.79">
+                    <om:Property Name="Ref" Value="DCP.ESB.Schemas.ESBMessage" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module DCP.ESB.Orchestrations
+{
+    public porttype CMSUpdateStatusInType
+    {
+        requestresponse UpdateStatus
+        {
+            DCP.ESB.Schemas.DCFUpdateStatusMessage, DCP.ESB.Schemas.ESBMessage
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    public service DCFUpdateStatus
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses Exception Exception_Port;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements CMSUpdateStatusInType CMSUpdateStatusInPort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses DCFType DCFServicePort;
+        message DCP.ESB.Schemas.ESBMessage StatusMessage;
+        message DCP.ESB.Schemas.DCFMessage DCFMessage;
+        message DCP.ESB.Schemas.DCFUpdateStatusMessage DCFUpdateStatusMessage;
+        message DCP.ESB.Schemas.Exception ExceptionMessage;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("b93b041a-569a-41f9-a731-2e6de7af94b4")]
+            scope
+            {
+                body
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("4877514f-ae5d-422a-ba4a-af306590c14a")]
+                    activate receive (CMSUpdateStatusInPort.UpdateStatus, DCFUpdateStatusMessage);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("1beec89c-e954-4bb6-b387-8c6b2b5571a4")]
+                    construct DCFMessage
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("ff05e352-8df4-4005-a8b4-14298400a7d4")]
+                        transform (DCFMessage) = DCP.ESB.Maps.DCFUpdateSatusMessage_to_DCFMessage (DCFUpdateStatusMessage);
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("6ff5c5fa-3d0c-47c2-8a99-0353da7e1bfd")]
+                    send (DCFServicePort.DCFMessage, DCFMessage);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("281ad6aa-e431-4e71-b7a8-537297790ab8")]
+                    construct StatusMessage
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("257120b3-94e0-443e-967c-66ebfe3c60a0")]
+                        StatusMessage=DCP.ESB.Utils.Helper.getEsbStatusXml("ESB.RECEIVED.STATUS");
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("8619ce96-91ae-4a11-bf81-503f1a547315")]
+                    send (CMSUpdateStatusInPort.UpdateStatus, StatusMessage);
+                }
+                exceptions
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("619cb49c-f4b7-4c54-b433-63d72494b203")]
+                    catch (System.Exception ex)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("58882ad1-a77d-4e0e-a890-d1651f89869e")]
+                        construct ExceptionMessage
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("b643036b-ff49-438e-9887-1a2235b33aba")]
+                            
+                            ExceptionMessage = DCP.ESB.Utils.Helper.getEsbExceptionXml("ESB.CATCH.ALL.EXCEPTION.CODE",ex);
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("b1817d55-b8dc-449d-a22d-289f442bd849")]
+                        send (Exception_Port.WriteException, ExceptionMessage);
+                    }
+                }
+            }
+        }
+    }
+}
+
